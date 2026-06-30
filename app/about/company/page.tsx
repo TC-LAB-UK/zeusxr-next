@@ -252,6 +252,46 @@ export default function CompanyPage() {
         </div>
       </section>
 
+      {/* SECTORS */}
+      <section className="sec sec-alt">
+        <div className="w-1300">
+          <div className="tc rv">
+            <span className="s-lbl">Sectors</span>
+            <h2 className="s-h2">A few industries we serve.</h2>
+          </div>
+          <div className="sectors-grid">
+            <div className="sector-card rv">
+              <div className="sector-ico">
+                <svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2v-3l2.5-6H20.5L23 12v3a2 2 0 0 1-2 2h-2"/><circle cx="7.5" cy="17" r="2.5"/><circle cx="16.5" cy="17" r="2.5"/><path d="M5.5 11h13"/></svg>
+              </div>
+              <div className="sector-nm">Automotive</div>
+              <p className="sector-dc">Bodyshops, refinishing centres and OEM facilities across the UK and internationally.</p>
+            </div>
+            <div className="sector-card rv d1">
+              <div className="sector-ico">
+                <svg viewBox="0 0 24 24"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+              </div>
+              <div className="sector-nm">Aerospace</div>
+              <p className="sector-dc">Aircraft component finishing facilities designed to aerospace specification, including international export projects.</p>
+            </div>
+            <div className="sector-card rv d2">
+              <div className="sector-ico">
+                <svg viewBox="0 0 24 24"><path d="M3 22V11l5-5v5l5-5v5l5-8v14"/><path d="M3 22h18"/><rect x="9" y="15" width="6" height="7"/></svg>
+              </div>
+              <div className="sector-nm">Industrial</div>
+              <p className="sector-dc">Large-format finishing facilities for industrial components, commercial vehicles and specialist processes.</p>
+            </div>
+            <div className="sector-card rv d3">
+              <div className="sector-ico">
+                <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <div className="sector-nm">Renewable Energy</div>
+              <p className="sector-dc">Specialist coating facilities for wind, solar and other renewable energy component manufacturers.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT FORM */}
       <section className="cform-sec" id="contact">
         <div className="cform-inner">
