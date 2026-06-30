@@ -116,17 +116,17 @@ export default async function Home() {
             <span className="hero-trusted-lbl">Trusted by</span>
             <div className="hero-logo-wrap">
               <div className="hero-logo-track">
-                <img src="https://amalgam-models.co.uk/wp-content/uploads/2016/08/amalgam-logo.png" alt="Amalgam" onError={(e: any) => e.target.style.display='none'} />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/RMD_Kwikform_logo.svg" alt="RMD Kwikform" onError={(e: any) => e.target.style.display='none'} />
-                <img src="https://autolux.uk.com/wp-content/uploads/autolux_body_paint_full-01.svg" alt="AutoLux" onError={(e: any) => e.target.style.display='none'} />
-                <img src="https://www.jetglow.co.uk/media/com_sppagebuilder/placeholder/full-logo_0e182f_blue.png" alt="Jetglow" onError={(e: any) => e.target.style.display='none'} />
-                <img src="https://www.pjrhodes.co.uk/files/pages/logo.png" alt="Rhodes" onError={(e: any) => e.target.style.display='none'} />
+                <img src="https://amalgam-models.co.uk/wp-content/uploads/2016/08/amalgam-logo.png" alt="Amalgam" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/RMD_Kwikform_logo.svg" alt="RMD Kwikform" />
+                <img src="https://autolux.uk.com/wp-content/uploads/autolux_body_paint_full-01.svg" alt="AutoLux" />
+                <img src="https://www.jetglow.co.uk/media/com_sppagebuilder/placeholder/full-logo_0e182f_blue.png" alt="Jetglow" />
+                <img src="https://www.pjrhodes.co.uk/files/pages/logo.png" alt="Rhodes" />
                 {/* Duplicates for seamless loop */}
-                <img src="https://amalgam-models.co.uk/wp-content/uploads/2016/08/amalgam-logo.png" alt="Amalgam" onError={(e: any) => e.target.style.display='none'} />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/RMD_Kwikform_logo.svg" alt="RMD Kwikform" onError={(e: any) => e.target.style.display='none'} />
-                <img src="https://autolux.uk.com/wp-content/uploads/autolux_body_paint_full-01.svg" alt="AutoLux" onError={(e: any) => e.target.style.display='none'} />
-                <img src="https://www.jetglow.co.uk/media/com_sppagebuilder/placeholder/full-logo_0e182f_blue.png" alt="Jetglow" onError={(e: any) => e.target.style.display='none'} />
-                <img src="https://www.pjrhodes.co.uk/files/pages/logo.png" alt="Rhodes" onError={(e: any) => e.target.style.display='none'} />
+                <img src="https://amalgam-models.co.uk/wp-content/uploads/2016/08/amalgam-logo.png" alt="Amalgam" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/RMD_Kwikform_logo.svg" alt="RMD Kwikform" />
+                <img src="https://autolux.uk.com/wp-content/uploads/autolux_body_paint_full-01.svg" alt="AutoLux" />
+                <img src="https://www.jetglow.co.uk/media/com_sppagebuilder/placeholder/full-logo_0e182f_blue.png" alt="Jetglow" />
+                <img src="https://www.pjrhodes.co.uk/files/pages/logo.png" alt="Rhodes" />
               </div>
             </div>
           </div>
