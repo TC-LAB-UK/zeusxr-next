@@ -127,6 +127,23 @@ const ICON_SVG = [
   </>,
 ]
 
+const STATIC_NAMES: Record<string, string> = {
+  'zeus-8000': 'Zeus 8000 Series',
+  'poseidon': 'Poseidon',
+  'olympian-1000': 'Olympian 1000 Series',
+  'spartan-2000': 'Spartan 2000 Series',
+  'titan-cv': 'Titan CV Series',
+  'nemesis-facility': 'Nemesis Facility',
+  'paint-mixing-room': 'Paint Mixing Room',
+  'hades-prep-bay': 'Hades Prep Bay',
+  'worky-dust-extraction': 'WORKY Dust Extraction',
+  'apollo-wheelcabin': 'Apollo WheelCabin',
+  'nemesis-smart-repair': 'Nemesis Smart Repair',
+  'zeus-electric-upgrade': 'Zeus Electric Upgrade',
+  'wall-protection-system': 'Wall Protection System',
+  'pg-90e': 'PG-90E',
+}
+
 function ProductPageClient({ slug }: { slug: string }) {
   const [product, setProduct] = useState<any>(null)
   const [loading, setLoading] = useState(true)
@@ -138,7 +155,17 @@ function ProductPageClient({ slug }: { slug: string }) {
 
   useEffect(() => {
     supabase.from('products').select('*').eq('slug', slug).eq('org_id', ORG_ID).single()
-      .then(({ data }) => { setProduct(data); setLoading(false) })
+      .then(({ data }) => {
+        if (data) {
+          setProduct(data)
+        } else if (PRODUCT_DATA[slug]) {
+          // Fall back to static data if not in Supabase
+          setProduct({ slug, name: STATIC_NAMES[slug] || slug, status: 'published' })
+        } else {
+          setProduct(null)
+        }
+        setLoading(false)
+      })
   }, [slug])
 
   useEffect(() => {
@@ -198,7 +225,7 @@ function ProductPageClient({ slug }: { slug: string }) {
     </div>
   )
 
-  if (!product || product.status !== 'published') return (
+  if (!product) return (
     <div style={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
       <h1 style={{ fontSize: 32, fontWeight: 700, color: 'var(--t1)' }}>Product not found</h1>
       <Link href="/products" className="btn btn-cta">View all products</Link>
