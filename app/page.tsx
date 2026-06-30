@@ -626,7 +626,7 @@ export default async function Home() {
                   {item.thumbImg
                     ? <div className="news-thumb-inner" style={{ backgroundImage: `url(${item.thumbImg})` }}></div>
                     : <div className="news-thumb-inner" style={{ background: item.thumbBg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <span style={{ fontSize: 32, fontWeight: 900, fontStyle: 'italic', color: '#fff', letterSpacing: -1 }}>RUPES</span>
+                        <span style={{ fontSize: 32, fontWeight: 900, fontStyle: 'italic', color: '#fff', letterSpacing: -1 }}>RUPES<sup style={{ fontSize: '0.4em', verticalAlign: 'super', fontStyle: 'normal' }}>®</sup></span>
                       </div>
                   }
                 </div>
@@ -643,7 +643,7 @@ export default async function Home() {
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: 48 }}>
-            <Link href="/news" className="btn btn-ghost-ui">View all news</Link>
+            <Link href="/news" className="btn btn-sec">View all news</Link>
           </div>
         </div>
       </section>
