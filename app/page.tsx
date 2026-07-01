@@ -487,12 +487,12 @@ export default async function Home() {
                     <div className="proj-sub">International export — bespoke design &amp; build</div>
                   </div>
                 </Link>
-                <Link href="/projects/amalgam" className="proj-card rv d2">
-                  <div className="proj-bg" style={{ backgroundImage: "url('/media/amalgam.jpg')", backgroundPosition: 'center' }}></div>
+                <Link href="/projects/k-and-s" className="proj-card rv d2">
+                  <div className="proj-bg" style={{ backgroundImage: "url('/media/zeus-xr-21.jpg')", backgroundPosition: 'center' }}></div>
                   <div className="proj-overlay">
                     <div className="proj-sector">Automotive</div>
-                    <div className="proj-title">Amalgam</div>
-                    <div className="proj-sub">Specialist refinishing facility — full turnkey</div>
+                    <div className="proj-title">K&S</div>
+                    <div className="proj-sub">Bespoke Zeus Spraybooth — track &amp; skate system</div>
                   </div>
                 </Link>
               </>

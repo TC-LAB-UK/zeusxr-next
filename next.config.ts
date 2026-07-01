@@ -112,6 +112,9 @@ const nextConfig: NextConfig = {
       { source: '/news/todd-engineering-and-mg-accident-repair-centres-carbon-neutral-partnership', destination: '/news', permanent: true },
       { source: '/news/hills-helicopters', destination: '/news', permanent: true },
       { source: '/news/rhodes-rugeley', destination: '/projects', permanent: true },
+
+      // ── Case study slug rename ────────────────────────────────────────────
+      { source: '/projects/amalgam', destination: '/projects/k-and-s', permanent: true },
     ]
   },
 
