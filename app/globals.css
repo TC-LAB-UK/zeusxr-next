@@ -272,7 +272,7 @@ a { text-decoration: none; color: inherit; }
 /* FOOTER */
 footer { background: #060606; border-top: 1px solid rgba(255,255,255,.06); padding: 72px 40px 40px; }
 .footer-top { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,.06); }
-.f-logo { height: 28px; margin-bottom: 18px; }
+.f-logo { height: 44px; width: auto; margin-bottom: 18px; }
 .f-tagline { font-size: 13px; font-weight: 300; line-height: 1.65; color: rgba(255,255,255,.3); max-width: 260px; margin-bottom: 24px; }
 .f-socials { display: flex; gap: 10px; }
 .f-social { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.10); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.45); transition: background .2s, color .2s; }

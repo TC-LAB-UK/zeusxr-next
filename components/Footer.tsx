@@ -1,12 +1,12 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Footer() {
   return (
     <footer>
       <div className="footer-top">
         <div className="footer-brand">
-          <Image src="/brand/logo.png" alt="Todd Engineering" className="f-logo" width={120} height={28} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/logo.png" alt="Todd Engineering" className="f-logo" />
           <p className="f-tagline">Advanced spraybooth technology. Designed, manufactured and installed in Britain since 1993.</p>
           <div className="f-socials">
             <a href="https://www.instagram.com/toddengineeringltd/" className="f-social" aria-label="Instagram" target="_blank" rel="noopener">
