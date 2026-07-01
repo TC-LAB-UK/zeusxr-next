@@ -60,9 +60,9 @@ export default function Nav() {
     {
       label: 'Projects',
       links: [
-        { href: '/projects/british-wind-farm', label: 'British Wind Farm' },
-        { href: '/projects/dubai-aerospace', label: 'Dubai Aerospace' },
-        { href: '/projects/amalgam', label: 'Amalgam' },
+        { href: '/projects/case-study-1', label: 'British Wind Farm' },
+        { href: '/projects/case-study-2', label: 'Dubai Aerospace' },
+        { href: '/projects/case-study-3', label: 'Amalgam' },
         { divider: true },
         { href: '/projects', label: 'View all projects →' },
       ],
