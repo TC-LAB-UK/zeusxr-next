@@ -145,7 +145,7 @@ const products = [
   },
   {
     href: '/products/pg-90e',
-    img: 'https://www.toddengineering.co.uk/media/adjc1nbj/cci28062018_0008.jpg',
+    img: '/media/pg-90e/PG-90E[00_00_46][20240704-090557].png',
     category: 'robotics',
     cat: 'Robotics',
     name: 'PG-90E',

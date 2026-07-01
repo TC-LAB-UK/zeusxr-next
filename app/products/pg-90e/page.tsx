@@ -13,7 +13,7 @@ const data: ProductPageData = {
   eyebrow: 'Todd Engineering — Robotic Systems',
   h1: 'PG-90E',
   sub: 'AI-assisted robotic finishing. Sub-millimetre accuracy. Production throughput.',
-  heroBg: '/media/zeus-xr-8.jpg',
+  heroBg: '/media/pg-90e/PG-90E[00_00_46][20240704-090557].png',
   description: 'The PG-90E is an AI-assisted robotic spray finishing arm designed to integrate with the Zeus XR spray booth. Sub-millimetre repeat accuracy, production-rate throughput and consistent, controlled film build across all surfaces.',
   pills: ['AI-Assisted', 'Robotic Arm', 'Repeatable Application', 'Production Speed', 'Consistent Film Build', 'Integrated Controls'],
   specRows: [
@@ -27,7 +27,18 @@ const data: ProductPageData = {
     { k: 'Programming', v: 'Teach-and-repeat + AI-optimised path generation' },
     { k: 'Power Supply', v: '415VAC 3Ph/N/E (50/60Hz)' },
   ],
-  gallery: [],
+  gallery: [
+    '/media/pg-90e/PG-90E[00_00_46][20240704-090557].png',
+    '/media/pg-90e/PG-90E[00_00_50][20240704-090612].png',
+    '/media/pg-90e/PG-90E[00_01_01][20240704-090632].png',
+    '/media/pg-90e/PG-90E[00_01_27][20240704-090802].png',
+    '/media/pg-90e/PG-90E[00_02_43][20240704-090849].png',
+    '/media/pg-90e/P1180787.JPG',
+    '/media/pg-90e/P1180789.JPG',
+    '/media/pg-90e/P1180794.JPG',
+    '/media/pg-90e/P1180819.JPG',
+    '/media/pg-90e/P1180837.JPG',
+  ],
   icons: [],
 }
 
