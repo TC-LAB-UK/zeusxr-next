@@ -471,7 +471,7 @@ export default async function Home() {
               </Link>
             )) : (
               <>
-                <Link href="/projects/case-study-1" className="proj-card rv">
+                <Link href="/projects/uk-offshore-wind-farm" className="proj-card rv">
                   <div className="proj-bg" style={{ backgroundImage: "url('/media/windfarm.png')", backgroundPosition: 'center' }}></div>
                   <div className="proj-overlay">
                     <div className="proj-sector">Renewable Energy</div>
@@ -479,7 +479,7 @@ export default async function Home() {
                     <div className="proj-sub">Seah Wind — 18-month installation programme</div>
                   </div>
                 </Link>
-                <Link href="/projects/case-study-2" className="proj-card rv d1">
+                <Link href="/projects/bahrain-aerospace-facility" className="proj-card rv d1">
                   <div className="proj-bg" style={{ backgroundImage: "url('/media/aerospace.png')", backgroundPosition: 'center' }}></div>
                   <div className="proj-overlay">
                     <div className="proj-sector">Aerospace</div>
@@ -487,7 +487,7 @@ export default async function Home() {
                     <div className="proj-sub">International export — bespoke design &amp; build</div>
                   </div>
                 </Link>
-                <Link href="/projects/case-study-3" className="proj-card rv d2">
+                <Link href="/projects/amalgam" className="proj-card rv d2">
                   <div className="proj-bg" style={{ backgroundImage: "url('/media/amalgam.jpg')", backgroundPosition: 'center' }}></div>
                   <div className="proj-overlay">
                     <div className="proj-sector">Automotive</div>
