@@ -62,7 +62,7 @@ export default function Nav() {
       links: [
         { href: '/projects/uk-offshore-wind-farm', label: 'British Wind Farm' },
         { href: '/projects/bahrain-aerospace-facility', label: 'Dubai Aerospace' },
-        { href: '/projects/amalgam', label: 'Amalgam' },
+        { href: '/projects/k-and-s', label: 'K&S' },
         { divider: true },
         { href: '/projects', label: 'View all projects →' },
       ],

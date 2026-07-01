@@ -27,9 +27,9 @@ const GUIDES = [
   },
   {
     label: 'Case Study',
-    title: 'Amalgam',
-    desc: 'Bespoke spraybooth installation for one of the world\'s leading scale model and replica manufacturers.',
-    href: '/projects/amalgam',
+    title: 'K&S — Bespoke Zeus Spraybooth',
+    desc: 'Maximising workshop space with a full-width door configuration, Track & Skate system, and fully electric Zeus Spraybooth.',
+    href: '/projects/k-and-s',
   },
   {
     label: 'News',
