@@ -1,110 +1,130 @@
-import { supabase, ORG_ID } from '@/lib/supabase'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import ScrollReveal from '@/components/ScrollReveal'
+import { PROJECTS_DATA } from '@/lib/projects-data'
 
 type Props = { params: Promise<{ slug: string }> }
 
+export async function generateStaticParams() {
+  return Object.keys(PROJECTS_DATA).map(slug => ({ slug }))
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const { data: cs } = await supabase.from('case_studies').select('title, seo_title, seo_description, cover_image_url').eq('slug', slug).eq('org_id', ORG_ID).single()
-  if (!cs) return {}
+  const p = PROJECTS_DATA[slug]
+  if (!p) return {}
   return {
-    title: cs.seo_title || cs.title,
-    description: cs.seo_description,
-    openGraph: cs.cover_image_url ? { images: [cs.cover_image_url] } : undefined,
+    title: `${p.title} — Todd Engineering`,
+    description: p.lead,
+    openGraph: p.hero ? { images: [p.hero] } : undefined,
   }
-}
-
-export async function generateStaticParams() {
-  const { data } = await supabase.from('case_studies').select('slug').eq('org_id', ORG_ID).eq('status', 'published')
-  return (data || []).map((cs: any) => ({ slug: cs.slug }))
-}
-
-function RichText({ content }: { content: any }) {
-  if (!content?.content) return null
-  return (
-    <>
-      {content.content.map((node: any, i: number) => {
-        if (node.type === 'paragraph') {
-          const text = node.content?.map((c: any) => c.text).join('') || ''
-          return text ? <p key={i}>{text}</p> : <br key={i} />
-        }
-        if (node.type === 'heading') {
-          const Tag = `h${node.attrs?.level || 2}` as any
-          return <Tag key={i}>{node.content?.map((c: any) => c.text).join('')}</Tag>
-        }
-        if (node.type === 'bulletList') return (
-          <ul key={i}>
-            {node.content?.map((li: any, j: number) => (
-              <li key={j}>{li.content?.[0]?.content?.map((c: any) => c.text).join('') || ''}</li>
-            ))}
-          </ul>
-        )
-        return null
-      })}
-    </>
-  )
 }
 
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params
-  const { data: cs } = await supabase
-    .from('case_studies')
-    .select('*')
-    .eq('slug', slug)
-    .eq('org_id', ORG_ID)
-    .single()
-
-  if (!cs || cs.status !== 'published') notFound()
+  const cs = PROJECTS_DATA[slug]
+  if (!cs) notFound()
 
   return (
     <>
+      {/* HERO */}
       <section className="article-hero">
-        {cs.cover_image_url && (
+        {cs.hero && (
           <div className="article-hero-img">
-            <img src={cs.cover_image_url} alt={cs.title} />
+            <img src={cs.hero} alt={cs.title} />
           </div>
         )}
-        <div className="article-hero-grad"></div>
+        <div className="article-hero-grad" />
         <div className="article-hero-content">
-          <p className="article-tag">{cs.sector || 'Case Study'}</p>
+          <p className="article-tag">{cs.sector}</p>
           <h1 className="article-hero-title">{cs.title}</h1>
-          <p style={{ color: 'rgba(255,255,255,.55)', marginTop: 10, fontSize: 15 }}>{cs.client_name}</p>
+          {(cs.client || cs.date) && (
+            <p style={{ color: 'rgba(255,255,255,.55)', marginTop: 10, fontSize: 15 }}>
+              {cs.client}{cs.client && cs.date ? ' — ' : ''}{cs.date}
+            </p>
+          )}
         </div>
       </section>
 
-      {/* Outcome stats */}
-      {cs.outcome_stats && cs.outcome_stats.length > 0 && (
-        <section style={{ background: 'var(--s1)', borderBottom: '1px solid var(--bdr)', padding: '48px 40px' }}>
-          <div className="w-1100" style={{ display: 'flex', gap: 48, flexWrap: 'wrap', justifyContent: 'center' }}>
-            {cs.outcome_stats.map((s: any, i: number) => (
-              <div key={i} style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: 'clamp(32px,3.5vw,52px)', fontWeight: 800, letterSpacing: '-.05em', color: 'var(--t1)', lineHeight: 1 }}>{s.value}</div>
-                <div style={{ fontSize: 13, color: 'var(--t2)', marginTop: 6 }}>{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+      {/* BODY */}
+      <div className="cs-body">
+        <div className="cs-main">
 
-      <article className="article-body">
-        {cs.body && <RichText content={cs.body} />}
-      </article>
+          {cs.lead && <p className="cs-lead rv">{cs.lead}</p>}
 
-      {/* Testimonial */}
-      {cs.testimonial_quote && (
-        <section className="testi-sec">
-          <div className="testi-inner">
-            <p className="testi-quote">&ldquo;{cs.testimonial_quote}&rdquo;</p>
-            {cs.testimonial_author && (
-              <div className="testi-attr">
-                <div className="testi-line"></div>
-                <div className="testi-name">{cs.testimonial_author}</div>
-                <div className="testi-line"></div>
+          {cs.features.length > 0 && (
+            <>
+              <div className="cs-section-title rv">Installed Equipment</div>
+              <ul className="cs-features">
+                {cs.features.map((f, i) => (
+                  <li key={i} className="cs-feature">
+                    <div className="cs-feature-dot" />
+                    <div className="cs-feature-text" dangerouslySetInnerHTML={{ __html: f.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>') }} />
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+
+          {cs.quote && (
+            <div className="cs-quote rv">
+              <p className="cs-quote-text">&ldquo;{cs.quote}&rdquo;</p>
+              {cs.quoteAttr && <div className="cs-quote-attr">— {cs.quoteAttr}</div>}
+            </div>
+          )}
+
+        </div>
+
+        {/* SIDEBAR */}
+        <aside className="cs-sidebar rv d2">
+          <div className="cs-facts">
+            <div className="cs-facts-header">Project Details</div>
+            {cs.client && (
+              <div className="cs-fact">
+                <div className="cs-fact-label">Client</div>
+                <div className="cs-fact-value">{cs.client}</div>
               </div>
             )}
+            <div className="cs-fact">
+              <div className="cs-fact-label">Sector</div>
+              <div className="cs-fact-value">{cs.sector}</div>
+            </div>
+            {cs.date && (
+              <div className="cs-fact">
+                <div className="cs-fact-label">Date</div>
+                <div className="cs-fact-value">{cs.date}</div>
+              </div>
+            )}
+            {cs.location && (
+              <div className="cs-fact">
+                <div className="cs-fact-label">Location</div>
+                <div className="cs-fact-value">{cs.location}</div>
+              </div>
+            )}
+            {cs.product && (
+              <div className="cs-fact">
+                <div className="cs-fact-label">Product</div>
+                <div className="cs-fact-value">{cs.product}</div>
+              </div>
+            )}
+          </div>
+
+          <a href="/contact" className="btn btn-cta" style={{ display: 'flex', marginTop: 24, justifyContent: 'center' }}>
+            Get a Quote
+          </a>
+        </aside>
+      </div>
+
+      {/* GALLERY */}
+      {cs.gallery.length > 0 && (
+        <section className="cs-gallery-sec">
+          <div className="cs-gallery-grid">
+            {cs.gallery.map((src, i) => (
+              <div key={i} className="cs-gallery-item rv">
+                <img src={src} alt={`${cs.title} — ${i + 1}`} loading="lazy" />
+              </div>
+            ))}
           </div>
         </section>
       )}
