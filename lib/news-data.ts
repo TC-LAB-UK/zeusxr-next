@@ -86,7 +86,7 @@ export const NEWS_DATA: Record<string, NewsArticle> = {
     title: 'Todd Engineering Partners with RUPES — Complete Dust Extraction for ZEUS Prep Rooms',
     category: 'Partnership',
     date: 'June 2026',
-    thumb: '',
+    thumb: '/media/prepped.jpg',
     hero: '/media/prepped.jpg',
     excerpt: 'We\'re delighted to announce a new partnership between Todd Engineering and RUPES, bringing complete dust extraction solutions to our ZEUS preparation rooms.',
     body: [
@@ -99,4 +99,10 @@ export const NEWS_DATA: Record<string, NewsArticle> = {
   },
 }
 
-export const NEWS_LIST = Object.values(NEWS_DATA)
+export const NEWS_LIST: NewsArticle[] = [
+  NEWS_DATA['todd-engineering-rupes-partnership'],
+  NEWS_DATA['zeus-xr-msrt-installation'],
+  NEWS_DATA['car-sos-zeus-xr'],
+  NEWS_DATA['electric-spraybooth-ai-robotics'],
+  NEWS_DATA['todd-engineering-paintgo-partnership'],
+]
