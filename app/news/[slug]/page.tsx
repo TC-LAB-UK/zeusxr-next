@@ -1,23 +1,22 @@
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import type { Metadata } from 'next'
 import ScrollReveal from '@/components/ScrollReveal'
-import { NEWS_DATA } from '@/lib/news-data'
+import { NEWS_DATA, NEWS_LIST } from '@/lib/news-data'
 
 type Props = { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
-  return Object.keys(NEWS_DATA).map(slug => ({ slug }))
+  return NEWS_LIST.map((a) => ({ slug: a.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const a = NEWS_DATA[slug]
-  if (!a) return {}
+  const article = NEWS_DATA[slug]
+  if (!article) return {}
   return {
-    title: `${a.title} — Todd Engineering`,
-    description: a.excerpt,
-    openGraph: a.hero ? { images: [a.hero] } : undefined,
+    title: `${article.title} — Todd Engineering`,
+    description: article.excerpt,
+    openGraph: article.hero ? { images: [article.hero] } : undefined,
   }
 }
 
@@ -26,41 +25,49 @@ export default async function ArticlePage({ params }: Props) {
   const article = NEWS_DATA[slug]
   if (!article) notFound()
 
+  const isRupes = slug === 'todd-engineering-rupes-partnership'
+
   return (
     <>
       {/* HERO */}
-      <section className="article-hero">
-        {article.hero && (
-          <div className="article-hero-img">
-            <img src={article.hero} alt={article.title} />
+      <section className="art-hero">
+        {isRupes ? (
+          <div className="rupes-hero-logo">
+            <span className="rupes-wordmark">RUPES<sup style={{ fontSize: '0.35em', verticalAlign: 'super', fontStyle: 'normal' }}>®</sup></span>
           </div>
+        ) : (
+          <div
+            className="art-hero-bg"
+            style={{ backgroundImage: `url('${article.hero}')`, backgroundPosition: 'center' }}
+          />
         )}
-        <div className="article-hero-grad" />
-        <div className="article-hero-content">
-          <p className="article-tag">{article.category}</p>
-          <h1 className="article-hero-title">{article.title}</h1>
-          <p style={{ color: 'rgba(255,255,255,.45)', marginTop: 10, fontSize: 14 }}>{article.date}</p>
+        <div className="art-hero-grad" />
+        <div className="art-hero-content">
+          <div className="art-cat">{article.category}</div>
+          <h1 className="art-h1">{article.title}</h1>
+          <p className="art-meta">{article.date} &nbsp;·&nbsp; Todd Engineering</p>
         </div>
       </section>
 
       {/* BODY */}
-      <article className="article-body">
+      <div className="art-body rv">
         {article.body.map((block, i) => {
-          if (block.type === 'h2') return <h2 key={i}>{block.text}</h2>
+          if (block.type === 'p') return <p key={i} className="art-p">{block.text}</p>
+          if (block.type === 'h2') return <h2 key={i} className="art-h2">{block.text}</h2>
           if (block.type === 'quote') return (
-            <blockquote key={i} className="article-quote">
-              &ldquo;{block.text}&rdquo;
-            </blockquote>
+            <div key={i} className="art-quote rv">
+              <p className="art-quote-text">&ldquo;{block.text}&rdquo;</p>
+              <p className="art-quote-attr">Todd Engineering customer</p>
+            </div>
           )
-          return <p key={i}>{block.text}</p>
+          if (block.type === 'img' && block.src) return (
+            <div key={i} className="art-img-full rv" style={{ margin: '40px 0' }}>
+              <img src={block.src} alt={block.caption ?? ''} style={{ width: '100%', borderRadius: 8, display: 'block' }} />
+              {block.caption && <p className="art-img-caption">{block.caption}</p>}
+            </div>
+          )
+          return null
         })}
-      </article>
-
-      {/* BACK */}
-      <div style={{ maxWidth: 760, margin: '0 auto', padding: '16px 40px 72px' }}>
-        <Link href="/news" style={{ fontSize: 13, color: 'var(--t3)', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-          ← Back to News
-        </Link>
       </div>
 
       <ScrollReveal />
