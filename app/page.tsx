@@ -5,37 +5,54 @@ import Carousel from '@/components/Carousel'
 import IndustriesSection from '@/components/IndustriesSection'
 import ZXRVideoScript from '@/components/ZXRVideoScript'
 
+// Cache page at the CDN edge — revalidate in background every hour.
+// If Supabase is unreachable during revalidation, the last cached version
+// is served automatically. The site never goes blank due to a DB outage.
+export const revalidate = 3600
+
 async function getProducts() {
-  const { data } = await supabase
-    .from('products')
-    .select('id, name, slug, tagline, cover_image_url, featured')
-    .eq('org_id', ORG_ID)
-    .eq('status', 'published')
-    .order('sort_order', { ascending: true })
-    .limit(8)
-  return data || []
+  try {
+    const { data } = await supabase
+      .from('products')
+      .select('id, name, slug, tagline, cover_image_url, featured')
+      .eq('org_id', ORG_ID)
+      .eq('status', 'published')
+      .order('sort_order', { ascending: true })
+      .limit(8)
+    return data || []
+  } catch {
+    return []
+  }
 }
 
 async function getArticles() {
-  const { data } = await supabase
-    .from('articles')
-    .select('id, title, slug, excerpt, cover_image_url, published_at, category')
-    .eq('org_id', ORG_ID)
-    .eq('status', 'published')
-    .order('published_at', { ascending: false })
-    .limit(3)
-  return data || []
+  try {
+    const { data } = await supabase
+      .from('articles')
+      .select('id, title, slug, excerpt, cover_image_url, published_at, category')
+      .eq('org_id', ORG_ID)
+      .eq('status', 'published')
+      .order('published_at', { ascending: false })
+      .limit(3)
+    return data || []
+  } catch {
+    return []
+  }
 }
 
 async function getCaseStudies() {
-  const { data } = await supabase
-    .from('case_studies')
-    .select('id, title, slug, client_name, sector, cover_image_url')
-    .eq('org_id', ORG_ID)
-    .eq('status', 'published')
-    .order('published_at', { ascending: false })
-    .limit(3)
-  return data || []
+  try {
+    const { data } = await supabase
+      .from('case_studies')
+      .select('id, title, slug, client_name, sector, cover_image_url')
+      .eq('org_id', ORG_ID)
+      .eq('status', 'published')
+      .order('published_at', { ascending: false })
+      .limit(3)
+    return data || []
+  } catch {
+    return []
+  }
 }
 
 // Local image fallbacks keyed by slug

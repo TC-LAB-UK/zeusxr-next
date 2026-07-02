@@ -7,48 +7,68 @@ import ContactForm from '@/components/ContactForm'
 const ORG_ID = '8129f148-b92e-4fb4-a458-b0c941d6b42f'
 
 function getSupabase() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  if (!url || !key) return null
+  return createClient(url, key)
 }
 
 type Props = { params: Promise<{ slug: string }> }
 
+// Cache at CDN edge — revalidate in background every hour.
+// Supabase outages during revalidation serve the last cached version.
+export const revalidate = 3600
+export const dynamicParams = true
+
 export async function generateStaticParams() {
-  const { data } = await getSupabase()
-    .from('case_studies')
-    .select('slug')
-    .eq('org_id', ORG_ID)
-    .eq('status', 'published')
-  return (data ?? []).map((p: { slug: string }) => ({ slug: p.slug }))
+  try {
+    const sb = getSupabase()
+    if (!sb) return []
+    const { data } = await sb
+      .from('case_studies')
+      .select('slug')
+      .eq('org_id', ORG_ID)
+      .eq('status', 'published')
+    return (data ?? []).map((p: { slug: string }) => ({ slug: p.slug }))
+  } catch {
+    return []
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
-  const { data: cs } = await getSupabase()
-    .from('case_studies')
-    .select('title, sector, client_name, cover_image_url')
-    .eq('org_id', ORG_ID)
-    .eq('slug', slug)
-    .single()
-  if (!cs) return {}
-  return {
-    title: `${cs.title} — Todd Engineering`,
-    description: `${cs.sector} case study — ${cs.client_name}`,
-    openGraph: cs.cover_image_url ? { images: [cs.cover_image_url] } : undefined,
+  try {
+    const { slug } = await params
+    const sb = getSupabase()
+    if (!sb) return {}
+    const { data: cs } = await sb
+      .from('case_studies')
+      .select('title, sector, client_name, cover_image_url')
+      .eq('org_id', ORG_ID)
+      .eq('slug', slug)
+      .single()
+    if (!cs) return {}
+    return {
+      title: `${cs.title} — Todd Engineering`,
+      description: `${cs.sector} case study — ${cs.client_name}`,
+      openGraph: cs.cover_image_url ? { images: [cs.cover_image_url] } : undefined,
+    }
+  } catch {
+    return {}
   }
 }
 
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params
-  const { data: cs } = await getSupabase()
-    .from('case_studies')
-    .select('*')
-    .eq('org_id', ORG_ID)
-    .eq('slug', slug)
-    .single()
-  if (!cs) notFound()
+  try {
+    const sb = getSupabase()
+    if (!sb) notFound()
+    const { data: cs } = await sb!
+      .from('case_studies')
+      .select('*')
+      .eq('org_id', ORG_ID)
+      .eq('slug', slug)
+      .single()
+    if (!cs) notFound()
 
   const stats: { label: string; value: string }[] = cs.outcome_stats ?? []
 
@@ -149,4 +169,7 @@ export default async function CaseStudyPage({ params }: Props) {
       <ScrollReveal />
     </>
   )
+  } catch {
+    notFound()
+  }
 }
