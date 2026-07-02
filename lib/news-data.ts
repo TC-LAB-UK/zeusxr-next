@@ -4,6 +4,8 @@ export interface NewsArticle {
   category: string
   date: string
   thumb: string
+  thumbBg?: string
+  thumbLabel?: string
   hero: string
   excerpt: string
   body: { type: 'p' | 'h2' | 'quote'; text: string }[]
@@ -86,7 +88,9 @@ export const NEWS_DATA: Record<string, NewsArticle> = {
     title: 'Todd Engineering Partners with RUPES — Complete Dust Extraction for ZEUS Prep Rooms',
     category: 'Partnership',
     date: 'June 2026',
-    thumb: '/media/prepped.jpg',
+    thumb: '',
+    thumbBg: '#E31E24',
+    thumbLabel: 'RUPES®',
     hero: '/media/prepped.jpg',
     excerpt: 'We\'re delighted to announce a new partnership between Todd Engineering and RUPES, bringing complete dust extraction solutions to our ZEUS preparation rooms.',
     body: [
