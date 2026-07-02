@@ -29,11 +29,13 @@ export default function NewsPage() {
                   style={
                     article.thumb
                       ? { backgroundImage: `url(${article.thumb})`, backgroundPosition: 'center', backgroundSize: 'cover' }
-                      : { background: 'var(--green)', display: 'flex', alignItems: 'center', justifyContent: 'center' }
+                      : { background: article.thumbBg ?? 'var(--green)', display: 'flex', alignItems: 'center', justifyContent: 'center' }
                   }
                 >
                   {!article.thumb && (
-                    <span style={{ fontSize: 28, fontWeight: 900, color: '#fff', letterSpacing: -1 }}>TE</span>
+                    <span style={{ fontSize: 28, fontWeight: 900, fontStyle: 'italic', color: '#fff', letterSpacing: -1 }}>
+                      {article.thumbLabel ?? 'TE'}
+                    </span>
                   )}
                 </div>
                 <div className="nc-body">
