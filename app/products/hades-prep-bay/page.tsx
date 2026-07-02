@@ -13,7 +13,7 @@ const data: ProductPageData = {
   eyebrow: 'Todd Engineering — Preparation Systems',
   h1: 'Hades Prep Bay',
   sub: 'Dust-controlled preparation. The right environment before every spray job.',
-  heroBg: '/media/products/nemesis/hero.png',
+  heroBg: 'https://www.toddengineering.co.uk/media/qgig2r1t/3fb3e61c-323a-4d73-b553-1027e9322a1a.png',
   description: 'The Hades Prep Bay provides a professional dust-controlled environment for vehicle preparation — sanding, flatting and masking before spray finishing. Integrated low-level extraction keeps the work area clean and safe.',
   pills: ['Dust Extraction', 'Filtered Airflow', 'LED Lighting', 'Low-Level Extract', 'EU3 Filtration', 'Full-Size Bay'],
   specRows: [
