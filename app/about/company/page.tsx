@@ -8,26 +8,26 @@ const ORG_ID = '8129f148-b92e-4fb4-a458-b0c941d6b42f'
 
 const team = [
   { name: 'Lee Todd', role: 'Managing Director', photo: '/media/lee-todd.png', pos: 'center 20%' },
-  { name: 'Adam Turner', role: 'Sales Manager', photo: '/media/about/todds-1.png', pos: 'center' },
+  { name: 'Adam Turner', role: 'Sales Manager', photo: 'https://www.toddengineering.co.uk/media/cmpbguho/todds_-79.png', pos: 'center' },
   { name: 'Jenny Lee', role: 'Sales Coordinator', photo: '/media/jenny-headshot.jpg', pos: 'center top' },
-  { name: 'Dave Ayling', role: 'Purchasing Manager', photo: '/media/about/todds-3.png', pos: 'center' },
-  { name: 'Jason Nicholas', role: 'Factory Manager', photo: '/media/about/todds-4.png', pos: 'center' },
-  { name: 'Sarah Griffin', role: 'Receptionist', photo: '/media/about/todds-2.png', pos: 'center' },
+  { name: 'Dave Ayling', role: 'Purchasing Manager', photo: 'https://www.toddengineering.co.uk/media/kwhpgnx2/todds_-76.png', pos: 'center' },
+  { name: 'Jason Nicholas', role: 'Factory Manager', photo: 'https://www.toddengineering.co.uk/media/lxhfdusf/todds_-65.png', pos: 'center' },
+  { name: 'Sarah Griffin', role: 'Receptionist', photo: 'https://www.toddengineering.co.uk/media/gtmggoo1/todds_-42.png', pos: 'center' },
   { name: 'Babatunde Ayoade', role: 'Health & Safety Manager', photo: '/media/tunde-headshot.jpg', pos: 'center top' },
-  { name: 'Bonnie & Bell', role: 'Honorary Board Members', photo: '/media/about/todds-5.png', pos: 'center' },
+  { name: 'Bonnie & Bell', role: 'Honorary Board Members', photo: 'https://www.toddengineering.co.uk/media/vsinkwca/todds_-13.png', pos: 'center' },
 ]
 
 const bentoPhotos = [
-  '/media/about/heritage-5.jpg',
-  '/media/about/heritage-2.jpg',
-  '/media/about/heritage-3.jpg',
-  '/media/about/heritage-4.jpg',
-  '/media/about/heritage-7.jpg',
-  '/media/about/heritage-9.jpg',
-  '/media/about/heritage-1.jpg',
-  '/media/about/heritage-6.jpg',
-  '/media/products/apollo-wheelcabin/hero.jpg',
-  '/media/about/heritage-8.jpg',
+  'https://www.toddengineering.co.uk/media/cqlb4mkd/cci28062018_0004.jpg',
+  'https://www.toddengineering.co.uk/media/cftf5hja/cci28062018_0001.jpg',
+  'https://www.toddengineering.co.uk/media/ixnmjehl/cci28062018_0002.jpg',
+  'https://www.toddengineering.co.uk/media/sf3nmusj/cci28062018_0003.jpg',
+  'https://www.toddengineering.co.uk/media/ncig4hc4/cci28062018_0006.jpg',
+  'https://www.toddengineering.co.uk/media/adjc1nbj/cci28062018_0008.jpg',
+  'https://www.toddengineering.co.uk/media/0hlpmjde/cci28062018.jpg',
+  'https://www.toddengineering.co.uk/media/3gdbf5tr/cci28062018_0005.jpg',
+  'https://www.toddengineering.co.uk/media/yqijidba/5235431c-d7b3-43f4-b163-fea192b3c118.jpg',
+  'https://www.toddengineering.co.uk/media/lhgbdbvi/cci28062018_0009.jpg',
 ]
 
 const timeline = [

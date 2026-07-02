@@ -13,7 +13,7 @@ const data: ProductPageData = {
   eyebrow: 'Todd Engineering — Mixing Systems',
   h1: 'Smart Mixing Station',
   sub: 'Self-contained. ATEX-rated. Plug & play colour matching.',
-  heroBg: '/media/products/smart-mixing/hero.png',
+  heroBg: 'https://www.toddengineering.co.uk/media/lvnhnwgd/img_3515.png',
   description: 'The Smart Mixing Station is a self-contained, plug & play paint mixing and colour matching unit. Integrated solvent-rated extraction, ATEX-rated explosion-proof electrics and 5000K colour-match LED — compact enough to fit any workshop.',
   pills: ['Self-Contained', 'Built-In Extraction', 'ATEX-Rated', 'Plug & Play', 'Colour-Match Lighting', 'Compact Design'],
   specRows: [

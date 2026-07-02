@@ -13,7 +13,7 @@ const data: ProductPageData = {
   eyebrow: 'Todd Engineering — SMART Repair Systems',
   h1: 'Nemesis Smart Repair',
   sub: 'Professional SMART repair environment. Stone chips. Scuffs. Localised refinishing.',
-  heroBg: '/media/products/smart-mixing/2.png',
+  heroBg: 'https://www.toddengineering.co.uk/media/nklg4vs4/img_2349.png',
   description: 'The Nemesis Smart Repair cabin delivers a professional, dust-free environment for SMART repairs — stone chips, scuffs and localised panel refinishing. Fixed or mobile options to suit dealer, fleet or bodyshop use.',
   pills: ['SMART Repair', 'Stone Chip Repair', 'Panel Localised Refinish', 'Dust-Free Environment', 'Portable Options', 'Integrated Lighting'],
   specRows: [
