@@ -54,7 +54,7 @@ const DOWNLOADS = [
     cta: 'Request brochure',
   },
   {
-    title: 'Spraybooth Buyer\'s Guide',
+    title: "Spraybooth Buyer's Guide",
     desc: 'Everything you need to know before specifying a new spraybooth — from airflow to compliance.',
     ext: 'PDF',
     href: '/contact',
@@ -95,19 +95,11 @@ export default function ResourcesPage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 16 }}>
             {GUIDES.map((g) => (
-              <Link key={g.title} href={g.href} className="rv" style={{
-                display: 'flex', flexDirection: 'column', gap: 12,
-                background: 'var(--s1)', border: '1px solid var(--bdr)',
-                borderRadius: 16, padding: '28px 28px 24px',
-                textDecoration: 'none', transition: 'border-color .3s, transform .3s var(--ease)',
-              }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(80,167,36,.35)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-3px)' }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--bdr)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)' }}
-              >
-                <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--green)' }}>{g.label}</span>
-                <span style={{ fontSize: 16, fontWeight: 700, letterSpacing: '-.02em', color: 'var(--t1)', lineHeight: 1.3 }}>{g.title}</span>
-                <span style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.7, color: 'var(--t2)', flex: 1 }}>{g.desc}</span>
-                <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--green)', marginTop: 4 }}>Read →</span>
+              <Link key={g.title} href={g.href} className="rv res-guide-card">
+                <span className="res-guide-label">{g.label}</span>
+                <span className="res-guide-title">{g.title}</span>
+                <span className="res-guide-desc">{g.desc}</span>
+                <span className="res-guide-cta">Read →</span>
               </Link>
             ))}
           </div>
@@ -123,29 +115,11 @@ export default function ResourcesPage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 16 }}>
             {DOWNLOADS.map((d) => (
-              <div key={d.title} className="rv" style={{
-                background: 'var(--s1)', border: '1px solid var(--bdr)',
-                borderRadius: 16, padding: '28px',
-                display: 'flex', flexDirection: 'column', gap: 12,
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <span style={{
-                    fontSize: 9, fontWeight: 700, letterSpacing: '.1em',
-                    background: 'rgba(80,167,36,.1)', border: '1px solid rgba(80,167,36,.2)',
-                    color: 'var(--green)', padding: '3px 8px', borderRadius: 6,
-                  }}>{d.ext}</span>
-                </div>
-                <span style={{ fontSize: 15, fontWeight: 700, letterSpacing: '-.02em', color: 'var(--t1)', lineHeight: 1.3 }}>{d.title}</span>
-                <span style={{ fontSize: 13, fontWeight: 300, lineHeight: 1.7, color: 'var(--t2)', flex: 1 }}>{d.desc}</span>
-                <Link href={d.href} style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 6,
-                  fontSize: 12, fontWeight: 600, color: '#fff',
-                  background: 'var(--green)', borderRadius: 8, padding: '9px 18px',
-                  textDecoration: 'none', marginTop: 4, width: 'fit-content',
-                  transition: 'opacity .2s',
-                }}>
-                  {d.cta}
-                </Link>
+              <div key={d.title} className="rv res-dl-card">
+                <span className="res-dl-ext">{d.ext}</span>
+                <span className="res-dl-title">{d.title}</span>
+                <span className="res-dl-desc">{d.desc}</span>
+                <Link href={d.href} className="res-dl-btn">{d.cta}</Link>
               </div>
             ))}
           </div>
@@ -156,14 +130,12 @@ export default function ResourcesPage() {
       <section style={{ padding: '80px 40px', background: 'var(--s1)', borderTop: '1px solid var(--bdr)' }}>
         <div className="rv" style={{ maxWidth: 600, margin: '0 auto', textAlign: 'center' }}>
           <h2 style={{ fontSize: 'clamp(24px,3vw,38px)', fontWeight: 800, letterSpacing: '-.04em', color: 'var(--t1)', marginBottom: 16 }}>
-            Can't find what you need?
+            Can&apos;t find what you need?
           </h2>
           <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.7, color: 'var(--t2)', marginBottom: 32 }}>
             Our team is happy to provide technical specifications, installation guides or product information directly. Get in touch.
           </p>
-          <Link href="/contact" className="btn btn-cta" style={{ textDecoration: 'none' }}>
-            Contact Us
-          </Link>
+          <Link href="/contact" className="btn btn-cta">Contact Us</Link>
         </div>
       </section>
     </>
