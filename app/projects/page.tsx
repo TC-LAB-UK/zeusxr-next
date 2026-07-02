@@ -108,7 +108,7 @@ const PROJECTS = [
     slug: 'k-and-s',
     title: 'K&S — Bespoke Zeus Spraybooth Installation',
     sector: 'Automotive',
-    img: '/media/zeus-xr-21.jpg',
+    img: '/media/projects/k-and-s/23.jpg',
   },
 ]
 

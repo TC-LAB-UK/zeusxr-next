@@ -4,6 +4,7 @@ export interface ProjectData {
   client_name: string
   sector: string
   cover_image_url: string
+  gallery_images?: string[]
   outcome_stats: { label: string; value: string }[]
   brief: string
   solution: string
@@ -17,7 +18,14 @@ export const PROJECTS_DATA: Record<string, ProjectData> = {
     title: 'Maximising Workshop Space with a Bespoke Zeus Spraybooth Installation',
     client_name: 'K&S',
     sector: 'Automotive Repair & Refinishing',
-    cover_image_url: '/media/zeus-xr-21.jpg',
+    cover_image_url: '/media/projects/k-and-s/23.jpg',
+    gallery_images: [
+      '/media/projects/k-and-s/23.jpg',
+      '/media/projects/k-and-s/24.jpg',
+      '/media/projects/k-and-s/25.jpg',
+      '/media/projects/k-and-s/26.jpg',
+      '/media/projects/k-and-s/27.jpg',
+    ],
     outcome_stats: [
       { label: 'Workshop Space', value: 'Maximised' },
       { label: 'Heating System', value: 'Fully Electric' },
