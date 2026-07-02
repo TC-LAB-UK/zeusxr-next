@@ -1,18 +1,37 @@
+import { createClient } from '@supabase/supabase-js'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import ScrollReveal from '@/components/ScrollReveal'
 import ContactForm from '@/components/ContactForm'
-import { PROJECTS_DATA, PROJECTS_LIST } from '@/lib/projects-data'
+
+const ORG_ID = '8129f148-b92e-4fb4-a458-b0c941d6b42f'
+
+function getSupabase() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+}
 
 type Props = { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
-  return PROJECTS_LIST.map((p) => ({ slug: p.slug }))
+  const { data } = await getSupabase()
+    .from('case_studies')
+    .select('slug')
+    .eq('org_id', ORG_ID)
+    .eq('status', 'published')
+  return (data ?? []).map((p: { slug: string }) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const cs = PROJECTS_DATA[slug]
+  const { data: cs } = await getSupabase()
+    .from('case_studies')
+    .select('title, sector, client_name, cover_image_url')
+    .eq('org_id', ORG_ID)
+    .eq('slug', slug)
+    .single()
   if (!cs) return {}
   return {
     title: `${cs.title} — Todd Engineering`,
@@ -23,10 +42,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params
-  const cs = PROJECTS_DATA[slug]
+  const { data: cs } = await getSupabase()
+    .from('case_studies')
+    .select('*')
+    .eq('org_id', ORG_ID)
+    .eq('slug', slug)
+    .single()
   if (!cs) notFound()
 
-  const stats = cs.outcome_stats ?? []
+  const stats: { label: string; value: string }[] = cs.outcome_stats ?? []
 
   return (
     <>
@@ -85,7 +109,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {cs.gallery_images && cs.gallery_images.length > 0 && (
         <section className="cs-gallery-sec">
           <div className="cs-gallery-grid">
-            {cs.gallery_images.map((src, i) => (
+            {(cs.gallery_images as string[]).map((src, i) => (
               <div key={i} className={`cs-gallery-item rv d${i % 3}`}>
                 <img src={src} alt={`${cs.client_name} installation — ${i + 1}`} />
               </div>
