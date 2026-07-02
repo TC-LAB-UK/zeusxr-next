@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import CookieSettingsLink from './CookieSettingsLink'
 
 export default function Footer() {
   return (
@@ -66,15 +65,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p className="f-legal">
-          © 2026 Todd Engineering Ltd. All rights reserved. Spray Booth Manufacturer of the Year 2024.
-          {' · '}
-          <Link href="/privacy" className="f-legal-link">Privacy Policy</Link>
-          {' · '}
-          <Link href="/cookies" className="f-legal-link">Cookie Policy</Link>
-          {' · '}
-          <CookieSettingsLink />
-        </p>
+        <p className="f-legal">© 2026 Todd Engineering Ltd. All rights reserved. Spray Booth Manufacturer of the Year 2024.</p>
         <p className="f-address">Gregory Works, Armitage Road, Staffordshire, WS15 1PW<br />0845 017 6465 · sales@toddengineering.co.uk</p>
       </div>
     </footer>
