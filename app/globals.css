@@ -1304,6 +1304,29 @@ footer { background: #060606; border-top: 1px solid rgba(255,255,255,.06); paddi
   .cs-bd-h2 { margin-top: 40px; }
   .cs-bd-li { padding-left: 32px; }
 }
+
+/* ── FINANCE OPTIONS PAGE ── */
+.fin-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.fin-card { background: var(--s1); border: 1px solid var(--bdr); border-radius: var(--r-lg); padding: 36px 32px; display: flex; flex-direction: column; gap: 16px; }
+.fin-icon { width: 52px; height: 52px; border-radius: var(--r-md); border: 1px solid var(--g-bdr); background: var(--g-dim); display: flex; align-items: center; justify-content: center; color: var(--green); flex-shrink: 0; }
+.fin-title { font-size: 18px; font-weight: 700; letter-spacing: -.02em; color: var(--t1); }
+.fin-text { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--t2); flex: 1; }
+.fin-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: auto; padding-top: 8px; border-top: 1px solid var(--bdr); }
+.fin-list li { font-size: 13px; font-weight: 300; color: var(--t2); padding-left: 20px; position: relative; line-height: 1.6; }
+.fin-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
+.fin-why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+.fin-why { display: flex; flex-direction: column; gap: 12px; padding: 28px 24px; background: var(--s2); border: 1px solid var(--bdr); border-radius: var(--r-lg); }
+.fin-why-n { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--green); text-transform: uppercase; }
+.fin-why-title { font-size: 15px; font-weight: 700; letter-spacing: -.02em; color: var(--t1); }
+.fin-why-body { font-size: 13px; font-weight: 300; line-height: 1.75; color: var(--t2); }
+.fin-steps { display: flex; flex-direction: column; gap: 0; }
+.fin-step { display: grid; grid-template-columns: 48px 180px 1fr; align-items: start; gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--bdr); text-align: left; }
+.fin-step:last-child { border-bottom: none; }
+.fin-step-n { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--g-bdr); background: var(--g-dim); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--green); flex-shrink: 0; }
+.fin-step-label { font-size: 15px; font-weight: 700; letter-spacing: -.02em; color: var(--t1); padding-top: 9px; }
+.fin-step-detail { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--t2); padding-top: 9px; }
+@media (max-width: 900px) { .fin-grid { grid-template-columns: 1fr; } .fin-why-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 768px) { .fin-why-grid { grid-template-columns: 1fr; } .fin-step { grid-template-columns: 40px 1fr; } .fin-step-detail { grid-column: 2 / -1; padding-top: 0; } }
 /* ── TESTIMONIAL ── */
 .testi-wrap { max-width: 800px; margin: 0 auto; text-align: center; }
 .testi-mark { font-size: 72px; line-height: .8; color: var(--green); opacity: .3; font-family: Georgia, serif; margin-bottom: 16px; }
