@@ -81,6 +81,19 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
       </section>
 
+      {/* GALLERY */}
+      {cs.gallery_images && cs.gallery_images.length > 0 && (
+        <section className="cs-gallery-sec">
+          <div className="cs-gallery-grid">
+            {cs.gallery_images.map((src, i) => (
+              <div key={i} className={`cs-gallery-item rv d${i % 3}`}>
+                <img src={src} alt={`${cs.client_name} installation — ${i + 1}`} />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* TESTIMONIAL */}
       {cs.testimonial_quote && (
         <section style={{ padding: '80px 64px', borderTop: '1px solid var(--bdr)' }}>
