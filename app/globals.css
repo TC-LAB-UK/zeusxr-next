@@ -1451,3 +1451,17 @@ footer { background: #060606; border-top: 1px solid rgba(255,255,255,.06); paddi
 .legal-page td { padding: 12px; border-bottom: 1px solid var(--bdr); color: var(--t2); vertical-align: top; }
 .f-legal-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; opacity: .6; transition: opacity .2s; }
 .f-legal-link:hover { opacity: 1; }
+
+/* ── Resources page ────────────────────────────────────────── */
+.res-guide-card { display:flex; flex-direction:column; gap:12px; background:var(--s1); border:1px solid var(--bdr); border-radius:16px; padding:28px 28px 24px; text-decoration:none; transition:border-color .3s,transform .3s var(--ease); }
+.res-guide-card:hover { border-color:rgba(80,167,36,.35); transform:translateY(-3px); }
+.res-guide-label { font-size:9px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--green); }
+.res-guide-title { font-size:16px; font-weight:700; letter-spacing:-.02em; color:var(--t1); line-height:1.3; }
+.res-guide-desc { font-size:13px; font-weight:300; line-height:1.7; color:var(--t2); flex:1; }
+.res-guide-cta { font-size:12px; font-weight:600; color:var(--green); margin-top:4px; }
+.res-dl-card { background:var(--s1); border:1px solid var(--bdr); border-radius:16px; padding:28px; display:flex; flex-direction:column; gap:12px; }
+.res-dl-ext { font-size:9px; font-weight:700; letter-spacing:.1em; background:rgba(80,167,36,.1); border:1px solid rgba(80,167,36,.2); color:var(--green); padding:3px 8px; border-radius:6px; width:fit-content; }
+.res-dl-title { font-size:15px; font-weight:700; letter-spacing:-.02em; color:var(--t1); line-height:1.3; }
+.res-dl-desc { font-size:13px; font-weight:300; line-height:1.7; color:var(--t2); flex:1; }
+.res-dl-btn { display:inline-flex; align-items:center; font-size:12px; font-weight:600; color:#fff; background:var(--green); border-radius:8px; padding:9px 18px; text-decoration:none; margin-top:4px; width:fit-content; transition:opacity .2s; }
+.res-dl-btn:hover { opacity:.85; }
