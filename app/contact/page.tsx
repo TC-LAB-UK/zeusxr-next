@@ -65,14 +65,18 @@ export default function ContactPage() {
             <p className="contact-detail-val">Gregory Works<br />Armitage Road<br />Staffordshire, WS15 1PW</p>
           </div>
           <div className="contact-detail rv d1">
-            <p className="contact-detail-lbl">Telephone</p>
+            <p className="contact-detail-lbl">Head Office</p>
             <p className="contact-detail-val"><a href="tel:08450176465">0845 017 6465</a></p>
           </div>
           <div className="contact-detail rv d2">
+            <p className="contact-detail-lbl">Service &amp; Maintenance</p>
+            <p className="contact-detail-val"><a href="tel:01889343115">01889 343 115</a></p>
+          </div>
+          <div className="contact-detail rv d3">
             <p className="contact-detail-lbl">Email</p>
             <p className="contact-detail-val"><a href="mailto:sales@toddengineering.co.uk">sales@toddengineering.co.uk</a></p>
           </div>
-          <div className="contact-detail rv d3">
+          <div className="contact-detail rv d4">
             <p className="contact-detail-lbl">Hours</p>
             <p className="contact-detail-val">Mon – Fri, 8:30am – 5:00pm</p>
           </div>
