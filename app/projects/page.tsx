@@ -21,10 +21,10 @@ const PROJECTS = [
     img: '/media/aerospace.png',
   },
   {
-    slug: 'sandal-bmw',
-    title: 'Sandal BMW — Poseidon Dual Installation',
+    slug: 'k-and-s',
+    title: 'K&S — Bespoke Zeus Spraybooth Installation',
     sector: 'Automotive',
-    img: 'https://www.toddengineering.co.uk/media/o5bdbnbj/img_3891.png',
+    img: '/media/projects/k-and-s/23.jpg',
   },
   {
     slug: 'smallest-cog',
@@ -105,10 +105,10 @@ const PROJECTS = [
     img: 'https://www.toddengineering.co.uk/media/a0khul2b/dsc07408.png',
   },
   {
-    slug: 'k-and-s',
-    title: 'K&S — Bespoke Zeus Spraybooth Installation',
+    slug: 'sandal-bmw',
+    title: 'Sandal BMW — Poseidon Dual Installation',
     sector: 'Automotive',
-    img: '/media/projects/k-and-s/23.jpg',
+    img: 'https://www.toddengineering.co.uk/media/o5bdbnbj/img_3891.png',
   },
 ]
 

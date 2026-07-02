@@ -502,7 +502,7 @@ export default async function Home() {
                   </div>
                 </Link>
                 <Link href="/projects/k-and-s" className="proj-card rv d2">
-                  <div className="proj-bg" style={{ backgroundImage: "url('/media/zeus-xr-21.jpg')", backgroundPosition: 'center' }}></div>
+                  <div className="proj-bg" style={{ backgroundImage: "url('/media/projects/k-and-s/23.jpg')", backgroundPosition: 'center' }}></div>
                   <div className="proj-overlay">
                     <div className="proj-sector">Automotive</div>
                     <div className="proj-title">K&S</div>
