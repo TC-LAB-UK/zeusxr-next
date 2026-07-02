@@ -1,8 +1,53 @@
 import { createClient } from '@supabase/supabase-js'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import ScrollReveal from '@/components/ScrollReveal'
 import ContactForm from '@/components/ContactForm'
+
+// ─── TipTap JSON → React renderer ────────────────────────────────────────────
+type TNode = { type: string; text?: string; attrs?: Record<string, unknown>; content?: TNode[]; marks?: { type: string }[] }
+
+function renderNodes(nodes: TNode[] | undefined, depth = 0): ReactNode {
+  if (!nodes) return null
+  return nodes.map((n, i) => renderNode(n, i, depth))
+}
+
+function renderNode(n: TNode, key: number, depth = 0): ReactNode {
+  switch (n.type) {
+    case 'doc':
+      return renderNodes(n.content, depth)
+    case 'heading': {
+      const lvl = (n.attrs?.level as number) ?? 2
+      const text = renderNodes(n.content, depth)
+      if (lvl === 2) return <h2 key={key} className="cs-bd-h2">{text}</h2>
+      if (lvl === 3) return <h3 key={key} className="cs-bd-h3">{text}</h3>
+      return <h4 key={key} className="cs-bd-h4">{text}</h4>
+    }
+    case 'paragraph':
+      return <p key={key} className="cs-bd-p">{renderNodes(n.content, depth)}</p>
+    case 'bulletList':
+      return <ul key={key} className="cs-bd-ul">{renderNodes(n.content, depth)}</ul>
+    case 'orderedList':
+      return <ol key={key} className="cs-bd-ol">{renderNodes(n.content, depth)}</ol>
+    case 'listItem':
+      return <li key={key} className="cs-bd-li">{renderNodes(n.content, depth + 1)}</li>
+    case 'hardBreak':
+      return <br key={key} />
+    case 'text': {
+      let el: ReactNode = n.text ?? ''
+      if (n.marks) {
+        for (const m of n.marks) {
+          if (m.type === 'bold')   el = <strong key={key}>{el}</strong>
+          if (m.type === 'italic') el = <em key={key}>{el}</em>
+        }
+      }
+      return el
+    }
+    default:
+      return null
+  }
+}
 
 const ORG_ID = '8129f148-b92e-4fb4-a458-b0c941d6b42f'
 
@@ -124,6 +169,15 @@ export default async function CaseStudyPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* FULL BODY */}
+      {cs.body && cs.body.content && cs.body.content.length > 0 && (
+        <section style={{ padding: '0 64px 80px', maxWidth: 1280, margin: '0 auto' }}>
+          <div className="cs-bd-wrap">
+            {renderNode(cs.body as TNode, 0)}
+          </div>
+        </section>
+      )}
 
       {/* GALLERY */}
       {cs.gallery_images && cs.gallery_images.length > 0 && (
