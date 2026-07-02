@@ -20,6 +20,11 @@ export default function ArticleRupes() {
         <p className="art-lead">We&apos;re delighted to announce a new partnership between Todd Engineering and RUPES. As part of our commitment to delivering complete finishing solutions, RUPES dust extraction and air purification technology will now be available as part of our ZEUS spraybooth preparation room packages.</p>
         <p className="art-p">This partnership combines Todd Engineering&apos;s expertise in spraybooths and finishing systems with RUPES&apos; industry-leading dust extraction technology — creating a smarter, cleaner, and more productive working environment from a single supplier.</p>
 
+        <div className="art-img-full rv">
+          <img src="/media/news/rupes/post-2.jpg" alt="RUPES dust extraction and air purification system installed in a ZEUS preparation environment" />
+          <p className="art-img-caption">RUPES dust extraction and air purification system installed in a ZEUS preparation environment.</p>
+        </div>
+
         <h2 className="art-h2">The result for your bodyshop.</h2>
 
         <div className="art-benefits">
@@ -65,6 +70,11 @@ export default function ArticleRupes() {
             <span className="art-feature-pill">ZEUS Prep Room Compatible</span>
             <span className="art-feature-pill">Plug &amp; Play Integration</span>
           </div>
+        </div>
+
+        <div className="art-img-full rv">
+          <img src="/media/news/rupes/post-3.jpg" alt="RUPES-equipped preparation bay — clean air, controlled environment, optimum finish conditions" />
+          <p className="art-img-caption">RUPES-equipped preparation bay — clean air, controlled environment, optimum finish conditions.</p>
         </div>
 
         <p className="art-p">We look forward to showcasing these combined solutions in the coming months. If you&apos;d like to learn more about integrating RUPES technology into your ZEUS preparation room package, speak to one of our team.</p>
