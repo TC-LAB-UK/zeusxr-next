@@ -116,16 +116,22 @@ export default async function Home() {
             <span className="hero-trusted-lbl">Trusted by</span>
             <div className="hero-logo-wrap">
               <div className="hero-logo-track">
-                <img src="https://amalgam-models.co.uk/wp-content/uploads/2016/08/amalgam-logo.png" alt="Amalgam" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/RMD_Kwikform_logo.svg" alt="RMD Kwikform" />
+                <img src="/brand/clients/car-sos.png" alt="Car SOS" />
+                <img src="/brand/clients/rupes.svg" alt="RUPES" />
+                <img src="/brand/clients/paintgo.png" alt="PaintGo" />
+                <img src="/brand/clients/ks.svg" alt="K&S" />
+                <img src="/brand/clients/gemini.svg" alt="Gemini ARC" />
+                <img src="/brand/clients/emirates.svg" alt="Emirates" />
                 <img src="https://autolux.uk.com/wp-content/uploads/autolux_body_paint_full-01.svg" alt="AutoLux" />
-                <img src="https://www.jetglow.co.uk/media/com_sppagebuilder/placeholder/full-logo_0e182f_blue.png" alt="Jetglow" />
                 <img src="https://www.pjrhodes.co.uk/files/pages/logo.png" alt="Rhodes" />
                 {/* Duplicates for seamless loop */}
-                <img src="https://amalgam-models.co.uk/wp-content/uploads/2016/08/amalgam-logo.png" alt="Amalgam" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/RMD_Kwikform_logo.svg" alt="RMD Kwikform" />
+                <img src="/brand/clients/car-sos.png" alt="Car SOS" />
+                <img src="/brand/clients/rupes.svg" alt="RUPES" />
+                <img src="/brand/clients/paintgo.png" alt="PaintGo" />
+                <img src="/brand/clients/ks.svg" alt="K&S" />
+                <img src="/brand/clients/gemini.svg" alt="Gemini ARC" />
+                <img src="/brand/clients/emirates.svg" alt="Emirates" />
                 <img src="https://autolux.uk.com/wp-content/uploads/autolux_body_paint_full-01.svg" alt="AutoLux" />
-                <img src="https://www.jetglow.co.uk/media/com_sppagebuilder/placeholder/full-logo_0e182f_blue.png" alt="Jetglow" />
                 <img src="https://www.pjrhodes.co.uk/files/pages/logo.png" alt="Rhodes" />
               </div>
             </div>
@@ -407,15 +413,23 @@ export default async function Home() {
         <p className="trusted-label">Trusted by</p>
         <div className="logos-track-wrap">
           <div className="logos-track">
-            <img src="https://amalgam-models.co.uk/wp-content/uploads/2016/08/amalgam-logo.png" alt="Amalgam Models" loading="lazy" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/RMD_Kwikform_logo.svg" alt="RMD Kwikform" loading="lazy" />
+            <img src="/brand/clients/car-sos.png" alt="Car SOS" loading="lazy" />
+            <img src="/brand/clients/rupes.svg" alt="RUPES" loading="lazy" />
+            <img src="/brand/clients/paintgo.png" alt="PaintGo" loading="lazy" />
+            <img src="/brand/clients/ks.svg" alt="K&S" loading="lazy" />
+            <img src="/brand/clients/gemini.svg" alt="Gemini ARC" loading="lazy" />
+            <img src="/brand/clients/emirates.svg" alt="Emirates" loading="lazy" />
             <img src="https://www.angusmackinnon.co.uk/img-src/_themev2-angusmackinnon-5224/theme/logo.1780043768.png" alt="Angus MacKinnon" loading="lazy" />
             <img src="https://autolux.uk.com/wp-content/uploads/autolux_body_paint_full-01.svg" alt="AutoLux" loading="lazy" />
             <img src="https://www.jetglow.co.uk/media/com_sppagebuilder/placeholder/full-logo_0e182f_blue.png" alt="Jetglow" loading="lazy" />
             <img src="https://www.pjrhodes.co.uk/files/pages/logo.png" alt="Rhodes Accident Repair" loading="lazy" />
             {/* Duplicates for seamless loop */}
-            <img src="https://amalgam-models.co.uk/wp-content/uploads/2016/08/amalgam-logo.png" alt="Amalgam Models" loading="lazy" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/RMD_Kwikform_logo.svg" alt="RMD Kwikform" loading="lazy" />
+            <img src="/brand/clients/car-sos.png" alt="Car SOS" loading="lazy" />
+            <img src="/brand/clients/rupes.svg" alt="RUPES" loading="lazy" />
+            <img src="/brand/clients/paintgo.png" alt="PaintGo" loading="lazy" />
+            <img src="/brand/clients/ks.svg" alt="K&S" loading="lazy" />
+            <img src="/brand/clients/gemini.svg" alt="Gemini ARC" loading="lazy" />
+            <img src="/brand/clients/emirates.svg" alt="Emirates" loading="lazy" />
             <img src="https://www.angusmackinnon.co.uk/img-src/_themev2-angusmackinnon-5224/theme/logo.1780043768.png" alt="Angus MacKinnon" loading="lazy" />
             <img src="https://autolux.uk.com/wp-content/uploads/autolux_body_paint_full-01.svg" alt="AutoLux" loading="lazy" />
             <img src="https://www.jetglow.co.uk/media/com_sppagebuilder/placeholder/full-logo_0e182f_blue.png" alt="Jetglow" loading="lazy" />
