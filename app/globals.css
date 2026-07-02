@@ -1287,6 +1287,23 @@ footer { background: #060606; border-top: 1px solid rgba(255,255,255,.06); paddi
 .cso-lbl { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
 .cso-h3 { font-size: clamp(18px,2vw,24px); font-weight: 700; letter-spacing: -.02em; color: var(--t1); margin-bottom: 12px; }
 .cso-text { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--t2); }
+/* ── CASE STUDY BODY CONTENT ── */
+.cs-bd-wrap { max-width: 820px; margin: 0 auto; }
+.cs-bd-h2 { font-size: clamp(18px,2vw,26px); font-weight: 700; letter-spacing: -.03em; color: var(--t1); margin: 52px 0 16px; }
+.cs-bd-h2:first-child { margin-top: 0; }
+.cs-bd-h3 { font-size: clamp(15px,1.5vw,20px); font-weight: 600; letter-spacing: -.02em; color: var(--t1); margin: 36px 0 12px; }
+.cs-bd-h4 { font-size: 14px; font-weight: 600; letter-spacing: -.01em; color: var(--t1); margin: 24px 0 8px; }
+.cs-bd-p  { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--t2); margin-bottom: 20px; }
+.cs-bd-p:last-child { margin-bottom: 0; }
+.cs-bd-ul, .cs-bd-ol { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+.cs-bd-li { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--t2); padding: 12px 16px 12px 40px; border-left: 2px solid var(--g-bdr); margin-bottom: 8px; position: relative; background: var(--s1); border-radius: 0 var(--r-md) var(--r-md) 0; }
+.cs-bd-li::before { content: ''; position: absolute; left: 14px; top: 20px; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+.cs-bd-li p { margin: 0; font-size: inherit; font-weight: inherit; line-height: inherit; color: inherit; }
+.cs-bd-li strong { font-weight: 600; color: var(--t1); }
+@media (max-width: 768px) {
+  .cs-bd-h2 { margin-top: 40px; }
+  .cs-bd-li { padding-left: 32px; }
+}
 /* ── TESTIMONIAL ── */
 .testi-wrap { max-width: 800px; margin: 0 auto; text-align: center; }
 .testi-mark { font-size: 72px; line-height: .8; color: var(--green); opacity: .3; font-family: Georgia, serif; margin-bottom: 16px; }
