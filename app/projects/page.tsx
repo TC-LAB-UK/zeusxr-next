@@ -9,14 +9,14 @@ export const metadata: Metadata = {
 
 const PROJECTS = [
   {
-    slug: 'case-study-1',
+    slug: 'uk-offshore-wind-farm',
     title: 'Seah Wind — UK\'s Largest Offshore Wind Farm',
     sector: 'Renewable Energy',
     img: '/media/windfarm.png',
   },
   {
-    slug: 'case-study-2',
-    title: 'Dubai Aerospace Facility',
+    slug: 'bahrain-aerospace-facility',
+    title: 'Bahrain Aerospace Facility',
     sector: 'Aerospace',
     img: '/media/aerospace.png',
   },
@@ -105,10 +105,10 @@ const PROJECTS = [
     img: 'https://www.toddengineering.co.uk/media/a0khul2b/dsc07408.png',
   },
   {
-    slug: 'case-study-3',
-    title: 'Amalgam — Specialist Refinishing Facility',
+    slug: 'k-and-s',
+    title: 'K&S — Bespoke Zeus Spraybooth Installation',
     sector: 'Automotive',
-    img: '/media/about-todd.jpg',
+    img: '/media/zeus-xr-21.jpg',
   },
 ]
 

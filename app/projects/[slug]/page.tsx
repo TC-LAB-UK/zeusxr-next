@@ -2,46 +2,31 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import ScrollReveal from '@/components/ScrollReveal'
 import ContactForm from '@/components/ContactForm'
-import { getCaseStudy, getCaseStudies } from '@/lib/supabase'
-
-export const revalidate = 3600
+import { PROJECTS_DATA, PROJECTS_LIST } from '@/lib/projects-data'
 
 type Props = { params: Promise<{ slug: string }> }
 
-// Extract plain text paragraphs from tiptap JSON body
-function parseTiptapBody(body: { type: string; content?: { type: string; content?: { type: string; text?: string }[] }[] } | null | undefined): string[] {
-  if (!body?.content) return []
-  return body.content
-    .filter((node) => node.type === 'paragraph')
-    .map((node) =>
-      (node.content ?? []).map((c) => c.text ?? '').join('')
-    )
-    .filter(Boolean)
-}
-
 export async function generateStaticParams() {
-  const studies = await getCaseStudies()
-  return studies.map((s: { slug: string }) => ({ slug: s.slug }))
+  return PROJECTS_LIST.map((p) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const cs = await getCaseStudy(slug)
+  const cs = PROJECTS_DATA[slug]
   if (!cs) return {}
   return {
-    title: cs.seo_title || `${cs.title} — Todd Engineering`,
-    description: cs.seo_description || '',
+    title: `${cs.title} — Todd Engineering`,
+    description: `${cs.sector} case study — ${cs.client_name}`,
     openGraph: cs.cover_image_url ? { images: [cs.cover_image_url] } : undefined,
   }
 }
 
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params
-  const cs = await getCaseStudy(slug)
+  const cs = PROJECTS_DATA[slug]
   if (!cs) notFound()
 
-  const stats: Array<{ label: string; value: string }> = cs.outcome_stats ?? []
-  const paragraphs = parseTiptapBody(cs.body)
+  const stats = cs.outcome_stats ?? []
 
   return (
     <>
@@ -77,26 +62,24 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       {/* BODY */}
-      {paragraphs.length > 0 && (
-        <section style={{ padding: '80px 64px', maxWidth: 1280, margin: '0 auto' }}>
-          <div className="cso-grid">
-            <div className="cso-card rv">
-              <div className="cso-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              </div>
-              <h3 className="cso-label">The Brief</h3>
-              <p className="cso-text">{paragraphs[0]}</p>
+      <section style={{ padding: '80px 64px', maxWidth: 1280, margin: '0 auto' }}>
+        <div className="cso-grid">
+          <div className="cso-card rv">
+            <div className="cso-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             </div>
-            <div className="cso-card rv d1">
-              <div className="cso-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9,11 12,14 22,4"/><path d="M21,12v7a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V5A2,2,0,0,1,5,3h11"/></svg>
-              </div>
-              <h3 className="cso-label">The Solution</h3>
-              <p className="cso-text">{paragraphs[1] ?? paragraphs[0]}</p>
-            </div>
+            <h3 className="cso-label">The Brief</h3>
+            <p className="cso-text">{cs.brief}</p>
           </div>
-        </section>
-      )}
+          <div className="cso-card rv d1">
+            <div className="cso-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9,11 12,14 22,4"/><path d="M21,12v7a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V5A2,2,0,0,1,5,3h11"/></svg>
+            </div>
+            <h3 className="cso-label">The Solution</h3>
+            <p className="cso-text">{cs.solution}</p>
+          </div>
+        </div>
+      </section>
 
       {/* TESTIMONIAL */}
       {cs.testimonial_quote && (
