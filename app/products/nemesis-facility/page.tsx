@@ -13,7 +13,7 @@ const data: ProductPageData = {
   eyebrow: 'Todd Engineering — Complete Facility Solutions',
   h1: 'Nemesis Facility',
   sub: 'Complete multi-zone refinishing. One supplier. Turn-key delivery.',
-  heroBg: 'https://www.toddengineering.co.uk/media/nklg4vs4/img_2349.png',
+  heroBg: '/media/products/smart-mixing/2.png',
   description: 'The Nemesis Facility is a complete multi-zone automotive refinishing solution — main spray booth, prep bay and mixing room delivered as a single turn-key project. Fully bespoke to your site and throughput requirements.',
   pills: ['Multi-Zone Facility', 'Main Spray Booth', 'Prep Bay Included', 'Mixing Room Included', 'Bespoke Design', 'Turn-Key Delivery'],
   specRows: [

@@ -70,7 +70,7 @@ const products = [
   },
   {
     href: '/products/nemesis-facility',
-    img: 'https://www.toddengineering.co.uk/media/nklg4vs4/img_2349.png',
+    img: '/media/products/smart-mixing/2.png',
     category: 'spray-booths',
     subcategory: 'gas',
     cat: 'Spray Booths',
@@ -80,7 +80,7 @@ const products = [
   },
   {
     href: '/products/paint-mixing-room',
-    img: 'https://www.toddengineering.co.uk/media/x2sabjv4/img_2548.png',
+    img: '/media/products/smart-mixing/3.png',
     category: 'paint-mixing',
     cat: 'Paint Mixing',
     name: 'Paint Mixing Room',
@@ -89,7 +89,7 @@ const products = [
   },
   {
     href: '/products/hades-prep-bay',
-    img: 'https://www.toddengineering.co.uk/media/qgig2r1t/3fb3e61c-323a-4d73-b553-1027e9322a1a.png',
+    img: '/media/products/nemesis/hero.png',
     category: 'preparation',
     cat: 'Preparation',
     name: 'Hades Prep Bay',
@@ -98,7 +98,7 @@ const products = [
   },
   {
     href: '/products/worky-dust-extraction',
-    img: 'https://www.toddengineering.co.uk/media/353pxb03/c71a4c57-5e75-4465-909a-a53469716475.jpg',
+    img: '/media/products/apollo-wheelcabin/3.jpg',
     category: 'preparation',
     cat: 'Preparation',
     name: 'WORKY Dust Extraction',
@@ -107,7 +107,7 @@ const products = [
   },
   {
     href: '/products/apollo-wheelcabin',
-    img: 'https://www.toddengineering.co.uk/media/rqmnbze1/2.png',
+    img: '/media/products/worky/2.png',
     category: 'smart-repairs',
     cat: 'Smart Repairs',
     name: 'Apollo WheelCabin',
@@ -116,7 +116,7 @@ const products = [
   },
   {
     href: '/products/nemesis-smart-repair',
-    img: 'https://www.toddengineering.co.uk/media/nklg4vs4/img_2349.png',
+    img: '/media/products/smart-mixing/2.png',
     category: 'smart-repairs',
     cat: 'Smart Repairs',
     name: 'Nemesis Smart Repair',
@@ -125,7 +125,7 @@ const products = [
   },
   {
     href: '/products/zeus-electric-upgrade',
-    img: 'https://www.toddengineering.co.uk/media/2sjcji4z/af357bde-3ba5-44cf-a97f-240e319622bc.jpg',
+    img: '/media/products/apollo-wheelcabin/2.jpg',
     category: 'accessories',
     cat: 'Accessories',
     name: 'Zeus Electric Upgrade',
@@ -136,7 +136,7 @@ const products = [
   },
   {
     href: '/products/wall-protection-system',
-    img: 'https://www.toddengineering.co.uk/media/jjvc5coz/baxt-products.png',
+    img: '/media/products/worky/hero.png',
     category: 'accessories',
     cat: 'Accessories',
     name: 'Wall Protection System',

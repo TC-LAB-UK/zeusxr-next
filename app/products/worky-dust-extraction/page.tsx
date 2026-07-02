@@ -13,7 +13,7 @@ const data: ProductPageData = {
   eyebrow: 'Todd Engineering — Workshop Equipment',
   h1: 'WORKY Dust Extraction',
   sub: 'At-source. Mobile. HEPA filtration. Plug & play.',
-  heroBg: 'https://www.toddengineering.co.uk/media/353pxb03/c71a4c57-5e75-4465-909a-a53469716475.jpg',
+  heroBg: '/media/products/apollo-wheelcabin/3.jpg',
   description: 'WORKY is a mobile at-source dust extraction system for bodyshops and workshops. HEPA-class filtration captures particles at source, compatible with all standard sanding tools and ready to use straight out of the box.',
   pills: ['At-Source Extraction', 'Mobile Design', 'Multi-Tool Compatible', 'HEPA Filtration', 'Low Noise', 'Plug & Play'],
   specRows: [

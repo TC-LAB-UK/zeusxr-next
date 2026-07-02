@@ -13,7 +13,7 @@ const data: ProductPageData = {
   eyebrow: 'Todd Engineering — Mixing Room Systems',
   h1: 'Paint Mixing Room',
   sub: 'ATEX-rated. COSHH compliant. Colour-accurate. Built for professionals.',
-  heroBg: 'https://www.toddengineering.co.uk/media/x2sabjv4/img_2548.png',
+  heroBg: '/media/products/smart-mixing/3.png',
   description: 'Professional paint mixing rooms with ATEX-rated explosion-proof electrics, COSHH-compliant ventilation and 5000K colour-match LED lighting. Bespoke to your footprint. Turn-key supply and installation.',
   pills: ['Explosion-Proof', 'COSHH Compliant', 'Climate Controlled', 'Colour-Match Lighting', 'Solvent-Rated Ventilation', 'Bespoke Sizes'],
   specRows: [
