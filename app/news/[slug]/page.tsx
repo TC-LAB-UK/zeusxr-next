@@ -60,6 +60,12 @@ export default async function ArticlePage({ params }: Props) {
               <p className="art-quote-attr">Todd Engineering customer</p>
             </div>
           )
+          if (block.type === 'img' && block.src) return (
+            <div key={i} className="art-img-full rv" style={{ margin: '40px 0' }}>
+              <img src={block.src} alt={block.caption ?? ''} style={{ width: '100%', borderRadius: 8, display: 'block' }} />
+              {block.caption && <p className="art-img-caption">{block.caption}</p>}
+            </div>
+          )
           return null
         })}
       </div>
