@@ -8,7 +8,7 @@ export interface NewsArticle {
   thumbLabel?: string
   hero: string
   excerpt: string
-  body: { type: 'p' | 'h2' | 'quote'; text: string }[]
+  body: { type: 'p' | 'h2' | 'quote' | 'img'; text: string; src?: string; caption?: string }[]
 }
 
 export const NEWS_DATA: Record<string, NewsArticle> = {
@@ -91,13 +91,15 @@ export const NEWS_DATA: Record<string, NewsArticle> = {
     thumb: '',
     thumbBg: '#E31E24',
     thumbLabel: 'RUPES®',
-    hero: '/media/prepped.jpg',
+    hero: '/media/news/rupes/post-1.jpg',
     excerpt: 'We\'re delighted to announce a new partnership between Todd Engineering and RUPES, bringing complete dust extraction solutions to our ZEUS preparation rooms.',
     body: [
       { type: 'p', text: 'We\'re delighted to announce a new partnership between Todd Engineering and RUPES. As part of our commitment to delivering complete finishing solutions, RUPES dust extraction and air purification systems are now available as part of our ZEUS preparation room packages.' },
       { type: 'p', text: 'This partnership combines Todd Engineering\'s expertise in spraybooths and finishing systems with RUPES\' industry-leading dust extraction technology — creating a smarter, cleaner, and more productive environment for vehicle preparation.' },
+      { type: 'img', text: '', src: '/media/news/rupes/post-2.jpg', caption: 'RUPES dust extraction and air purification system installed in a ZEUS preparation environment.' },
       { type: 'h2', text: 'The result for your bodyshop.' },
       { type: 'p', text: 'The RUPES NIVEUS range brings advanced air purification capability with ULPA U15 filtration, air quality monitoring, and high-efficiency removal of airborne contaminants — making it the ideal complement to the ZEUS preparation bay environment.' },
+      { type: 'img', text: '', src: '/media/news/rupes/post-3.jpg', caption: 'RUPES-equipped preparation bay — clean air, controlled environment, optimum finish conditions.' },
       { type: 'p', text: 'We look forward to showcasing these combined solutions in the coming months. If you\'d like to learn more about integrating RUPES technology into your ZEUS preparation room package, get in touch with our team.' },
     ],
   },
