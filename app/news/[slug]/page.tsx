@@ -5,7 +5,7 @@ import ScrollReveal from '@/components/ScrollReveal'
 import ArticleVideo from '@/components/ArticleVideo'
 import { getArticle, getArticles } from '@/lib/supabase'
 
-export const revalidate = 60
+export const revalidate = 3600
 
 type Props = { params: Promise<{ slug: string }> }
 
