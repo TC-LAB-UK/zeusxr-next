@@ -10,7 +10,7 @@ const industries = [
     desc: 'From single-bay refinishing centres to high-volume production lines, Todd Engineering has been the trusted name in automotive spraybooth technology for three decades. Standard prep bays to AI-assisted finishing suites — we build it to last.',
     stats: [{ v: '10k+', l: 'Booths Installed' }, { v: '30+', l: 'Years Experience' }],
     cta: { href: '/projects', label: 'View Projects' },
-    img: '/media/prepped.jpg',
+    img: '/media/projects/autolux/hero.jpg',
     imgAlt: 'Automotive spraybooth finishing',
   },
   {
@@ -46,7 +46,7 @@ const industries = [
     desc: 'Todd Engineering systems operate across the Middle East, Europe and beyond. We manage the full project lifecycle — design, manufacture, international installation and commissioning — ensuring the same standard of finish wherever in the world you need it.',
     stats: [{ v: '25+', l: 'Countries Served' }, { v: 'Global', l: 'Turnkey Projects' }],
     cta: { href: '/projects', label: 'View Projects' },
-    img: '/media/made-in-britain.jpg',
+    img: '/media/projects/hills-helicopters/hero.jpg',
     imgAlt: 'British engineered — exported worldwide',
   },
 ]

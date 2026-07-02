@@ -13,7 +13,7 @@ const data: ProductPageData = {
   eyebrow: 'Todd Engineering — Specialist Finishing',
   h1: 'Apollo WheelCabin',
   sub: 'Alloy wheel refinishing. Particle-free environment. Professional results every time.',
-  heroBg: 'https://www.toddengineering.co.uk/media/rqmnbze1/2.png',
+  heroBg: '/media/products/worky/2.png',
   description: 'The Apollo WheelCabin is a specialist spray finishing cabin for alloy wheels — filtered downdraught airflow, high-CRI LED lighting and a compact footprint that fits a standard workshop bay.',
   pills: ['Alloy Wheel Specialist', 'Filtered Airflow', 'Integrated Lighting', 'Compact Cabin', 'Safe Working Environment', 'Professional Results'],
   specRows: [
