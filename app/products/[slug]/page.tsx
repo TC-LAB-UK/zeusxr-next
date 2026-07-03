@@ -347,8 +347,8 @@ function ProductPageClient({ slug }: { slug: string }) {
         </section>
       )}
 
-      {/* ENERGY CALCULATOR — Zeus 8000 only */}
-      {(slug === 'zeus-8000' || slug === 'zeus-8000-series') && <EnergyCalculator />}
+      {/* ENERGY CALCULATOR */}
+      <EnergyCalculator />
 
       {/* CONTACT FORM */}
       <section className="contact-sec" id="contact">
