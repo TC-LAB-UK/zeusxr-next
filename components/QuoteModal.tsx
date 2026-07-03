@@ -14,32 +14,45 @@ export default function QuoteModal() {
   const formRef = useRef<HTMLFormElement>(null)
 
   useEffect(() => {
-    function handleOpen(e: CustomEvent) {
-      setTitle(e.detail || 'Get a Quote')
+    let lastTouchTime = 0
+
+    function openModal(title: string) {
+      setTitle(title || 'Get a Quote')
       setOpen(true)
       setSent(false)
       document.body.style.overflow = 'hidden'
     }
+
+    // touchend fires reliably on iOS Safari (including inside position:fixed elements)
+    function handleTouchEnd(e: TouchEvent) {
+      const btn = (e.target as Element).closest('[data-quote]') as HTMLElement | null
+      if (btn) {
+        e.preventDefault()
+        lastTouchTime = Date.now()
+        openModal(btn.dataset.quote || 'Get a Quote')
+      }
+    }
+
+    // click handles desktop + Android; skip if touch already handled (prevents double-fire)
+    function handleClick(e: MouseEvent) {
+      if (Date.now() - lastTouchTime < 600) return
+      const btn = (e.target as Element).closest('[data-quote]') as HTMLElement | null
+      if (btn) {
+        e.preventDefault()
+        openModal(btn.dataset.quote || 'Get a Quote')
+      }
+    }
+
     function handleKey(e: KeyboardEvent) {
       if (e.key === 'Escape') close()
     }
 
-    // Listen for clicks on [data-quote] buttons
-    function handleClick(e: MouseEvent) {
-      const btn = (e.target as Element).closest('[data-quote]') as HTMLElement | null
-      if (btn) {
-        e.preventDefault()
-        setTitle(btn.dataset.quote || 'Get a Quote')
-        setOpen(true)
-        setSent(false)
-        document.body.style.overflow = 'hidden'
-      }
-    }
-
-    document.addEventListener('click', handleClick)
+    window.addEventListener('touchend', handleTouchEnd)
+    window.addEventListener('click', handleClick)
     document.addEventListener('keydown', handleKey)
     return () => {
-      document.removeEventListener('click', handleClick)
+      window.removeEventListener('touchend', handleTouchEnd)
+      window.removeEventListener('click', handleClick)
       document.removeEventListener('keydown', handleKey)
     }
   }, [])
