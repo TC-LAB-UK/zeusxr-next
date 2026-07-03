@@ -24,10 +24,11 @@ export default function Nav() {
     try { localStorage.setItem('te-theme', next) } catch { /**/ }
   }
 
-  // closeMenu is called from Link clicks inside the mobile menu.
-  // It clears the data attribute (which drives CSS) rather than React state.
+  // Uncheck the checkbox — this closes the menu via pure CSS.
+  // Much simpler than trying to manage DOM state with React on mobile.
   function closeMenu() {
-    delete document.documentElement.dataset.mobOpen
+    const toggle = document.getElementById('mob-toggle') as HTMLInputElement | null
+    if (toggle) toggle.checked = false
     setOpenSub(null)
   }
 
@@ -76,7 +77,21 @@ export default function Nav() {
 
   return (
     <>
-      {/* scrolled class is managed by the nav-init script in layout.tsx, not React state */}
+      {/*
+        CSS CHECKBOX HACK — zero JavaScript needed to open/close the mobile menu.
+        The checkbox is visually hidden. The hamburger is a <label> that toggles it.
+        CSS selectors (#mob-toggle:checked ~ ...) control all visual state.
+        This works on every browser regardless of React hydration status.
+      */}
+      <input
+        type="checkbox"
+        id="mob-toggle"
+        className="mob-toggle-input"
+        tabIndex={-1}
+        aria-hidden="true"
+      />
+
+      {/* scrolled class added by IntersectionObserver in layout.tsx — not React state */}
       <nav id="nav">
         <Link href="/" onClick={closeMenu}>
           <Image
@@ -124,21 +139,18 @@ export default function Nav() {
             </svg>
           </button>
           <button className="btn btn-cta" data-quote="Get a Quote">Get a Quote</button>
-          {/* open/close state managed by nav-init script via html[data-mob-open] CSS */}
-          <button
-            type="button"
-            id="nav-hamburger"
+          {/* label toggles #mob-toggle checkbox — no JS onclick needed */}
+          <label
+            htmlFor="mob-toggle"
             className="hamburger"
             aria-label="Open menu"
-            aria-expanded="false"
-            style={{ touchAction: 'manipulation' }}
+            role="button"
           >
             <span></span><span></span><span></span>
-          </button>
+          </label>
         </div>
       </nav>
 
-      {/* open/close state managed by nav-init script via html[data-mob-open] CSS */}
       <div className="mob-menu" id="mob-menu" aria-hidden="true">
         <nav className="mob-nav">
           {navItems.map(item => (
