@@ -14,45 +14,22 @@ export default function QuoteModal() {
   const formRef = useRef<HTMLFormElement>(null)
 
   useEffect(() => {
-    let lastTouchTime = 0
-
-    function openModal(title: string) {
+    // Expose global opener — called by native inline script in layout.tsx
+    // This bypasses React event delegation, which fails on iOS Safari for fixed elements
+    ;(window as any).openQuoteModal = (title?: string) => {
       setTitle(title || 'Get a Quote')
       setOpen(true)
       setSent(false)
       document.body.style.overflow = 'hidden'
     }
 
-    // touchend fires reliably on iOS Safari (including inside position:fixed elements)
-    function handleTouchEnd(e: TouchEvent) {
-      const btn = (e.target as Element).closest('[data-quote]') as HTMLElement | null
-      if (btn) {
-        e.preventDefault()
-        lastTouchTime = Date.now()
-        openModal(btn.dataset.quote || 'Get a Quote')
-      }
-    }
-
-    // click handles desktop + Android; skip if touch already handled (prevents double-fire)
-    function handleClick(e: MouseEvent) {
-      if (Date.now() - lastTouchTime < 600) return
-      const btn = (e.target as Element).closest('[data-quote]') as HTMLElement | null
-      if (btn) {
-        e.preventDefault()
-        openModal(btn.dataset.quote || 'Get a Quote')
-      }
-    }
-
     function handleKey(e: KeyboardEvent) {
       if (e.key === 'Escape') close()
     }
-
-    window.addEventListener('touchend', handleTouchEnd)
-    window.addEventListener('click', handleClick)
     document.addEventListener('keydown', handleKey)
+
     return () => {
-      window.removeEventListener('touchend', handleTouchEnd)
-      window.removeEventListener('click', handleClick)
+      ;(window as any).openQuoteModal = undefined
       document.removeEventListener('keydown', handleKey)
     }
   }, [])

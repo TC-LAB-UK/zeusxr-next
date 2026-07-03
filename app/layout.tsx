@@ -52,6 +52,34 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <QuoteModal />
         <CookieConsent />
+        {/* Native [data-quote] CTA wiring — bypasses React event delegation entirely.
+            window.openQuoteModal is exposed by QuoteModal.tsx on mount.
+            touchend fires reliably on iOS Safari from any element incl. position:fixed. */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            var lt = 0;
+            function tryOpen(el) {
+              var title = el.getAttribute('data-quote') || 'Get a Quote';
+              if (typeof window.openQuoteModal === 'function') {
+                window.openQuoteModal(title);
+              } else {
+                /* React not hydrated yet — retry after short delay */
+                setTimeout(function() {
+                  if (typeof window.openQuoteModal === 'function') window.openQuoteModal(title);
+                }, 400);
+              }
+            }
+            window.addEventListener('touchend', function(e) {
+              var el = e.target && e.target.closest && e.target.closest('[data-quote]');
+              if (el) { e.preventDefault(); lt = Date.now(); tryOpen(el); }
+            }, false);
+            window.addEventListener('click', function(e) {
+              if (Date.now() - lt < 600) return;
+              var el = e.target && e.target.closest && e.target.closest('[data-quote]');
+              if (el) tryOpen(el);
+            }, false);
+          })();
+        ` }} />
         {/* Inline script — runs synchronously after DOM is parsed, no framework delay.
             Uses every possible scroll detection method for iOS Safari compatibility. */}
         <script dangerouslySetInnerHTML={{ __html: `
