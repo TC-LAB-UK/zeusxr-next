@@ -284,7 +284,7 @@ export default function ZeusXRClient() {
               <div className="ts-lbl">Paint Usage Reduction</div>
             </div>
           </div>
-          <img src="/brand/paintgo-lockup.png" alt="Todd Engineering | PaintGo" style={{ height: 'clamp(48px,6vw,80px)', width: 'auto', objectFit: 'contain' }} />
+          <img src="/brand/paintgo-lockup.png" alt="Todd Engineering | PaintGo" className="paintgo-lockup" style={{ height: 'clamp(48px,6vw,80px)', width: 'auto', objectFit: 'contain' }} />
         </div>
       </section>
 
