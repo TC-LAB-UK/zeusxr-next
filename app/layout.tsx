@@ -42,81 +42,54 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={inter.className}>
         <Nav />
+        {/*
+          Sentinel for scroll detection. Position: after the fixed nav (which is 72px tall).
+          IntersectionObserver watches this. When it leaves the viewport (user scrolled),
+          #nav gets .scrolled class. IntersectionObserver is the same API as ScrollReveal
+          and is confirmed working on this device.
+        */}
+        <div id="nav-sentinel" aria-hidden="true" style={{ height: '1px', marginTop: '0px', pointerEvents: 'none' }} />
         {children}
         <Footer />
         <QuoteModal />
         <CookieConsent />
         {/*
-          nav-init: standalone native script for hamburger + scroll.
-          Runs completely outside React — guaranteed to work on all mobile browsers.
-          Drives state via html[data-mob-open] attribute; CSS handles all visuals.
+          Scroll detection only. Hamburger is now handled by CSS checkbox hack — no JS needed.
+          IntersectionObserver on nav-sentinel: when it leaves viewport, nav gets .scrolled.
+          Fallback scroll listener covers edge cases.
         */}
-        <Script id="nav-init" strategy="afterInteractive">{`
+        <Script id="nav-scroll" strategy="afterInteractive">{`
           (function() {
-            var hamburger = document.getElementById('nav-hamburger');
-            var mobMenu   = document.getElementById('mob-menu');
-            var nav       = document.getElementById('nav');
-            var lastTap   = 0;
+            var nav = document.getElementById('nav');
+            if (!nav) return;
 
-            if (!hamburger || !mobMenu) return;
-
-            function isOpen() {
-              return document.documentElement.hasAttribute('data-mob-open');
+            function setScrolled(on) {
+              if (on) { nav.classList.add('scrolled'); }
+              else    { nav.classList.remove('scrolled'); }
             }
 
-            function openMenu() {
-              document.documentElement.setAttribute('data-mob-open', '');
-              hamburger.setAttribute('aria-expanded', 'true');
-              hamburger.setAttribute('aria-label', 'Close menu');
-              mobMenu.setAttribute('aria-hidden', 'false');
+            /* Primary: IntersectionObserver on the sentinel element.
+               Same API as ScrollReveal — confirmed working on mobile. */
+            var sentinel = document.getElementById('nav-sentinel');
+            if (sentinel && 'IntersectionObserver' in window) {
+              var io = new IntersectionObserver(function(entries) {
+                setScrolled(!entries[0].isIntersecting);
+              }, { threshold: 0, rootMargin: '-56px 0px 0px 0px' });
+              io.observe(sentinel);
             }
 
-            function closeMenu() {
-              document.documentElement.removeAttribute('data-mob-open');
-              hamburger.setAttribute('aria-expanded', 'false');
-              hamburger.setAttribute('aria-label', 'Open menu');
-              mobMenu.setAttribute('aria-hidden', 'true');
+            /* Fallback: scroll event on window + document */
+            function onScroll() {
+              var y = window.pageYOffset
+                   || window.scrollY
+                   || document.documentElement.scrollTop
+                   || document.body.scrollTop
+                   || 0;
+              setScrolled(y > 56);
             }
-
-            function toggle(e) {
-              e.preventDefault();
-              e.stopPropagation();
-              var now = Date.now();
-              if (now - lastTap < 300) return;
-              lastTap = now;
-              if (isOpen()) { closeMenu(); } else { openMenu(); }
-            }
-
-            /* touchend: primary handler on mobile (fires before click) */
-            hamburger.addEventListener('touchend', toggle, { passive: false });
-            /* click: fallback for desktop / non-touch */
-            hamburger.addEventListener('click', function(e) {
-              if (Date.now() - lastTap > 200) toggle(e);
-            });
-
-            /* Close when a link inside the mobile menu is tapped */
-            mobMenu.addEventListener('click', function(e) {
-              var t = e.target;
-              while (t && t !== mobMenu) {
-                if (t.tagName === 'A' || t.classList.contains('mob-cta')) {
-                  closeMenu();
-                  return;
-                }
-                t = t.parentElement;
-              }
-            });
-
-            /* Scroll detection — nav gets .scrolled class for solid background */
-            if (nav) {
-              function onScroll() {
-                var y = window.scrollY || document.documentElement.scrollTop || 0;
-                if (y > 56) { nav.classList.add('scrolled'); }
-                else        { nav.classList.remove('scrolled'); }
-              }
-              window.addEventListener('scroll', onScroll, { passive: true });
-              document.addEventListener('scroll', onScroll, { passive: true });
-              onScroll(); /* run once immediately */
-            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            document.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
           })();
         `}</Script>
       </body>
