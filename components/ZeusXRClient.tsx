@@ -525,7 +525,7 @@ export default function ZeusXRClient() {
           ) : (
             <div className="exp-vid-wrap">
               <iframe
-                src="https://www.youtube.com/embed/s5-tmqBcUF8?autoplay=1&playsinline=1"
+                src="https://www.youtube.com/embed/3mmUsPu39Og?autoplay=1&playsinline=1"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
@@ -589,7 +589,7 @@ export default function ZeusXRClient() {
           ) : (
             <div className="exp-vid-wrap">
               <iframe
-                src="https://www.youtube.com/embed/da2caTaIaeA?autoplay=1&playsinline=1"
+                src="https://www.youtube.com/embed/MsJcaRP38ks?autoplay=1&playsinline=1"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
