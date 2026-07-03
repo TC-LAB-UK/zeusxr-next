@@ -154,28 +154,33 @@ export default function Nav() {
 
       <div className="mob-menu" id="mob-menu" aria-hidden="true">
         <nav className="mob-nav">
-          {navItems.map(item => (
-            /* <details>/<summary> = native browser accordion, zero JS needed.
-               Works on all mobile browsers regardless of React hydration state. */
-            <details key={item.label} className="mob-item">
-              <summary className="mob-trigger">
-                {item.label}
-                <svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg>
-              </summary>
-              <ul className="mob-sub">
-                {item.links.map((l, i) =>
-                  'divider' in l ? null : (
-                    <li key={i}>
-                      <Link href={l.href!} onClick={closeMenu}>
-                        {l.label}
-                        {'badge' in l && l.badge && <span style={{ fontSize: 9, fontWeight: 700, background: 'rgba(80,167,36,.12)', border: '1px solid rgba(80,167,36,.25)', color: '#50a724', padding: '2px 7px', borderRadius: 100, marginLeft: 8 }}>{l.badge}</span>}
-                      </Link>
-                    </li>
-                  )
-                )}
-              </ul>
-            </details>
-          ))}
+          {navItems.map(item => {
+            /* Checkbox hack per sub-menu — same proven approach as the hamburger.
+               label toggles checkbox; CSS :checked sibling selector expands sub-menu.
+               Zero JavaScript, zero React, works on all mobile browsers. */
+            const subId = `sub-${item.label.replace(/\s+/g, '-').toLowerCase()}`
+            return (
+              <div key={item.label} className="mob-item">
+                <input type="checkbox" id={subId} className="sub-toggle-input" />
+                <label htmlFor={subId} className="mob-trigger">
+                  {item.label}
+                  <svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg>
+                </label>
+                <ul className="mob-sub">
+                  {item.links.map((l, i) =>
+                    'divider' in l ? null : (
+                      <li key={i}>
+                        <Link href={l.href!} onClick={closeMenu}>
+                          {l.label}
+                          {'badge' in l && l.badge && <span style={{ fontSize: 9, fontWeight: 700, background: 'rgba(80,167,36,.12)', border: '1px solid rgba(80,167,36,.25)', color: '#50a724', padding: '2px 7px', borderRadius: 100, marginLeft: 8 }}>{l.badge}</span>}
+                        </Link>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+            )
+          })}
           <div className="mob-item">
             <Link href="/contact" className="mob-link" onClick={closeMenu}>Contact Us</Link>
           </div>
