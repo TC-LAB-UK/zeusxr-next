@@ -11,22 +11,64 @@ export default function Nav() {
   const [openSub, setOpenSub] = useState<string | null>(null)
 
   useEffect(() => {
-    const stored = localStorage.getItem('te-theme') as 'dark' | 'light' | null
-    const t = stored || 'light'
-    setTheme(t)
-    document.documentElement.setAttribute('data-theme', t)
+    try {
+      const stored = localStorage.getItem('te-theme') as 'dark' | 'light' | null
+      const t = stored || 'light'
+      setTheme(t)
+      document.documentElement.setAttribute('data-theme', t)
+    } catch { /* private browsing — use default */ }
   }, [])
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 56)
+    // Use document scroll for iOS compatibility (body overflow-x:hidden makes html the scroller)
+    const onScroll = () => {
+      const y = window.scrollY ?? document.documentElement.scrollTop ?? 0
+      setScrolled(y > 56)
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    document.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      document.removeEventListener('scroll', onScroll)
+    }
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    // iOS Safari: position:fixed on html avoids fixed-element repaint bugs
+    if (menuOpen) {
+      const y = window.scrollY
+      document.documentElement.style.overflow = 'hidden'
+      document.documentElement.style.position = 'fixed'
+      document.documentElement.style.top = `-${y}px`
+      document.documentElement.style.width = '100%'
+    } else {
+      const top = document.documentElement.style.top
+      document.documentElement.style.overflow = ''
+      document.documentElement.style.position = ''
+      document.documentElement.style.top = ''
+      document.documentElement.style.width = ''
+      if (top) window.scrollTo(0, -parseInt(top))
+    }
+    return () => {
+      document.documentElement.style.overflow = ''
+      document.documentElement.style.position = ''
+      document.documentElement.style.top = ''
+      document.documentElement.style.width = ''
+    }
   }, [menuOpen])
+
+  // Native touch handler for hamburger — bypasses React event delegation on iOS
+  useEffect(() => {
+    const btn = document.querySelector('.hamburger')
+    if (!btn) return
+    function onTouch(e: Event) {
+      e.preventDefault()
+      setMenuOpen(o => !o)
+      setOpenSub(null)
+    }
+    btn.addEventListener('touchend', onTouch, { passive: false } as EventListenerOptions)
+    return () => btn.removeEventListener('touchend', onTouch)
+  }, [])
 
   function toggleTheme() {
     const next = theme === 'dark' ? 'light' : 'dark'
