@@ -363,7 +363,7 @@ export default async function Home() {
               <button className="btn btn-ghost-ui btn-lg" data-quote="Zeus XR — Book a Demo">Book a Demo</button>
             </div>
           </div>
-          <div className="zxr-video-wrap" id="zxrVideoWrap" style={{ marginTop: 56 }}>
+          <div className="zxr-video-wrap" id="zxrVideoWrap" data-yt-vid="MsJcaRP38ks" style={{ marginTop: 56 }}>
             <img src="/media/robot-image.jpg" alt="Zeus XR robot spraying" className="zxr-thumb" />
             <button className="zxr-play" id="zxrPlayBtn" aria-label="Play Zeus XR video">
               <svg viewBox="0 0 80 80" fill="none">

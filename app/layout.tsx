@@ -88,6 +88,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 else { retry(function(){ var f = vid === '1' ? window.playVid1 : window.playVid2; f && f(); }, 400); }
                 return true;
               }
+              var y = t.closest('[data-yt-vid]');
+              if (y) {
+                e.preventDefault();
+                var ytId = y.getAttribute('data-yt-vid');
+                y.innerHTML = '<iframe src="https://www.youtube.com/embed/' + ytId + '?autoplay=1&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;" title="Zeus XR"></iframe>';
+                return true;
+              }
               return false;
             }
             window.addEventListener('touchend', function(e) {
