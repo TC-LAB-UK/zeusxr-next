@@ -523,34 +523,6 @@ export default function ZeusXRClient() {
         </div>
       </section>
 
-      {/* IMPACT */}
-      <section className="sec sec-alt" id="performance">
-        <div className="w-1300">
-          <div className="tc rv">
-            <div className="s-lbl">Operational Impact &amp; Payback</div>
-            <h2 className="s-h2 mw-560">Measurable gains. From day one.</h2>
-          </div>
-          <div className="imp-row rv">
-            <div className="imp-cell">
-              <div className="imp-num">−£95k</div>
-              <div className="imp-title">Annual cost reduction</div>
-              <div className="imp-note">Labour reduction (£70k) and paint savings (£25k) combined.</div>
-            </div>
-            <div className="imp-cell">
-              <div className="imp-num">+30%</div>
-              <div className="imp-title">Increase in output</div>
-              <div className="imp-note">Up to 130 additional vehicles per month on conservative utilisation.</div>
-            </div>
-            <div className="imp-cell">
-              <div className="imp-num">£1M+</div>
-              <div className="imp-title">Revenue potential</div>
-              <div className="imp-note">Per annum, based on average order values of £8k.</div>
-            </div>
-          </div>
-          <p style={{ fontSize: 11, color: 'var(--t3)', textAlign: 'center', marginTop: 20 }}>*Estimates based on typical operating assumptions. Verify against your individual operation.</p>
-        </div>
-      </section>
-
       {/* THE EXPERIENCE — 6 steps */}
       <section className="sec" id="experience">
         <div className="w-1300">
