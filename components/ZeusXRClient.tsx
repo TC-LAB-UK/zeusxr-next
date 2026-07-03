@@ -160,6 +160,12 @@ export default function ZeusXRClient() {
   const baRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
 
+  /* ── Expose demo modal opener for native iOS touch wiring ── */
+  useEffect(() => {
+    ;(window as any).openDemoModal = () => setModalOpen(true)
+    return () => { ;(window as any).openDemoModal = undefined }
+  }, [])
+
   /* ── Scroll reveal ── */
   useEffect(() => {
     const els = document.querySelectorAll('.rv')
@@ -224,7 +230,7 @@ export default function ZeusXRClient() {
           <h1 style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }}>Zeus XR — Robotic Spray Finishing System by Todd Engineering</h1>
           <h2 style={{ fontSize: 'clamp(24px,2.6vw,38px)', fontWeight: 700, letterSpacing: '-.02em', lineHeight: 1.1, color: '#fff', marginTop: -20, marginBottom: 36 }}>Advanced Spray Finishing Technology</h2>
           <div className="hero-ctas">
-            <button className="btn btn-cta btn-lg" onClick={() => setModalOpen(true)}>Book a Live Demo</button>
+            <button className="btn btn-cta btn-lg" data-demo="true">Book a Live Demo</button>
             <a href="#product" className="btn btn-ghost btn-lg">Explore</a>
           </div>
         </div>
@@ -624,7 +630,7 @@ export default function ZeusXRClient() {
               <div className="s-lbl" style={{ marginBottom: 14 }}>Technical Specifications</div>
               <h2 className="s-h2" style={{ fontSize: 'clamp(24px,2.6vw,38px)', marginBottom: 16 }}>Precision engineering.<br />Every detail.</h2>
               <p className="s-p" style={{ marginBottom: 28, fontSize: 14 }}>Designed for continuous operation. Full installation, commissioning, training and ongoing support from Todd Engineering.</p>
-              <button className="btn btn-cta" style={{ marginBottom: 40 }} onClick={() => setModalOpen(true)}>Book a Demo</button>
+              <button className="btn btn-cta" style={{ marginBottom: 40 }} data-demo="true">Book a Demo</button>
               <div className="spec-tbl">
                 {[
                   ['Application', 'Automotive spray finishing'],
@@ -694,7 +700,7 @@ export default function ZeusXRClient() {
         <div className="cta-content rv">
           <h2 className="cta-h2">See Zeus XR In Action</h2>
           <div className="cta-btns">
-            <button className="btn btn-cta btn-lg" onClick={() => setModalOpen(true)}>Book a Live Demo</button>
+            <button className="btn btn-cta btn-lg" data-demo="true">Book a Live Demo</button>
             <a href="mailto:sales@toddengineering.co.uk?subject=Zeus XR Enquiry" className="btn btn-ghost btn-lg">Make an Enquiry</a>
           </div>
         </div>
