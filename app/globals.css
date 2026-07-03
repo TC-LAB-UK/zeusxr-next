@@ -1252,6 +1252,23 @@ footer { background: #060606; border-top: 1px solid rgba(255,255,255,.06); paddi
   /* ── Finance Options ── */
   .fin-step { grid-template-columns: 40px 1fr; gap: 16px; }
   .fin-step-detail { grid-column: 1 / -1; padding-top: 0; padding-left: 56px; }
+
+  /* ── Zeus XR sections ── */
+  .intro { padding: 64px 20px; }
+  .fcar-header { padding: 0 20px; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .fcar-track { padding: 0 20px 12px; }
+  .fcar-card { flex: 0 0 280px; height: 400px; }
+  .exp-vid-sec { padding: 64px 20px; }
+  .ba-section { padding: 64px 20px; }
+  .hs-card { width: min(280px, 88vw); }
+
+  /* ── Product page contact form (higher specificity needed) ── */
+  .contact-form .cf-row { grid-template-columns: 1fr; }
+  .contact-form-wrap { padding: 28px 20px; }
+
+  /* ── Footer ── */
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { gap: 8px; }
 }
 @media (max-width: 480px) {
   .prod-grid { grid-template-columns: 1fr; padding: 0 20px; }
