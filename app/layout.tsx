@@ -69,16 +69,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }
 
             /* Primary: IntersectionObserver on the sentinel element.
-               Same API as ScrollReveal — confirmed working on mobile. */
+               rootMargin '56px' expands the root 56px upward, so the sentinel
+               (at top of page) stays "intersecting" until the user scrolls 56px. */
             var sentinel = document.getElementById('nav-sentinel');
             if (sentinel && 'IntersectionObserver' in window) {
               var io = new IntersectionObserver(function(entries) {
                 setScrolled(!entries[0].isIntersecting);
-              }, { threshold: 0, rootMargin: '-56px 0px 0px 0px' });
+              }, { threshold: 0, rootMargin: '56px 0px 0px 0px' });
               io.observe(sentinel);
             }
 
-            /* Fallback: scroll event on window + document */
+            /* Fallback: scroll events on all possible scroll targets.
+               On iOS, body{overflow-x:hidden} makes html the scroller. */
             function onScroll() {
               var y = window.pageYOffset
                    || window.scrollY
@@ -89,6 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }
             window.addEventListener('scroll', onScroll, { passive: true });
             document.addEventListener('scroll', onScroll, { passive: true });
+            document.documentElement.addEventListener('scroll', onScroll, { passive: true });
             onScroll();
           })();
         `}</Script>

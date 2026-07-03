@@ -6,7 +6,6 @@ import Image from 'next/image'
 
 export default function Nav() {
   const [theme, setTheme] = useState<'dark' | 'light'>('light')
-  const [openSub, setOpenSub] = useState<string | null>(null)
 
   useEffect(() => {
     try {
@@ -24,12 +23,14 @@ export default function Nav() {
     try { localStorage.setItem('te-theme', next) } catch { /**/ }
   }
 
-  // Uncheck the checkbox — this closes the menu via pure CSS.
-  // Much simpler than trying to manage DOM state with React on mobile.
+  // Uncheck the checkbox to close the mobile menu (pure CSS drives visibility).
+  // Also collapse any open sub-menus (details elements).
   function closeMenu() {
     const toggle = document.getElementById('mob-toggle') as HTMLInputElement | null
     if (toggle) toggle.checked = false
-    setOpenSub(null)
+    document.querySelectorAll<HTMLDetailsElement>('.mob-nav details[open]').forEach(el => {
+      el.open = false
+    })
   }
 
   const navItems = [
@@ -154,15 +155,14 @@ export default function Nav() {
       <div className="mob-menu" id="mob-menu" aria-hidden="true">
         <nav className="mob-nav">
           {navItems.map(item => (
-            <div key={item.label} className="mob-item">
-              <button
-                className={`mob-trigger${openSub === item.label ? ' open' : ''}`}
-                onClick={() => setOpenSub(openSub === item.label ? null : item.label)}
-              >
+            /* <details>/<summary> = native browser accordion, zero JS needed.
+               Works on all mobile browsers regardless of React hydration state. */
+            <details key={item.label} className="mob-item">
+              <summary className="mob-trigger">
                 {item.label}
                 <svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg>
-              </button>
-              <ul className={`mob-sub${openSub === item.label ? ' open' : ''}`}>
+              </summary>
+              <ul className="mob-sub">
                 {item.links.map((l, i) =>
                   'divider' in l ? null : (
                     <li key={i}>
@@ -174,7 +174,7 @@ export default function Nav() {
                   )
                 )}
               </ul>
-            </div>
+            </details>
           ))}
           <div className="mob-item">
             <Link href="/contact" className="mob-link" onClick={closeMenu}>Contact Us</Link>
