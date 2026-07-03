@@ -348,7 +348,7 @@ function ProductPageClient({ slug }: { slug: string }) {
       )}
 
       {/* ENERGY CALCULATOR — Zeus 8000 only */}
-      {slug === 'zeus-8000' && <EnergyCalculator />}
+      {slug === 'zeus-8000-series' && <EnergyCalculator />}
 
       {/* CONTACT FORM */}
       <section className="contact-sec" id="contact">
