@@ -79,6 +79,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 else { retry(function(){ window.openDemoModal && window.openDemoModal(); }, 400); }
                 return true;
               }
+              var v = t.closest('[data-play-vid]');
+              if (v) {
+                e.preventDefault();
+                var vid = v.getAttribute('data-play-vid');
+                var fn = vid === '1' ? window.playVid1 : window.playVid2;
+                if (typeof fn === 'function') { fn(); }
+                else { retry(function(){ var f = vid === '1' ? window.playVid1 : window.playVid2; f && f(); }, 400); }
+                return true;
+              }
               return false;
             }
             window.addEventListener('touchend', function(e) {

@@ -160,10 +160,16 @@ export default function ZeusXRClient() {
   const baRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
 
-  /* ── Expose demo modal opener for native iOS touch wiring ── */
+  /* ── Expose demo modal + video openers for native iOS touch wiring ── */
   useEffect(() => {
     ;(window as any).openDemoModal = () => setModalOpen(true)
-    return () => { ;(window as any).openDemoModal = undefined }
+    ;(window as any).playVid1 = () => setVid1Playing(true)
+    ;(window as any).playVid2 = () => setVid2Playing(true)
+    return () => {
+      ;(window as any).openDemoModal = undefined
+      ;(window as any).playVid1 = undefined
+      ;(window as any).playVid2 = undefined
+    }
   }, [])
 
   /* ── Scroll reveal ── */
@@ -505,7 +511,7 @@ export default function ZeusXRClient() {
             <div
               className="exp-vid-wrap"
               style={{ backgroundImage: 'url(/media/isolated-booth.jpg)' }}
-              onClick={() => setVid1Playing(true)}
+              data-play-vid="1"
             >
               <div className="exp-vid-overlay">
                 <button className="exp-play-btn" aria-label="Play video">
@@ -519,8 +525,9 @@ export default function ZeusXRClient() {
           ) : (
             <div className="exp-vid-wrap">
               <iframe
-                src="https://www.youtube.com/embed/s5-tmqBcUF8?autoplay=1"
-                allow="autoplay; fullscreen"
+                src="https://www.youtube.com/embed/s5-tmqBcUF8?autoplay=1&playsinline=1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
                 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
                 title="Zeus XR Explained"
               />
@@ -568,7 +575,7 @@ export default function ZeusXRClient() {
             <div
               className="exp-vid-wrap"
               style={{ backgroundImage: 'url(/media/zeus-xr-video-thumb.jpg)' }}
-              onClick={() => setVid2Playing(true)}
+              data-play-vid="2"
             >
               <div className="exp-vid-overlay">
                 <button className="exp-play-btn" aria-label="Play video">
@@ -582,8 +589,9 @@ export default function ZeusXRClient() {
           ) : (
             <div className="exp-vid-wrap">
               <iframe
-                src="https://www.youtube.com/embed/da2caTaIaeA?autoplay=1"
-                allow="autoplay; fullscreen"
+                src="https://www.youtube.com/embed/da2caTaIaeA?autoplay=1&playsinline=1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
                 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
                 title="Zeus XR Experience"
               />
