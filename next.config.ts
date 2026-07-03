@@ -114,6 +114,9 @@ const nextConfig: NextConfig = {
       { source: '/news/rhodes-rugeley', destination: '/projects', permanent: true },
 
       // ── Case study slug renames ───────────────────────────────────────────
+      { source: '/projects/case-study-1', destination: '/projects/uk-offshore-wind-farm', permanent: true },
+      { source: '/projects/case-study-2', destination: '/projects/bahrain-aerospace-facility', permanent: true },
+      { source: '/projects/case-study-3', destination: '/projects/k-and-s', permanent: true },
       { source: '/projects/amalgam', destination: '/projects/k-and-s', permanent: true },
       { source: '/projects/british-wind-farm', destination: '/projects/uk-offshore-wind-farm', permanent: true },
       { source: '/projects/dubai-aerospace', destination: '/projects/bahrain-aerospace-facility', permanent: true },
