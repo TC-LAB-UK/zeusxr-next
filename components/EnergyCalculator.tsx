@@ -2,16 +2,14 @@
 
 import { useState, useMemo } from 'react'
 
-// Per-cycle energy constants calibrated for 25,000m³/hr AHP booth
-// These values reproduce the old site's CO2 outputs (71.4t trad / 6.0t Zeus)
-const GAS_TRAD  = 1626  // kWh gas  — traditional booth per cycle
-const ELEC_TRAD = 30    // kWh elec — traditional booth per cycle
-const GAS_SAVE  = 439   // kWh gas  — with energy saving features
-const ELEC_SAVE = 18    // kWh elec — with energy saving features
-const ELEC_ZEUS = 110   // kWh elec — Zeus FIR all-electric (no gas)
-const WEEKS     = 48    // operational weeks per year
-const CO2_GAS   = 0.183 // kg CO₂e per kWh natural gas
-const CO2_ELEC  = 0.233 // kg CO₂e per kWh UK grid electricity
+// Per-cycle energy constants reverse-engineered from old site outputs
+// Verified: at gas=0.20, elec=0.33, 2 cycles/week → trad £1,716 / save £462 / zeus £422
+const GAS_TRAD  = 89.375   // kWh gas  — traditional booth per cycle
+const GAS_SAVE  = 24.0625  // kWh gas  — with energy saving features per cycle
+const ELEC_ZEUS = 13.32    // kWh elec — Zeus FIR all-electric per cycle (no gas)
+const WEEKS     = 48       // operational weeks per year
+const CO2_GAS   = 0.183    // kg CO₂e per kWh natural gas
+const CO2_ELEC  = 0.233    // kg CO₂e per kWh UK grid electricity
 
 function fmt(n: number) {
   if (n >= 100000) return `£${(n / 1000).toFixed(0)}k`
@@ -21,19 +19,19 @@ function fmt(n: number) {
 function fmtCO2(n: number) { return `${n.toFixed(1)}` }
 
 export default function EnergyCalculator() {
-  const [gasRate,  setGasRate]  = useState(0.04)
-  const [elecRate, setElecRate] = useState(0.25)
-  const [cycles,   setCycles]   = useState(5)
+  const [gasRate,  setGasRate]  = useState(0.20)
+  const [elecRate, setElecRate] = useState(0.33)
+  const [cycles,   setCycles]   = useState(2)
 
   const annual = cycles * WEEKS
 
   const r = useMemo(() => {
-    const tCost = annual * (GAS_TRAD  * gasRate + ELEC_TRAD  * elecRate)
-    const sCost = annual * (GAS_SAVE  * gasRate + ELEC_SAVE  * elecRate)
-    const zCost = annual * (ELEC_ZEUS * elecRate)
-    const tCO2  = annual * (GAS_TRAD  * CO2_GAS + ELEC_TRAD  * CO2_ELEC) / 1000
-    const sCO2  = annual * (GAS_SAVE  * CO2_GAS + ELEC_SAVE  * CO2_ELEC) / 1000
-    const zCO2  = annual * (ELEC_ZEUS * CO2_ELEC) / 1000
+    const tCost = annual * GAS_TRAD  * gasRate
+    const sCost = annual * GAS_SAVE  * gasRate
+    const zCost = annual * ELEC_ZEUS * elecRate
+    const tCO2  = annual * GAS_TRAD  * CO2_GAS  / 1000
+    const sCO2  = annual * GAS_SAVE  * CO2_GAS  / 1000
+    const zCO2  = annual * ELEC_ZEUS * CO2_ELEC / 1000
     return {
       tCost, sCost, zCost, tCO2, sCO2, zCO2,
       savEnergy : tCost - sCost,
