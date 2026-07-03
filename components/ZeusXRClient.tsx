@@ -234,7 +234,8 @@ export default function ZeusXRClient() {
         <div className="hero-center">
           <img src="/brand/zeus-xr-logo-white.png" alt="Zeus XR" className="hero-logo" style={{ width: 'min(320px,52vw)', marginBottom: 28, filter: 'drop-shadow(0 2px 24px rgba(0,0,0,.5))' }} />
           <h1 style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0,0,0,0)' }}>Zeus XR — Robotic Spray Finishing System by Todd Engineering</h1>
-          <h2 style={{ fontSize: 'clamp(24px,2.6vw,38px)', fontWeight: 700, letterSpacing: '-.02em', lineHeight: 1.1, color: '#fff', marginTop: -20, marginBottom: 36 }}>Advanced Spray Finishing Technology</h2>
+          <h2 style={{ fontSize: 'clamp(24px,2.6vw,38px)', fontWeight: 700, letterSpacing: '-.02em', lineHeight: 1.1, color: '#fff', marginTop: -20, marginBottom: 16 }}>Advanced Spray Finishing Technology</h2>
+          <p style={{ fontSize: 'clamp(14px,1.15vw,17px)', fontWeight: 300, color: 'rgba(255,255,255,.65)', maxWidth: 620, lineHeight: 1.65, marginBottom: 36 }}>Zeus XR combines advanced spraybooth technology, industrial robotics and AI-driven control into a single coordinated platform — bringing manufacturer-grade automation to modern bodyshops.</p>
           <div className="hero-ctas">
             <button className="btn btn-cta btn-lg" data-demo="true">Book a Live Demo</button>
             <a href="#product" className="btn btn-ghost btn-lg">Explore</a>
