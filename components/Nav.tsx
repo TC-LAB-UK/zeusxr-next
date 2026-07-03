@@ -138,10 +138,12 @@ export default function Nav() {
           </button>
           <button className="btn btn-cta" data-quote="Get a Quote">Get a Quote</button>
           <button
+            type="button"
             className={`hamburger${menuOpen ? ' open' : ''}`}
             onClick={toggleMenu}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
+            style={{ touchAction: 'manipulation' }}
           >
             <span></span><span></span><span></span>
           </button>
