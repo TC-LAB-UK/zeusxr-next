@@ -301,15 +301,6 @@ export default function ZeusXRClient() {
         </div>
       </section>
 
-      {/* INTRO */}
-      <section className="intro">
-        <div className="intro-inner rv">
-          <p className="overline">Zeus XR by Todd Engineering</p>
-          <h2>The Future of Spray Finishing is Automated.</h2>
-          <p>Zeus XR combines advanced spraybooth technology, industrial robotics and AI-driven control into a single coordinated platform — bringing manufacturer-grade automation to modern bodyshops.</p>
-        </div>
-      </section>
-
       {/* FEATURES CAROUSEL */}
       <section className="fcar-sec">
         <div className="fcar-header">
