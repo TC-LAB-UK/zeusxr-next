@@ -382,8 +382,10 @@ footer { background: #060606; border-top: 1px solid rgba(255,255,255,.06); paddi
 .product-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--green); }
 
 /* SCROLL REVEAL */
-.rv { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
-.rv.in { opacity: 1; transform: translateY(0); }
+/* Scroll reveal — progressive enhancement only. Content visible by default. */
+.rv { transition: opacity .8s var(--ease), transform .8s var(--ease); }
+html.rv-ready .rv { opacity: 0; transform: translateY(24px); }
+html.rv-ready .rv.in { opacity: 1; transform: translateY(0); }
 .d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s}
 .d4{transition-delay:.32s} .d5{transition-delay:.40s}
 
