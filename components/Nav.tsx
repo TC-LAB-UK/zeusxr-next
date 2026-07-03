@@ -5,9 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false)
   const [theme, setTheme] = useState<'dark' | 'light'>('light')
-  const [menuOpen, setMenuOpen] = useState(false)
   const [openSub, setOpenSub] = useState<string | null>(null)
 
   useEffect(() => {
@@ -16,74 +14,20 @@ export default function Nav() {
       const t = stored || 'light'
       setTheme(t)
       document.documentElement.setAttribute('data-theme', t)
-    } catch { /* private browsing — use default */ }
-  }, [])
-
-  useEffect(() => {
-    // Use document scroll for iOS compatibility (body overflow-x:hidden makes html the scroller)
-    const onScroll = () => {
-      const y = window.scrollY ?? document.documentElement.scrollTop ?? 0
-      setScrolled(y > 56)
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    document.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      document.removeEventListener('scroll', onScroll)
-    }
-  }, [])
-
-  useEffect(() => {
-    // iOS Safari: position:fixed on html avoids fixed-element repaint bugs
-    if (menuOpen) {
-      const y = window.scrollY
-      document.documentElement.style.overflow = 'hidden'
-      document.documentElement.style.position = 'fixed'
-      document.documentElement.style.top = `-${y}px`
-      document.documentElement.style.width = '100%'
-    } else {
-      const top = document.documentElement.style.top
-      document.documentElement.style.overflow = ''
-      document.documentElement.style.position = ''
-      document.documentElement.style.top = ''
-      document.documentElement.style.width = ''
-      if (top) window.scrollTo(0, -parseInt(top))
-    }
-    return () => {
-      document.documentElement.style.overflow = ''
-      document.documentElement.style.position = ''
-      document.documentElement.style.top = ''
-      document.documentElement.style.width = ''
-    }
-  }, [menuOpen])
-
-  // Native touch handler for hamburger — bypasses React event delegation on iOS
-  useEffect(() => {
-    const btn = document.querySelector('.hamburger')
-    if (!btn) return
-    function onTouch(e: Event) {
-      e.preventDefault()
-      setMenuOpen(o => !o)
-      setOpenSub(null)
-    }
-    btn.addEventListener('touchend', onTouch, { passive: false } as EventListenerOptions)
-    return () => btn.removeEventListener('touchend', onTouch)
+    } catch { /* private browsing */ }
   }, [])
 
   function toggleTheme() {
     const next = theme === 'dark' ? 'light' : 'dark'
     setTheme(next)
     document.documentElement.setAttribute('data-theme', next)
-    localStorage.setItem('te-theme', next)
+    try { localStorage.setItem('te-theme', next) } catch { /**/ }
   }
 
-  function toggleMenu() {
-    setMenuOpen(o => !o)
-    setOpenSub(null)
-  }
-
+  // closeMenu is called from Link clicks inside the mobile menu.
+  // It clears the data attribute (which drives CSS) rather than React state.
   function closeMenu() {
-    setMenuOpen(false)
+    delete document.documentElement.dataset.mobOpen
     setOpenSub(null)
   }
 
@@ -132,7 +76,8 @@ export default function Nav() {
 
   return (
     <>
-      <nav id="nav" className={scrolled ? 'scrolled' : ''}>
+      {/* scrolled class is managed by the nav-init script in layout.tsx, not React state */}
+      <nav id="nav">
         <Link href="/" onClick={closeMenu}>
           <Image
             src="/brand/logo.png"
@@ -179,12 +124,13 @@ export default function Nav() {
             </svg>
           </button>
           <button className="btn btn-cta" data-quote="Get a Quote">Get a Quote</button>
+          {/* open/close state managed by nav-init script via html[data-mob-open] CSS */}
           <button
             type="button"
-            className={`hamburger${menuOpen ? ' open' : ''}`}
-            onClick={toggleMenu}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={menuOpen}
+            id="nav-hamburger"
+            className="hamburger"
+            aria-label="Open menu"
+            aria-expanded="false"
             style={{ touchAction: 'manipulation' }}
           >
             <span></span><span></span><span></span>
@@ -192,8 +138,8 @@ export default function Nav() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
-      <div className={`mob-menu${menuOpen ? ' open' : ''}`} aria-hidden={!menuOpen}>
+      {/* open/close state managed by nav-init script via html[data-mob-open] CSS */}
+      <div className="mob-menu" id="mob-menu" aria-hidden="true">
         <nav className="mob-nav">
           {navItems.map(item => (
             <div key={item.label} className="mob-item">
