@@ -1186,12 +1186,13 @@ html.rv-ready .rv.in { opacity: 1; transform: translateY(0); }
   .specs-new-img { position: static; order: -1; }
   .comp-head > div, .comp-row > div { padding: 13px 14px; font-size: 13px; }
   /* ── Tesla / product section mobile ── */
-  .hs-dot, .hs-card, .hs-backdrop { display: none !important; }
-  .hotspot-explorer { width: 100%; }
-  .tesla-product { padding: 32px 0 0; }
-  .tesla-meta { padding: 20px 24px 36px; flex-direction: column; gap: 20px; align-items: stretch; }
+  .hs-dot, .hs-card, .hs-backdrop, .hs-ring { display: none !important; }
+  .hotspot-explorer { width: 100%; overflow: hidden; }
+  .tesla-product { padding: 24px 0 0; min-height: 0; }
+  .tesla-img { width: 100%; }
+  .tesla-meta { padding: 16px 24px 32px; flex-direction: column; gap: 16px; align-items: stretch; }
   .tesla-specs { flex-direction: row; gap: 0; }
-  .ts-spec { flex: 1; border-left: 1px solid var(--bdr) !important; padding: 0 8px !important; text-align: center; }
+  .ts-spec { flex: 1; border-left: 1px solid var(--bdr) !important; padding: 0 10px !important; text-align: center; }
   .ts-spec:first-child { border-left: none !important; padding-left: 0 !important; }
   .ts-val { font-size: 16px; }
   .ts-lbl { font-size: 9px; letter-spacing: .02em; }
