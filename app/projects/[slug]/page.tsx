@@ -151,7 +151,7 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       {/* BODY */}
-      <section style={{ padding: '80px 64px', maxWidth: 1280, margin: '0 auto' }}>
+      <section className="cs-sec-pad">
         <div className="cso-grid">
           <div className="cso-card rv">
             <div className="cso-icon">
@@ -172,7 +172,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       {/* FULL BODY */}
       {cs.body && cs.body.content && cs.body.content.length > 0 && (
-        <section style={{ padding: '0 64px 80px', maxWidth: 1280, margin: '0 auto' }}>
+        <section className="cs-body-sec">
           <div className="cs-bd-wrap">
             {renderNode(cs.body as TNode, 0)}
           </div>
@@ -194,7 +194,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       {/* TESTIMONIAL */}
       {cs.testimonial_quote && (
-        <section style={{ padding: '80px 64px', borderTop: '1px solid var(--bdr)' }}>
+        <section className="cs-testi-sec">
           <div className="testi-wrap rv">
             <div className="testi-mark">&ldquo;</div>
             <p className="testi-q">{cs.testimonial_quote}</p>
@@ -206,8 +206,8 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       {/* CONTACT */}
-      <section style={{ padding: '80px 64px', borderTop: '1px solid var(--bdr)', background: 'var(--s1)' }}>
-        <div style={{ maxWidth: 640, margin: '0 auto' }}>
+      <section className="cs-cta-sec">
+        <div className="cs-cta-inner">
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '.2em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: 12 }}>
               Enquire
