@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { supabase, ORG_ID } from '@/lib/supabase'
 import { useParams } from 'next/navigation'
+import EnergyCalculator from '@/components/EnergyCalculator'
 
 const SUPABASE_LEADS = 'https://gmpqytfjcmgmrhqocdyk.supabase.co/rest/v1/leads'
 const SUPABASE_KEY = 'sb_publishable_p5xmlGJewiHl-jaXU_QNxw_qUZqHijA'
@@ -345,6 +346,9 @@ function ProductPageClient({ slug }: { slug: string }) {
           </div>
         </section>
       )}
+
+      {/* ENERGY CALCULATOR — Zeus 8000 only */}
+      {slug === 'zeus-8000' && <EnergyCalculator />}
 
       {/* CONTACT FORM */}
       <section className="contact-sec" id="contact">
