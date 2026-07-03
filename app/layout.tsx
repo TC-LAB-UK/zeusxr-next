@@ -58,25 +58,35 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
             var lt = 0;
-            function tryOpen(el) {
-              var title = el.getAttribute('data-quote') || 'Get a Quote';
-              if (typeof window.openQuoteModal === 'function') {
-                window.openQuoteModal(title);
-              } else {
-                /* React not hydrated yet — retry after short delay */
-                setTimeout(function() {
-                  if (typeof window.openQuoteModal === 'function') window.openQuoteModal(title);
-                }, 400);
+            function retry(fn, delay) {
+              setTimeout(function() { if (typeof fn === 'function') fn(); }, delay);
+            }
+            function handleTarget(e) {
+              var t = e.target;
+              if (!t || !t.closest) return false;
+              var q = t.closest('[data-quote]');
+              if (q) {
+                e.preventDefault();
+                var title = q.getAttribute('data-quote') || 'Get a Quote';
+                if (typeof window.openQuoteModal === 'function') { window.openQuoteModal(title); }
+                else { retry(function(){ window.openQuoteModal && window.openQuoteModal(title); }, 400); }
+                return true;
               }
+              var d = t.closest('[data-demo]');
+              if (d) {
+                e.preventDefault();
+                if (typeof window.openDemoModal === 'function') { window.openDemoModal(); }
+                else { retry(function(){ window.openDemoModal && window.openDemoModal(); }, 400); }
+                return true;
+              }
+              return false;
             }
             window.addEventListener('touchend', function(e) {
-              var el = e.target && e.target.closest && e.target.closest('[data-quote]');
-              if (el) { e.preventDefault(); lt = Date.now(); tryOpen(el); }
+              if (handleTarget(e)) lt = Date.now();
             }, false);
             window.addEventListener('click', function(e) {
               if (Date.now() - lt < 600) return;
-              var el = e.target && e.target.closest && e.target.closest('[data-quote]');
-              if (el) tryOpen(el);
+              handleTarget(e);
             }, false);
           })();
         ` }} />
