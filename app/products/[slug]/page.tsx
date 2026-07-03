@@ -42,12 +42,12 @@ function EnergyCalculator() {
   return (
     <section className="calc-sec">
       <div className="calc-inner">
-        <div className="calc-header rv">
+        <div className="calc-header">
           <div className="s-lbl">Energy Cost Calculator</div>
           <h2 className="s-h2">See your annual savings.</h2>
           <p className="s-p mw-560">Enter your energy rates and booth usage to see what switching to all-electric Zeus technology saves your operation — in cost and carbon.</p>
         </div>
-        <div className="calc-card rv">
+        <div className="calc-card">
           <div className="calc-inputs">
             <div className="calc-field">
               <label className="calc-label">Gas Cost (£/kWh)</label>
