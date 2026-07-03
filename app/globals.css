@@ -141,6 +141,7 @@ a { text-decoration: none; color: inherit; }
 .sec-dark  { background: var(--s2); border-top: 1px solid var(--bdr); border-bottom: 1px solid var(--bdr); transition: background .4s; }
 .w-1300    { max-width: 1300px; margin: 0 auto; }
 .w-1100    { max-width: 1100px; margin: 0 auto; }
+.w-800     { max-width: 800px; margin: 0 auto; }
 .tc        { text-align: center; }
 .mw-600    { max-width: 600px; margin: 0 auto; }
 .s-lbl     { font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--t3); margin-bottom: 16px; }
@@ -1207,11 +1208,75 @@ footer { background: #060606; border-top: 1px solid rgba(255,255,255,.06); paddi
   .page-header-inner { flex-direction: column; align-items: flex-start; }
   .contact-sec { padding: 64px 20px; }
   .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+
+  /* ── Nav mobile: hide Get a Quote, shrink logo ── */
+  .nav-r .btn { display: none; }
+  .nav-logo { height: 44px; }
+
+  /* ── Page hero ── */
+  .page-hero { padding: 100px 24px 48px; min-height: auto; }
+
+  /* ── About strip image ── */
+  .about-img { height: 260px; }
+  .about-strip { gap: 32px; }
+
+  /* ── Project cards ── */
+  .proj-card { min-height: 300px; }
+
+  /* ── News section header: stack on mobile ── */
+  .sec-hd { flex-direction: column; gap: 16px; }
+  .sec-hd .btn { align-self: flex-start; }
+
+  /* ── CTA section ── */
+  .cta-sec-clean { padding: 80px 24px; }
+  .cta-btns { flex-direction: column; align-items: center; gap: 12px; }
+  .cta-btns .btn { width: 100%; justify-content: center; max-width: 320px; }
+
+  /* ── Catalogue ── */
+  .catalogue-header { padding: 0 20px; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .catalogue-track { padding: 0 20px 40px; }
+  .cat-card { flex: 0 0 280px; }
+
+  /* ── Partners ── */
+  .partners { padding: 32px 24px; }
+
+  /* ── Hero ctas ── */
+  .hero-ctas { gap: 10px; }
+
+  /* ── Case study sections ── */
+  .cs-sec-pad { padding: 48px 24px; }
+  .cs-body-sec { padding: 0 24px 48px; }
+  .cs-testi-sec { padding: 48px 24px; }
+  .cs-cta-sec { padding: 48px 24px; }
+
+  /* ── Finance Options ── */
+  .fin-step { grid-template-columns: 40px 1fr; gap: 16px; }
+  .fin-step-detail { grid-column: 1 / -1; padding-top: 0; padding-left: 56px; }
 }
 @media (max-width: 480px) {
   .prod-grid { grid-template-columns: 1fr; padding: 0 20px; }
   .sectors-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .nc-grid { grid-template-columns: 1fr; }
+  .hero-ctas .btn { width: 100%; justify-content: center; }
+  .about-img { height: 220px; }
+  .cat-card { flex: 0 0 260px; }
+  .quad-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .heritage-bento { grid-template-columns: 1fr; }
+  .hb-item:nth-child(1), .hb-item:nth-child(4) { grid-column: span 1; }
+  .contact-left { padding: 88px 24px 48px; }
+  .contact-right { padding: 48px 24px; }
+  .cso-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Case Study section wrappers (responsive) ── */
+.cs-sec-pad { padding: 80px 64px; max-width: 1280px; margin: 0 auto; }
+.cs-body-sec { padding: 0 64px 80px; max-width: 1280px; margin: 0 auto; }
+.cs-testi-sec { padding: 80px 64px; border-top: 1px solid var(--bdr); }
+.cs-cta-sec { padding: 80px 64px; border-top: 1px solid var(--bdr); background: var(--s1); transition: background .4s; }
+.cs-cta-inner { max-width: 640px; margin: 0 auto; }
 
 /* ── Case Study / Project pages ── */
 .cs-body {
