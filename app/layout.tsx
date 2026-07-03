@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
-import Script from 'next/script'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
@@ -53,48 +52,44 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <QuoteModal />
         <CookieConsent />
-        {/*
-          Scroll detection only. Hamburger is now handled by CSS checkbox hack — no JS needed.
-          IntersectionObserver on nav-sentinel: when it leaves viewport, nav gets .scrolled.
-          Fallback scroll listener covers edge cases.
-        */}
-        <Script id="nav-scroll" strategy="afterInteractive">{`
+        {/* Inline script — runs synchronously after DOM is parsed, no framework delay.
+            Uses every possible scroll detection method for iOS Safari compatibility. */}
+        <script dangerouslySetInnerHTML={{ __html: `
           (function() {
-            var nav = document.getElementById('nav');
-            if (!nav) return;
-
-            function setScrolled(on) {
-              if (on) { nav.classList.add('scrolled'); }
-              else    { nav.classList.remove('scrolled'); }
+            function initScroll() {
+              var nav = document.getElementById('nav');
+              if (!nav) return;
+              function update() {
+                var y = document.documentElement.scrollTop
+                     || document.body.scrollTop
+                     || window.pageYOffset
+                     || window.scrollY
+                     || 0;
+                nav.classList.toggle('scrolled', y > 10);
+              }
+              /* Every scroll signal we know of */
+              window.addEventListener('scroll',   update, { passive: true });
+              document.addEventListener('scroll', update, { passive: true });
+              document.documentElement.addEventListener('scroll', update, { passive: true });
+              /* touchmove fires live during a finger drag on iOS */
+              window.addEventListener('touchmove', update, { passive: true });
+              window.addEventListener('touchend',  update, { passive: true });
+              /* IntersectionObserver as an additional trigger */
+              var s = document.getElementById('nav-sentinel');
+              if (s && window.IntersectionObserver) {
+                new IntersectionObserver(function(e) {
+                  nav.classList.toggle('scrolled', !e[0].isIntersecting);
+                }, { rootMargin: '56px 0px 0px 0px' }).observe(s);
+              }
+              update();
             }
-
-            /* Primary: IntersectionObserver on the sentinel element.
-               rootMargin '56px' expands the root 56px upward, so the sentinel
-               (at top of page) stays "intersecting" until the user scrolls 56px. */
-            var sentinel = document.getElementById('nav-sentinel');
-            if (sentinel && 'IntersectionObserver' in window) {
-              var io = new IntersectionObserver(function(entries) {
-                setScrolled(!entries[0].isIntersecting);
-              }, { threshold: 0, rootMargin: '56px 0px 0px 0px' });
-              io.observe(sentinel);
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', initScroll);
+            } else {
+              initScroll();
             }
-
-            /* Fallback: scroll events on all possible scroll targets.
-               On iOS, body{overflow-x:hidden} makes html the scroller. */
-            function onScroll() {
-              var y = window.pageYOffset
-                   || window.scrollY
-                   || document.documentElement.scrollTop
-                   || document.body.scrollTop
-                   || 0;
-              setScrolled(y > 56);
-            }
-            window.addEventListener('scroll', onScroll, { passive: true });
-            document.addEventListener('scroll', onScroll, { passive: true });
-            document.documentElement.addEventListener('scroll', onScroll, { passive: true });
-            onScroll();
           })();
-        `}</Script>
+        ` }} />
       </body>
     </html>
   )

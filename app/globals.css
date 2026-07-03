@@ -550,16 +550,12 @@ html.rv-ready .rv.in { opacity: 1; transform: translateY(0); }
 .mob-nav { flex: 1; padding: 8px 0; }
 .mob-item { border-bottom: 1px solid var(--bdr); }
 .mob-link, .mob-trigger { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 16px 24px; font-size: 16px; font-weight: 500; color: var(--t1); background: none; border: none; font-family: var(--font); cursor: pointer; text-align: left; text-decoration: none; }
-/* <summary> resets — hide default browser disclosure triangle */
-summary.mob-trigger { list-style: none; }
-summary.mob-trigger::-webkit-details-marker { display: none; }
-summary.mob-trigger::marker { display: none; }
+/* Sub-menu checkbox toggles — same proven approach as the hamburger */
+.sub-toggle-input { display: none; }
+.sub-toggle-input:checked ~ .mob-trigger svg { transform: rotate(180deg); }
+.sub-toggle-input:checked ~ .mob-sub { max-height: 400px; }
 .mob-trigger svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s; flex-shrink: 0; }
-/* Chevron rotates when details is open — no JS needed */
-details[open] .mob-trigger svg { transform: rotate(180deg); }
 .mob-sub { list-style: none; padding: 0; max-height: 0; overflow: hidden; transition: max-height .3s ease; }
-/* Sub-menu expands when details is open — no JS needed */
-details[open] .mob-sub { max-height: 400px; }
 .mob-sub a { display: block; padding: 11px 24px 11px 36px; font-size: 14px; font-weight: 300; color: var(--t2); border-bottom: 1px solid var(--bdr); text-decoration: none; }
 .mob-sub a:last-child { border-bottom: none; }
 .mob-sub a:hover { color: var(--t1); background: var(--s2); }
