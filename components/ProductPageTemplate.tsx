@@ -121,6 +121,7 @@ export interface ProductPageData {
   gallery: string[]
   icons: { svg: React.ReactNode; label: string }[]
   showEnergyCalculator?: boolean
+  datasheetUrl?: string
 }
 
 export default function ProductPageTemplate({ data }: { data: ProductPageData }) {
@@ -209,7 +210,17 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
                 {data.pills.map((p, i) => <span key={i} className="pill">{p}</span>)}
               </div>
             )}
-            <a href="#contact" className="btn btn-cta" style={{ marginBottom: 36, display: 'inline-flex' }}>Request a Quote</a>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 36 }}>
+              <a href="#contact" className="btn btn-cta" style={{ display: 'inline-flex' }}>Request a Quote</a>
+              {data.datasheetUrl && (
+                <a href={data.datasheetUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost" style={{ display: 'inline-flex', gap: 8, alignItems: 'center' }}>
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 14, height: 14 }}>
+                    <path d="M8 1v9M4 7l4 4 4-4"/><rect x="2" y="11" width="12" height="3" rx="1"/>
+                  </svg>
+                  Download Datasheet
+                </a>
+              )}
+            </div>
             {data.specRows.length > 0 && (
               <div className="spec-tbl">
                 {data.specRows.map((r, i) => (
