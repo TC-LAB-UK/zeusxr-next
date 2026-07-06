@@ -1,7 +1,90 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useMemo } from 'react'
 import Link from 'next/link'
+
+// ── Energy Calculator ─────────────────────────────────────────────────────────
+const GAS_TRAD  = 89.375
+const GAS_SAVE  = 24.0625
+const ELEC_ZEUS = 13.32
+const WEEKS     = 48
+const CO2_GAS   = 0.183
+const CO2_ELEC  = 0.233
+
+function fmtCurrency(n: number) {
+  if (n >= 100000) return `£${(n / 1000).toFixed(0)}k`
+  if (n >= 10000)  return `£${(n / 1000).toFixed(1)}k`
+  return `£${Math.round(n).toLocaleString()}`
+}
+
+function EnergyCalculator() {
+  const [gasRate,  setGasRate]  = useState(0.20)
+  const [elecRate, setElecRate] = useState(0.33)
+  const [cycles,   setCycles]   = useState(2)
+  const annual = cycles * WEEKS
+  const r = useMemo(() => {
+    const tCost = annual * GAS_TRAD  * gasRate
+    const sCost = annual * GAS_SAVE  * gasRate
+    const zCost = annual * ELEC_ZEUS * elecRate
+    const tCO2  = annual * GAS_TRAD  * CO2_GAS  / 1000
+    const sCO2  = annual * GAS_SAVE  * CO2_GAS  / 1000
+    const zCO2  = annual * ELEC_ZEUS * CO2_ELEC / 1000
+    return { tCost, sCost, zCost, tCO2, sCO2, zCO2,
+      savEnergy: tCost - sCost, savZeus: tCost - zCost,
+      co2Pct: tCO2 > 0 ? Math.round((tCO2 - zCO2) / tCO2 * 100) : 0 }
+  }, [gasRate, elecRate, annual])
+
+  return (
+    <section className="calc-sec">
+      <div className="calc-inner">
+        <div className="calc-header">
+          <div className="calc-eyebrow">Energy Cost Calculator</div>
+          <h2 className="calc-h2">See your annual savings.</h2>
+          <p className="calc-sub">Enter your energy rates and booth usage to see what switching to all-electric Zeus technology saves your operation — in cost and carbon.</p>
+        </div>
+        <div className="calc-card">
+          <div className="calc-inputs">
+            <div className="calc-field">
+              <label className="calc-label">Gas Cost (£/kWh)</label>
+              <input className="calc-input" type="number" step="0.001" min="0.001" max="2" value={gasRate}
+                onChange={e => setGasRate(Math.max(0.001, parseFloat(e.target.value) || 0.04))} />
+            </div>
+            <div className="calc-field">
+              <label className="calc-label">Electric Cost (£/kWh)</label>
+              <input className="calc-input" type="number" step="0.01" min="0.01" max="5" value={elecRate}
+                onChange={e => setElecRate(Math.max(0.01, parseFloat(e.target.value) || 0.25))} />
+            </div>
+            <div className="calc-field">
+              <label className="calc-label">Cycles / Week</label>
+              <input className="calc-input" type="number" step="1" min="1" max="200" value={cycles}
+                onChange={e => setCycles(Math.max(1, parseInt(e.target.value) || 5))} />
+            </div>
+          </div>
+          <div className="calc-results">
+            <div className="calc-col">
+              <div className="calc-col-tag calc-tag-trad">Traditional</div>
+              <div className="calc-big">{fmtCurrency(r.tCost)}<span className="calc-per">/yr</span></div>
+              <div className="calc-co2-row">{r.tCO2.toFixed(1)} t CO₂e / yr</div>
+            </div>
+            <div className="calc-col">
+              <div className="calc-col-tag calc-tag-save">Energy Saving</div>
+              <div className="calc-big">{fmtCurrency(r.sCost)}<span className="calc-per">/yr</span></div>
+              <div className="calc-co2-row">{r.sCO2.toFixed(1)} t CO₂e / yr</div>
+              <div className="calc-saving">Save {fmtCurrency(r.savEnergy)} / yr</div>
+            </div>
+            <div className="calc-col calc-col-zeus">
+              <div className="calc-col-tag calc-tag-zeus">Zeus All-Electric</div>
+              <div className="calc-big calc-big-zeus">{fmtCurrency(r.zCost)}<span className="calc-per">/yr</span></div>
+              <div className="calc-co2-row calc-co2-zeus">{r.zCO2.toFixed(1)} t CO₂e / yr</div>
+              <div className="calc-saving calc-saving-zeus">Save {fmtCurrency(r.savZeus)} / yr · {r.co2Pct}% less carbon</div>
+            </div>
+          </div>
+          <p className="calc-note">Based on 25,000m³/hr AHP · {annual} annual cycles · GB grid carbon intensity</p>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 const SUPABASE_LEADS = 'https://gmpqytfjcmgmrhqocdyk.supabase.co/rest/v1/leads'
 const SUPABASE_KEY = 'sb_publishable_p5xmlGJewiHl-jaXU_QNxw_qUZqHijA'
@@ -20,6 +103,7 @@ export interface ProductPageData {
   specRows: { k: string; v: string }[]
   gallery: string[]
   icons: { svg: React.ReactNode; label: string }[]
+  showEnergyCalculator?: boolean
 }
 
 export default function ProductPageTemplate({ data }: { data: ProductPageData }) {
@@ -167,6 +251,9 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
           </div>
         </section>
       )}
+
+      {/* ENERGY CALCULATOR */}
+      {data.showEnergyCalculator && <EnergyCalculator />}
 
       {/* CONTACT */}
       <section className="contact-sec" id="contact">
