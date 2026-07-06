@@ -8,6 +8,7 @@ const ORG_ID = '8129f148-b92e-4fb4-a458-b0c941d6b42f'
 
 export default function ContactPage() {
   const formRef = useRef<HTMLFormElement>(null)
+  const loadTimeRef = useRef<number>(Date.now())
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
 
@@ -25,6 +26,13 @@ export default function ContactPage() {
     e.preventDefault()
     if (!formRef.current?.checkValidity()) { formRef.current?.reportValidity(); return }
     const fd = new FormData(formRef.current!)
+
+    // Honeypot: bots fill hidden fields, humans don't
+    if (fd.get('_hp')) { setSent(true); return }
+
+    // Timing: bots submit instantly — require at least 3s
+    if (Date.now() - loadTimeRef.current < 3000) { setSent(true); return }
+
     setSending(true)
     try {
       await fetch(SUPABASE_URL, {
@@ -96,6 +104,8 @@ export default function ContactPage() {
           </div>
         ) : (
           <form ref={formRef} className="rv" onSubmit={handleSubmit} noValidate>
+            {/* Honeypot — hidden from humans, bots fill it */}
+            <input type="text" name="_hp" autoComplete="off" tabIndex={-1} aria-hidden="true" style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none', height: 0, width: 0 }} />
             <div className="cf-row">
               <div className="cf-group">
                 <label className="form-label">First Name</label>
