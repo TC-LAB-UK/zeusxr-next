@@ -17,6 +17,11 @@ function fmtCurrency(n: number) {
   return `£${Math.round(n).toLocaleString()}`
 }
 
+function sliderBg(val: number, min: number, max: number) {
+  const pct = Math.round(((val - min) / (max - min)) * 100)
+  return `linear-gradient(to right, #50a724 0%, #50a724 ${pct}%, rgba(255,255,255,.12) ${pct}%, rgba(255,255,255,.12) 100%)`
+}
+
 function EnergyCalculator() {
   const [gasRate,  setGasRate]  = useState(0.20)
   const [elecRate, setElecRate] = useState(0.33)
@@ -46,18 +51,30 @@ function EnergyCalculator() {
           <div className="calc-inputs">
             <div className="calc-field">
               <label className="calc-label">Gas Cost (£/kWh)</label>
-              <input className="calc-input" type="number" step="0.001" min="0.001" max="2" value={gasRate}
-                onChange={e => setGasRate(Math.max(0.001, parseFloat(e.target.value) || 0.04))} />
+              <input className="calc-input" type="number" step="0.001" min="0.01" max="1" value={gasRate}
+                onChange={e => setGasRate(Math.min(1, Math.max(0.01, parseFloat(e.target.value) || 0.20)))} />
+              <input className="calc-slider" type="range" min="0.01" max="1" step="0.001"
+                value={gasRate}
+                onChange={e => setGasRate(parseFloat(e.target.value))}
+                style={{ background: sliderBg(gasRate, 0.01, 1) }} />
             </div>
             <div className="calc-field">
               <label className="calc-label">Electric Cost (£/kWh)</label>
-              <input className="calc-input" type="number" step="0.01" min="0.01" max="5" value={elecRate}
-                onChange={e => setElecRate(Math.max(0.01, parseFloat(e.target.value) || 0.25))} />
+              <input className="calc-input" type="number" step="0.01" min="0.01" max="2" value={elecRate}
+                onChange={e => setElecRate(Math.min(2, Math.max(0.01, parseFloat(e.target.value) || 0.33)))} />
+              <input className="calc-slider" type="range" min="0.01" max="2" step="0.01"
+                value={elecRate}
+                onChange={e => setElecRate(parseFloat(e.target.value))}
+                style={{ background: sliderBg(elecRate, 0.01, 2) }} />
             </div>
             <div className="calc-field">
               <label className="calc-label">Cycles / Week</label>
-              <input className="calc-input" type="number" step="1" min="1" max="200" value={cycles}
-                onChange={e => setCycles(Math.max(1, parseInt(e.target.value) || 5))} />
+              <input className="calc-input" type="number" step="1" min="1" max="50" value={cycles}
+                onChange={e => setCycles(Math.min(50, Math.max(1, parseInt(e.target.value) || 2)))} />
+              <input className="calc-slider" type="range" min="1" max="50" step="1"
+                value={cycles}
+                onChange={e => setCycles(parseInt(e.target.value))}
+                style={{ background: sliderBg(cycles, 1, 50) }} />
             </div>
           </div>
           <div className="calc-results">
