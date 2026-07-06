@@ -140,6 +140,264 @@ export const NEWS_DATA: Record<string, NewsArticle> = {
       { type: 'img', text: '', src: 'https://www.toddengineering.co.uk/media/vjxllujm/img_6819.png', caption: 'Todd Engineering collecting the Spray Booth Manufacturer of the Year 2024 award at the Night of Knights.' },
     ],
   },
+  // ── OLD SITE ARTICLES (migrated) ─────────────────────────────────────────
+
+  'al-haddad-motors-bahrain': {
+    slug: 'al-haddad-motors-bahrain',
+    title: 'Project Success — Al Haddad Motors, Mercedes-Benz Bahrain',
+    category: 'Installation',
+    date: 'February 2025',
+    thumb: 'https://www.toddengineering.co.uk/media/qhdk2jmh/screenshot-2025-02-05-083755.png',
+    hero: 'https://www.toddengineering.co.uk/media/qhdk2jmh/screenshot-2025-02-05-083755.png',
+    excerpt: 'Todd Engineering announces the successful completion of a custom-built Zeus spray booth and curing oven installation at Al Haddad Motors — the prestigious Mercedes-Benz dealership in Bahrain.',
+    body: [
+      { type: 'p', text: 'Todd Engineering is proud to announce the successful completion of a custom-built Zeus spray booth and oven installation at Al Haddad Motors – Mercedes-Benz Bahrain. As a prestigious Mercedes-Benz dealership, Al Haddad Motors required a high-performance refinishing solution that would optimise their workflow, efficiency, and quality standards. This installation was tailored to meet their specific operational needs, ensuring a seamless and highly productive environment.' },
+      { type: 'p', text: 'The setup includes a Zeus all-electric spray booth and a curing oven, positioned side by side and separated by a dividing roller shutter door. This configuration allows for a smooth transition between the painting and curing phases, minimising downtime while enhancing efficiency. The track and skate system was incorporated to ease manoeuvrability, ensuring vehicles move effortlessly through the process without excessive manual handling.' },
+      { type: 'p', text: 'To further streamline operations, we installed twin Hades preparation booths opposite the spray booth and oven. This layout creates an optimised, step-by-step workflow, allowing for dust-free sanding, priming, and masking in the preparation booths before vehicles enter the spray booth. The design ensures that each stage of the refinishing process flows seamlessly into the next, significantly reducing turnaround times without compromising quality.' },
+      { type: 'p', text: 'This project was a full turnkey solution, covering everything from initial design and site planning to installation and commissioning. Every detail was carefully considered to ensure maximum efficiency and ease of use for the Al Haddad Motors team. The result is a world-class refinishing facility, combining precision engineering with operational practicality.' },
+      { type: 'quote', text: 'Everything is great our end — the lads have been a credit to your company. Please pass on my thanks to each of them.' },
+      { type: 'p', text: 'The completion of this prestigious installation marks another successful global project for Todd Engineering. By integrating advanced technology, energy-efficient solutions, and seamless workflow enhancements, we continue to support industry-leading automotive businesses in achieving the highest standards of refinishing excellence.' },
+    ],
+  },
+
+  'mg-carbon-neutral-partnership': {
+    slug: 'mg-carbon-neutral-partnership',
+    title: 'Todd Engineering and MG Accident Repair Centre\'s Carbon-Neutral Partnership',
+    category: 'News',
+    date: 'November 2024',
+    thumb: 'https://www.toddengineering.co.uk/media/ausft4l2/black-country-mag-feature.png',
+    hero: 'https://www.toddengineering.co.uk/media/ausft4l2/black-country-mag-feature.png',
+    excerpt: 'MG Accident Repair Centre celebrates two years of all-electric operations with Todd Engineering\'s Zeus spray booths — achieving PAS 2060 carbon-neutral certification.',
+    body: [
+      { type: 'p', text: 'Todd Engineering is proud to celebrate a significant milestone with one of our long-standing customers, MG Accident Repair Centre, which recently marked two years since transitioning to all-electric operations with our advanced Zeus spray booths. This pivotal step in MG\'s sustainability journey has been instrumental in helping them achieve PAS 2060 certification, solidifying their commitment to environmental responsibility and carbon neutrality.' },
+      { type: 'p', text: 'Previously reliant on gas-fired spray booths, MG recognised the need to upgrade to more sustainable technology to reduce their carbon footprint. The decision to switch to Todd Engineering\'s Zeus all-electric spray booths not only allowed them to meet their sustainability goals but also improved operational efficiency. The Zeus system\'s far infrared curing technology cures paint at a molecular level, optimising energy use and significantly lowering panel temperatures during the drying process.' },
+      { type: 'p', text: 'As a result, MG has been able to dramatically reduce energy consumption, cut operational costs, and lower their carbon footprint — achieving eco-friendly results while maintaining high-quality standards.' },
+      { type: 'quote', text: 'Switching to the Zeus spray booths has transformed our operations. We\'ve reduced energy costs, increased productivity, and maintained the highest quality standards. The Zeus system was key to achieving PAS 2060 certification — it\'s been a game-changer for us.' },
+      { type: 'p', text: 'This partnership exemplifies Todd Engineering\'s commitment to helping businesses achieve their sustainability goals while maintaining high performance. MG Accident Repair Centre continues to set a benchmark for the industry in embracing innovative, eco-friendly practices.' },
+    ],
+  },
+
+  'hills-helicopters-2024': {
+    slug: 'hills-helicopters-2024',
+    title: 'Hills Helicopters Expands with Todd Engineering',
+    category: 'Installation',
+    date: 'November 2024',
+    thumb: 'https://www.toddengineering.co.uk/media/dlxnhezf/screenshot-2024-11-06-063501.png',
+    hero: 'https://www.toddengineering.co.uk/media/dlxnhezf/screenshot-2024-11-06-063501.png',
+    excerpt: 'Todd Engineering supports Hills Helicopters — a premier bespoke helicopter manufacturer — with a complete facility upgrade including a Poseidon spray booth and purpose-built composite room.',
+    body: [
+      { type: 'p', text: 'Todd Engineering is delighted to support Hills Helicopters, a premier manufacturer of bespoke helicopters, with their recent facility upgrade. This local customer has moved to an expanded site, where we relocated an oven previously purchased from us and added specialised installations to enhance their production capabilities.' },
+      { type: 'p', text: 'At the core of the new facility is the Poseidon spray booth — a high-performance solution tailored for all of Hills Helicopters\' precision needs. Featuring a raised floor design for optimal airflow, full downdraught extraction for superior finishes, and Eco+ modes to reduce energy consumption, the Poseidon booth provides an efficient and sustainable approach to meet the demands of their production.' },
+      { type: 'p', text: 'Additionally, a dedicated paint mixing room was installed to streamline their workflow, allowing for precise colour matching and easy access to essential tools. An exciting addition to the new facility is a purpose-built temperature-controlled composite room — essential for maintaining the integrity of specialised components in helicopter manufacturing.' },
+      { type: 'quote', text: 'Working with Todd Engineering has been fantastic. Their expertise and commitment to quality have elevated our facility to a new level. The Poseidon spray booth and composite room align perfectly with our focus on precision and sustainability.' },
+      { type: 'p', text: 'This project highlights Todd Engineering\'s dedication to delivering bespoke, high-quality solutions for our clients. Todd Engineering is proud to support Hills Helicopters as they continue innovating in the aerospace industry, using advanced technology to drive productivity and quality.' },
+    ],
+  },
+
+  'angus-mackinnon-carbon-neutral-2024': {
+    slug: 'angus-mackinnon-carbon-neutral-2024',
+    title: 'Angus MacKinnon Expands with Carbon-Neutral Bodyshop Featuring Zeus Spray Booths',
+    category: 'Installation',
+    date: 'October 2024',
+    thumb: 'https://www.toddengineering.co.uk/media/rpjjrawu/screenshot-2024-10-29-150103.jpg',
+    hero: 'https://www.toddengineering.co.uk/media/rpjjrawu/screenshot-2024-10-29-150103.jpg',
+    excerpt: 'Angus MacKinnon opens a new purpose-built bodyshop in Uttoxeter featuring two Zeus all-electric spray booths — taking major strides towards sustainable, carbon-neutral operations.',
+    body: [
+      { type: 'p', text: 'Angus MacKinnon, a trusted name in automotive repair, is marking a significant milestone with the opening of their new purpose-built bodyshop in Uttoxeter, taking strides toward sustainable operations. A long-standing customer of Todd Engineering, Angus MacKinnon previously operated an external Olympian spray booth at their original site. With a desire to enhance efficiency and reduce environmental impact, owner Stuart was inspired to incorporate Todd Engineering\'s innovative Zeus all-electric spray booths after seeing their impressive performance at another facility.' },
+      { type: 'p', text: 'The new setup includes two Zeus full downdraught spray booths. A standout feature of the Zeus technology is its far infrared curing system, which cures paint at a molecular level, allowing for quicker, more energy-efficient drying without raising panel temperatures significantly. This method improves throughput while conserving energy, making it ideal for high-performance operations.' },
+      { type: 'p', text: 'Alongside the Zeus booths, the facility also houses a dedicated paint mixing room and a high-performance compressor, creating a seamless workflow that optimises productivity and ensures high-quality finishes with minimal environmental impact.' },
+      { type: 'quote', text: 'The new site required full refurbishment prior to moving in. All installation aspects relating to the booths, a compliance paint mixing room, compressed air systems and extraction were managed seamlessly by the Todd Engineering team. Their technology enables us to achieve our goals while reducing our carbon footprint. The Zeus booths have already made a positive impact on our productivity, and we eventually aim to operate the entire bodyshop on renewable energy through a solar setup.' },
+      { type: 'p', text: 'This installation serves as a model for the automotive refinishing industry, demonstrating how businesses can adopt advanced, sustainable technology without sacrificing performance.' },
+    ],
+  },
+
+  'rhodes-carbon-neutrality-2024': {
+    slug: 'rhodes-carbon-neutrality-2024',
+    title: 'Rhodes Accident Repair Centre — Leading the Way in Carbon Neutrality',
+    category: 'Installation',
+    date: 'October 2024',
+    thumb: 'https://www.toddengineering.co.uk/media/vxvab0cr/1.jpg',
+    hero: 'https://www.toddengineering.co.uk/media/vxvab0cr/1.jpg',
+    excerpt: 'Rhodes Accident Repair Centre in Rugeley celebrates the launch of its new carbon-neutral site, featuring Zeus and Hades booths and a solar-powered energy system.',
+    body: [
+      { type: 'p', text: 'Rhodes Accident Repair Centre in Rugeley is celebrating the launch of its new carbon-neutral site, showcasing the very latest in sustainable automotive technology. As a long-standing customer of Todd Engineering, Rhodes has made the progressive decision to opt for an all-electric setup, designed not only to enhance productivity but also to significantly reduce environmental impact.' },
+      { type: 'p', text: 'The facility features 2 Hades preparation booths and a centralised Zeus spray booth, equipped with twin-loading roller shutter doors. This advanced setup is complemented by all the energy-saving options available for the Zeus, maximising operational efficiency. The site also boasts a paint mixing room with centralised controls for the entire setup, along with a cutting-edge compressor to support day-to-day operations.' },
+      { type: 'p', text: 'In keeping with their commitment to sustainability, the Rhodes site is also powered by a solar setup with impressive battery storage, ensuring the facility runs on renewable energy while reducing costs and reliance on the grid.' },
+      { type: 'quote', text: 'Our new site is a game-changer for us. The Todd Engineering equipment has been instrumental in achieving our carbon-neutral objectives. The Zeus and Hades booths are incredibly efficient, and the energy-saving features have noticeably reduced our energy usage. The solar power system with battery storage not only supports our sustainability goals but also provides long-term cost savings.' },
+      { type: 'p', text: 'Rhodes Accident Repair Centre\'s new Rugeley facility sets a benchmark for the future of environmentally responsible vehicle repairs, combining cutting-edge technology with a steadfast commitment to sustainability.' },
+    ],
+  },
+
+  'mg-two-years-sustainable': {
+    slug: 'mg-two-years-sustainable',
+    title: 'Repair Centre Marking Two Years of Sustainable Excellence',
+    category: 'News',
+    date: 'October 2024',
+    thumb: 'https://www.toddengineering.co.uk/media/2d5jgkpg/screenshot-2024-10-15-110808.png',
+    hero: 'https://www.toddengineering.co.uk/media/2d5jgkpg/screenshot-2024-10-15-110808.png',
+    excerpt: 'MG Accident Repair Centre celebrates two years since transitioning to all-electric operations with Todd Engineering\'s Zeus spray booths — a cornerstone of their PAS 2060 certification journey.',
+    body: [
+      { type: 'p', text: 'MG Accident Repair Centre is celebrating two years since transitioning to all-electric operations with Todd Engineering\'s Zeus spray booths, a pivotal step in their journey towards carbon neutrality. As a long-standing customer of Todd Engineering, MG previously operated with gas-fired spray booths but made the switch to Zeus as part of their sustainability mission. This upgrade has been a cornerstone in helping them achieve PAS 2060 certification, signifying their commitment to carbon neutrality.' },
+      { type: 'p', text: 'The Zeus all-electric spray booth, equipped with far infrared curing technology, efficiently targets paint at a molecular level, reducing energy consumption while maintaining lower panel temperatures. This advanced technology has not only contributed to MG\'s environmental goals but has also increased productivity and improved the quality of their finishes.' },
+      { type: 'quote', text: 'Switching to the Zeus spray booths has transformed our business. We\'ve reduced energy costs, increased productivity, and maintained the highest quality standards. The Zeus system has been instrumental in our journey to achieving PAS 2060 certification, and it\'s been a game-changer for our operations.' },
+      { type: 'p', text: 'MG Accident Repair Centre continues to lead the way in sustainable automotive refinishing, setting a high standard for the industry with their commitment to eco-friendly practices.' },
+    ],
+  },
+
+  'vcr-greener-future': {
+    slug: 'vcr-greener-future',
+    title: 'VCR Vehicle Crash Repairs Invests in a Greener Future',
+    category: 'News',
+    date: 'October 2024',
+    thumb: 'https://www.toddengineering.co.uk/media/zp1joish/screenshot-2024-10-20-211407.png',
+    hero: 'https://www.toddengineering.co.uk/media/zp1joish/screenshot-2024-10-20-211407.png',
+    excerpt: 'As one of the largest independent vehicle repair centres in the UK, VCR is leading the way with a fully electric new facility in Milton Keynes — featured in ABP Magazine.',
+    body: [
+      { type: 'p', text: 'We\'re proud to showcase our long-standing partnership with VCR, featured in the latest issue of ABP Magazine. As one of the largest independent vehicle repair centres in the UK, VCR is leading the way with their commitment to sustainability and carbon neutrality.' },
+      { type: 'p', text: 'At their new Milton Keynes facility, we\'ve installed two all-electric Zeus spray booths, two Hades preparation booths, and a Hermes aluminium booth, all designed to minimise environmental impact and support VCR\'s efforts toward becoming the greenest repair centre in the region. These installations are a key part of VCR\'s goal to reduce their carbon footprint, embracing renewable energy and sustainable practices.' },
+      { type: 'p', text: 'We\'re proud to be part of this exciting journey, helping VCR set new standards in green vehicle repairs.' },
+    ],
+  },
+
+  'nbra-repairer-magazine-2024': {
+    slug: 'nbra-repairer-magazine-2024',
+    title: 'NBRA The Repairer Magazine: Pioneering Sustainability in Spray Booth Technology',
+    category: 'Press',
+    date: 'August 2024',
+    thumb: 'https://www.toddengineering.co.uk/media/e2ujjf3q/nbra-repairer-magazine-screenshot-1.png',
+    hero: 'https://www.toddengineering.co.uk/media/e2ujjf3q/nbra-repairer-magazine-screenshot-1.png',
+    excerpt: 'The NBRA\'s Repairer Magazine features Todd Engineering\'s approach to sustainable spray booth technology — from our Zeus all-electric booth to PAS 2060 carbon-neutral certification.',
+    body: [
+      { type: 'p', text: 'At Todd Engineering, sustainability is a core principle guiding our mission and operations. We are committed to reducing the carbon footprint of our spray booths while maintaining exceptional performance and efficiency.' },
+      { type: 'h2', text: 'A Commitment to Green Innovation' },
+      { type: 'p', text: 'Our journey began with a clear vision: to create cutting-edge spray booth solutions that are environmentally friendly and highly effective. This vision has driven every step we\'ve taken and every product we\'ve developed, integrating advanced technologies that minimise energy consumption and emissions.' },
+      { type: 'h2', text: 'The Zeus All-Electric Spray Booth' },
+      { type: 'p', text: 'Our Zeus all-electric spray booth is a groundbreaking achievement. Unlike traditional spray booths that rely on fossil fuels, the Zeus operates entirely on electricity, significantly reducing greenhouse gas emissions. Utilising far infrared (FIR) technology, the Zeus ensures efficient and precise paint finishes, speeding up the drying process and reducing energy usage.' },
+      { type: 'h2', text: 'PAS 2060 Carbon Neutrality' },
+      { type: 'p', text: 'Achieving PAS 2060 certification for carbon neutrality reaffirms our commitment to reducing the environmental impact of our operations and products. The Zeus all-electric spray booth can also operate on renewable energy sources, further enhancing its sustainability credentials.' },
+      { type: 'h2', text: 'Comprehensive Sustainability Measures' },
+      { type: 'p', text: 'Our commitment to sustainability extends beyond technology to the entire lifecycle of our products — from design and manufacturing to installation and maintenance. We use high-quality, recyclable materials in our spray booths, and our manufacturing processes are optimised for minimal waste. By eliminating fossil fuel-based heating systems, the Zeus spray booth requires little to no maintenance, minimising downtime and reducing the carbon footprint.' },
+    ],
+  },
+
+  'sandal-bmw-bodyshop-magazine': {
+    slug: 'sandal-bmw-bodyshop-magazine',
+    title: 'Bodyshop Magazine: Todd Engineering in Partnership with BMW Sandal Wakefield',
+    category: 'Press',
+    date: 'August 2024',
+    thumb: 'https://www.toddengineering.co.uk/media/24lkl34v/screenshot-2024-08-02-143416.png',
+    hero: 'https://www.toddengineering.co.uk/media/24lkl34v/screenshot-2024-08-02-143416.png',
+    excerpt: 'Bodyshop Magazine features the installation of two Poseidon spray booths and a bespoke paint mixing room at Sandal BMW, Wakefield — with full downdraught systems and Eco+ energy-saving technology.',
+    body: [
+      { type: 'p', text: 'In an impressive upgrade towards operational excellence, Sandal BMW has introduced two Poseidon spray booths and a bespoke paint mixing room, expertly installed by Todd Engineering. These state-of-the-art booths feature full downdraught systems, Eco+ Energy Saver technology, and Hydracure for superior curing and energy efficiency.' },
+      { type: 'p', text: 'The new facilities also include a separate gun wash room and a comprehensive paint mixing room equipped with shelving units, cupboards, and an extraction bench, enhancing functionality and workflow.' },
+      { type: 'quote', text: 'Huge thanks to Todd Engineering. The booths are fantastic, and the installation couldn\'t have gone smoother. We remained operational throughout the transition to the new BMW ColorSystem, thanks to Todd Engineering\'s meticulous planning and excellent product. We\'ve been operational with our booths and PMR for a month now and we\'re delighted with every aspect. I cannot recommend Todd Engineering enough to any of my industry colleagues.' },
+      { type: 'p', text: 'This major upgrade at Sandal BMW showcases Todd Engineering\'s dedication to delivering advanced, eco-friendly solutions that enhance operational efficiency and quality. The Poseidon booths, with features like full downdraught systems and Hydracure as standard, are setting new standards in the industry.' },
+    ],
+  },
+
+  'seah-wind-multi-million-contract': {
+    slug: 'seah-wind-multi-million-contract',
+    title: 'Todd Engineering Secures Multi-Million Pound Contract with SeAH Wind',
+    category: 'News',
+    date: 'July 2024',
+    thumb: 'https://www.toddengineering.co.uk/media/qcpelu1e/july-16th-seahwind.jpg',
+    hero: 'https://www.toddengineering.co.uk/media/qcpelu1e/july-16th-seahwind.jpg',
+    excerpt: 'Todd Engineering is thrilled to announce a multi-million pound contract to install five custom commercial spray booths for SeAH Wind — supporting the UK\'s largest offshore wind foundation manufacturing facility.',
+    body: [
+      { type: 'p', text: 'Todd Engineering is thrilled to announce the successful acquisition of a multi-million pound contract to install five custom commercial spray booths for SeAH Wind, enhancing the UK\'s largest offshore wind foundation manufacturing facility. This comprehensive 8-month project includes the installation of three XXXL spray booths and two moveable XXL spray booths, designed for optimal efficiency and superior quality outputs.' },
+      { type: 'p', text: 'The XXXL spray booths are engineered to accommodate the large-scale monopile production required for offshore wind foundations, ensuring flawless application and meticulous inspection capabilities. These advanced booths feature state-of-the-art air handling systems and energy-efficient technology to support SeAH Wind\'s commitment to sustainability and high performance.' },
+      { type: 'quote', text: 'This is a fantastic project to be part of. The scale and complexity of the SeAH Wind initiative align perfectly with our expertise and capabilities. We are proud to contribute to a project that supports the transition to renewable energy.' },
+      { type: 'p', text: 'From initial planning to final installation, Todd Engineering is managing every aspect of this significant project, ensuring the delivery of high-quality, reliable solutions tailored for the renewable energy sector. This successful contract plays a pivotal role in supporting the UK\'s transition to clean energy by enhancing SeAH Wind\'s production capabilities.' },
+    ],
+  },
+
+  'wfel-boxer-750k': {
+    slug: 'wfel-boxer-750k',
+    title: 'Todd Engineering Completes £750K WFEL Project for Military Boxer Program',
+    category: 'News',
+    date: 'April 2024',
+    thumb: 'https://www.toddengineering.co.uk/media/tkipt0s0/wfel-finish.jpg',
+    hero: 'https://www.toddengineering.co.uk/media/tkipt0s0/wfel-finish.jpg',
+    excerpt: 'Todd Engineering proudly announces the successful completion of a £750,000 turnkey project for WFEL — installing a 26-metre Titan CV Series drive-through paint facility for the UK\'s military Boxer armoured vehicle programme.',
+    body: [
+      { type: 'p', text: 'Todd Engineering proudly announces the successful completion of a £750,000 turnkey project for WFEL, enhancing the UK\'s defence capabilities. This comprehensive initiative involved the installation of the Titan CV series spraybooth — a state-of-the-art, 26-metre long, two-stage, drive-through paint facility designed for optimal efficiency and superior quality outputs.' },
+      { type: 'p', text: 'The Titan CV series is equipped with high, mid, and low-level lighting, ensuring flawless application and meticulous inspection capabilities. Its advanced air handling provides a controlled environment, crucial for military-grade paint applications. Additionally, a centralised inspection pit with comprehensive extraction systems significantly enhances safety and operational efficiency during under-vehicle inspections.' },
+      { type: 'p', text: 'The project also included a fully equipped plant room featuring an ABAC air compressor and a WORKY dust extraction system, fulfilling all operational requirements with cutting-edge technology. These facilities support the main spraybooth in maintaining top-tier performance and reliability.' },
+      { type: 'quote', text: 'Being part of the Boxer program has been a tremendous responsibility and achievement. The successful delivery of such a complex project under tight deadlines highlights our commitment to excellence and positions us as leaders in the defence industry.' },
+      { type: 'p', text: 'From initial planning to final installation, Todd Engineering managed every aspect of this significant project, ensuring the delivery of high-quality, reliable solutions tailored for the defence sector. This successful completion plays a pivotal role in supporting the UK\'s military readiness by enhancing the production capabilities of WFEL\'s Boxer armoured vehicles.' },
+    ],
+  },
+
+  'richard-hammond-smallest-cog': {
+    slug: 'richard-hammond-smallest-cog',
+    title: 'The Smallest COG — Richard Hammond\'s Workshop Powered by Todd Engineering',
+    category: 'Installation',
+    date: 'March 2024',
+    thumb: 'https://www.toddengineering.co.uk/media/vjxllujm/img_6819.png',
+    hero: 'https://www.toddengineering.co.uk/media/vjxllujm/img_6819.png',
+    excerpt: 'The Smallest COG, Richard Hammond\'s unique vehicle restoration workshop in the Cotswolds, has been transformed with a bespoke Poseidon spray booth, Hades prep room and paint mixing room installation.',
+    body: [
+      { type: 'p', text: 'The Smallest COG, owned by renowned presenter Richard Hammond, is a unique workshop dedicated to restoring and refinishing iconic vehicles with the utmost precision and care. Situated in the Cotswolds, The Smallest COG approached Todd Engineering to design and install a state-of-the-art refinishing solution that would align with their commitment to excellence and quality craftsmanship.' },
+      { type: 'p', text: 'The installation at The Smallest COG includes a custom Poseidon spraybooth, Hades preparation room, and a dedicated paint mixing room (PMR). The Poseidon spray booth offers advanced features such as full downdraught airflow, ensuring an optimal painting environment for even the most delicate and complex restorations. Complementing the booth, the Hades preparation room provides a controlled space for priming and preparation work, while the PMR ensures precise colour mixing and workflow efficiency.' },
+      { type: 'p', text: 'The installation has transformed The Smallest COG\'s workflow, enabling Richard Hammond\'s team to deliver meticulous refinishing results with enhanced efficiency. The advanced technology of the Poseidon booth and the complementary systems have been specifically calibrated to meet the demands of high-end vehicle restoration.' },
+      { type: 'p', text: 'Richard Hammond\'s The Smallest COG and Todd Engineering share a mutual passion for quality and innovation. The partnership not only showcases Todd Engineering\'s capability to deliver bespoke, high-performance solutions but also underscores the versatility of our products in meeting the needs of specialised industries.' },
+    ],
+  },
+
+  'global-waves-spraybooths': {
+    slug: 'global-waves-spraybooths',
+    title: 'Latest Spraybooths from Todd Engineering Make Global Waves',
+    category: 'News',
+    date: 'October 2023',
+    thumb: 'https://www.toddengineering.co.uk/media/qxopa2t1/latest-spraybooths-from-todd-engineering-make-global-waves.png',
+    hero: 'https://www.toddengineering.co.uk/media/qxopa2t1/latest-spraybooths-from-todd-engineering-make-global-waves.png',
+    excerpt: 'Todd Engineering\'s Zeus spray booth is rapidly gaining traction in European and Middle Eastern markets — with major contracts including four Zeus booths for the Royal Bahrain Military valued at £375,000.',
+    body: [
+      { type: 'p', text: 'This year, Todd Engineering has made significant strides in the global market with its state-of-the-art spraybooth exports. From aerospace projects in Prague to prestigious assignments for the Royal Military in Bahrain, the company\'s reach and influence have expanded exponentially.' },
+      { type: 'p', text: 'Central to this success is the introduction of the new Zeus spraybooth, which is rapidly gaining traction in both European and Middle Eastern markets. Its advanced features and efficiency have made it a sought-after choice for various industries.' },
+      { type: 'quote', text: 'Here at Todd Engineering, we are not just focused on creating top-tier products but are also working diligently towards a sustainable future. The Zeus is a testament to that commitment. Its growing demand, especially in international markets, is a clear indication of its unmatched quality and our team\'s dedication.' },
+      { type: 'p', text: 'A significant achievement in Todd Engineering\'s recent endeavours is their collaboration with Behbehani Brothers in Bahrain. Not only has the company triumphantly shipped four Zeus spraybooths to the Royal Bahrain Military, valued at £375,000, but it has also despatched an additional spraybooth to the Behbehani Brothers, with the project also valuing at £375,000. This marks a pivotal moment in their partnership, with numerous other projects in the pipeline, further cementing Todd Engineering\'s strong presence in the Middle East.' },
+      { type: 'p', text: 'As Todd Engineering continues to innovate and expand, its global footprint is a testament to its commitment to excellence and sustainability. With the Zeus leading the way, the future looks bright for the company and its international clientele.' },
+    ],
+  },
+
+  '500k-smart-repair-rollout': {
+    slug: '500k-smart-repair-rollout',
+    title: '£500k Contract Begins Todd\'s Smart Repair Facilities Rollout',
+    category: 'News',
+    date: 'May 2023',
+    thumb: 'https://www.toddengineering.co.uk/media/qazlbzon/news-article-23-5-23.png',
+    hero: 'https://www.toddengineering.co.uk/media/qazlbzon/news-article-23-5-23.png',
+    excerpt: 'Todd Engineering initiates the rollout of Nemesis Smart Repair Facilities with a £500k contract from Snows — developed in collaboration with Toyota GB and now deployed across multiple Snows dealership sites.',
+    body: [
+      { type: 'p', text: 'Todd Engineering Ltd is driving a revolution in vehicle maintenance and repairs with the commencement of their Nemesis Smart Repair Facilities rollout. The innovative solution, developed in collaboration with Toyota GB, offers high-tech features that promise to significantly enhance the efficiency and effectiveness of automotive smart repair processes.' },
+      { type: 'p', text: 'Snows, the renowned auto dealer group, has thrown their full weight behind this cutting-edge technology, becoming one of the first businesses to embrace the Nemesis Smart Repair Facilities. Snows first commissioned the installation at their dealership site back in January 2023. Encouraged by the positive impacts, they subsequently expanded this to their third site in Southampton, with plans already underway to install a fourth at another branch.' },
+      { type: 'p', text: 'Through a significant contract valued at £500,000, Snows has demonstrated its commitment to adopting the state-of-the-art technologies from Todd Engineering Ltd, propelling them to the forefront of technological advancements in the automotive repair industry.' },
+      { type: 'quote', text: 'This is an extremely promising contract for us. Here at Todd Engineering, we are continually innovating. The advanced technology incorporated into our Nemesis Smart Repair Facilities not only streamlines the repair process but significantly enhances the quality of work. It\'s an exciting time in the evolution of our industry.' },
+      { type: 'p', text: 'The Nemesis Smart Repair Facilities represent a substantial leap forward in the automotive service sector. By streamlining the smart repair processes, these facilities can significantly reduce the time taken for vehicle repairs while enhancing the quality of the work done, leading to increased customer satisfaction and greater revenue for dealerships.' },
+    ],
+  },
+
+  '750k-boxer-programme': {
+    slug: '750k-boxer-programme',
+    title: 'Todd Celebrates £750k Order to Help with Boxer Programme',
+    category: 'News',
+    date: 'May 2023',
+    thumb: 'https://www.toddengineering.co.uk/media/n4xfk23c/2023-05-10.jpg',
+    hero: 'https://www.toddengineering.co.uk/media/n4xfk23c/2023-05-10.jpg',
+    excerpt: 'Todd Engineering wins a £750,000 order to supply a 26-metre Titan spraybooth for WFEL in Stockport — supporting the new military Boxer armoured vehicle programme.',
+    body: [
+      { type: 'p', text: 'Todd Engineering has won a £750,000 order to supply a spraybooth for the new military Boxer armoured vehicles. The company is making the 26-metre long Titan external spraybooth for WFEL in Stockport.' },
+      { type: 'p', text: 'Family-owned Todd Engineering in Armitage Road, Rugeley, are leading paint spraybooth manufacturers and have been going for 35 years. The company manufactures, installs and commissions spraybooths with its own engineers.' },
+      { type: 'p', text: 'WFEL has recently won an order for 100 more Boxers for the Army. The contract extension will include extra infantry carrier vehicles, command and control vehicles and ambulances. The UK Boxer programme has created an additional 120 jobs at WFEL.' },
+      { type: 'quote', text: 'It is a very interesting job for us to provide a standalone building. The WFEL spraybooth will have two work areas with the paint area equipped with a compressed air system and a dust extraction unit.' },
+      { type: 'p', text: 'Todd Engineering continues a busy period with a strong order book and an ongoing recruitment programme. The company recently completed a significant project to provide facilities for airline Emirates in Dubai.' },
+    ],
+  },
+
+  // ── END OLD SITE ARTICLES ─────────────────────────────────────────────────
+
   'todd-engineering-rupes-partnership': {
     slug: 'todd-engineering-rupes-partnership',
     title: 'Todd Engineering Partners with RUPES — Complete Dust Extraction for ZEUS Prep Rooms',
@@ -163,12 +421,31 @@ export const NEWS_DATA: Record<string, NewsArticle> = {
 }
 
 export const NEWS_LIST: NewsArticle[] = [
+  // 2026
   NEWS_DATA['todd-engineering-rupes-partnership'],
   NEWS_DATA['zeus-xr-msrt-installation'],
   NEWS_DATA['car-sos-zeus-xr'],
   NEWS_DATA['electric-spraybooth-ai-robotics'],
   NEWS_DATA['todd-engineering-paintgo-partnership'],
+  // 2025
   NEWS_DATA['mem-magazine-made-in-britain'],
+  NEWS_DATA['al-haddad-motors-bahrain'],
+  // 2024
   NEWS_DATA['repairers-magazine-winter-2024'],
   NEWS_DATA['night-of-knights-award-2024'],
+  NEWS_DATA['mg-carbon-neutral-partnership'],
+  NEWS_DATA['hills-helicopters-2024'],
+  NEWS_DATA['angus-mackinnon-carbon-neutral-2024'],
+  NEWS_DATA['rhodes-carbon-neutrality-2024'],
+  NEWS_DATA['mg-two-years-sustainable'],
+  NEWS_DATA['vcr-greener-future'],
+  NEWS_DATA['nbra-repairer-magazine-2024'],
+  NEWS_DATA['sandal-bmw-bodyshop-magazine'],
+  NEWS_DATA['seah-wind-multi-million-contract'],
+  NEWS_DATA['wfel-boxer-750k'],
+  NEWS_DATA['richard-hammond-smallest-cog'],
+  // 2023
+  NEWS_DATA['global-waves-spraybooths'],
+  NEWS_DATA['500k-smart-repair-rollout'],
+  NEWS_DATA['750k-boxer-programme'],
 ]
