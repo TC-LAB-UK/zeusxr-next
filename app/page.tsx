@@ -133,18 +133,20 @@ export default async function Home() {
             <span className="hero-trusted-lbl">Trusted by</span>
             <div className="hero-logo-wrap">
               <div className="hero-logo-track">
-                <img src="/brand/clients/car-sos.png" alt="Car SOS" />
                 <img src="/brand/clients/rupes.svg" alt="RUPES" />
                 <img src="/brand/ms-rt.webp" alt="MS-RT" />
+                <img src="/brand/paintgo-uk.png" alt="PaintGo" />
+                <img src="/brand/koenigsegg.png" alt="Koenigsegg" />
                 <img src="/brand/clients/ks.svg" alt="K&S" />
                 <img src="/brand/clients/gemini.svg" alt="Gemini ARC" />
                 <img src="/brand/clients/emirates.svg" alt="Emirates" />
                 <img src="https://autolux.uk.com/wp-content/uploads/autolux_body_paint_full-01.svg" alt="AutoLux" />
                 <img src="https://www.pjrhodes.co.uk/files/pages/logo.png" alt="Rhodes" />
                 {/* Duplicates for seamless loop */}
-                <img src="/brand/clients/car-sos.png" alt="Car SOS" />
                 <img src="/brand/clients/rupes.svg" alt="RUPES" />
                 <img src="/brand/ms-rt.webp" alt="MS-RT" />
+                <img src="/brand/paintgo-uk.png" alt="PaintGo" />
+                <img src="/brand/koenigsegg.png" alt="Koenigsegg" />
                 <img src="/brand/clients/ks.svg" alt="K&S" />
                 <img src="/brand/clients/gemini.svg" alt="Gemini ARC" />
                 <img src="/brand/clients/emirates.svg" alt="Emirates" />
@@ -430,9 +432,10 @@ export default async function Home() {
         <p className="trusted-label">Trusted by</p>
         <div className="logos-track-wrap">
           <div className="logos-track">
-            <img src="/brand/clients/car-sos.png" alt="Car SOS" loading="lazy" />
             <img src="/brand/clients/rupes.svg" alt="RUPES" loading="lazy" />
             <img src="/brand/ms-rt.webp" alt="MS-RT" loading="lazy" />
+            <img src="/brand/paintgo-uk.png" alt="PaintGo" loading="lazy" />
+            <img src="/brand/koenigsegg.png" alt="Koenigsegg" loading="lazy" />
             <img src="/brand/clients/ks.svg" alt="K&S" loading="lazy" />
             <img src="/brand/clients/gemini.svg" alt="Gemini ARC" loading="lazy" />
             <img src="/brand/clients/emirates.svg" alt="Emirates" loading="lazy" />
@@ -441,9 +444,10 @@ export default async function Home() {
             <img src="https://www.jetglow.co.uk/media/com_sppagebuilder/placeholder/full-logo_0e182f_blue.png" alt="Jetglow" loading="lazy" />
             <img src="https://www.pjrhodes.co.uk/files/pages/logo.png" alt="Rhodes Accident Repair" loading="lazy" />
             {/* Duplicates for seamless loop */}
-            <img src="/brand/clients/car-sos.png" alt="Car SOS" loading="lazy" />
             <img src="/brand/clients/rupes.svg" alt="RUPES" loading="lazy" />
             <img src="/brand/ms-rt.webp" alt="MS-RT" loading="lazy" />
+            <img src="/brand/paintgo-uk.png" alt="PaintGo" loading="lazy" />
+            <img src="/brand/koenigsegg.png" alt="Koenigsegg" loading="lazy" />
             <img src="/brand/clients/ks.svg" alt="K&S" loading="lazy" />
             <img src="/brand/clients/gemini.svg" alt="Gemini ARC" loading="lazy" />
             <img src="/brand/clients/emirates.svg" alt="Emirates" loading="lazy" />
