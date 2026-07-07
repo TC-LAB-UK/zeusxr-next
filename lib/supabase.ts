@@ -79,7 +79,7 @@ export async function getArticles() {
   try {
     const { data, error } = await supabase
       .from('articles')
-      .select('id, title, slug, cover_image_url, tags, published_at, body')
+      .select('id, title, slug, cover_image_url, tags, published_at, seo_description, body')
       .eq('org_id', ORG_ID)
       .eq('status', 'published')
       .order('published_at', { ascending: false })

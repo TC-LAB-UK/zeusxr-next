@@ -1,14 +1,22 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import ScrollReveal from '@/components/ScrollReveal'
-import { NEWS_LIST } from '@/lib/news-data'
+import { getArticles } from '@/lib/supabase'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'News & Updates — Todd Engineering',
   description: 'Product launches, industry insights and project highlights from the Todd Engineering team.',
 }
 
-export default function NewsPage() {
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })
+}
+
+export default async function NewsPage() {
+  const articles = await getArticles()
+
   return (
     <>
       <section className="page-hero">
@@ -22,26 +30,26 @@ export default function NewsPage() {
       <section className="sec">
         <div className="w-1300">
           <div className="news-grid">
-            {NEWS_LIST.map((article, i) => (
+            {articles.map((article, i) => (
               <Link key={article.slug} href={`/news/${article.slug}`} className={`nc rv d${i % 3}`}>
                 <div
                   className="nc-thumb"
                   style={
-                    article.thumb
-                      ? { backgroundImage: `url(${article.thumb})`, backgroundPosition: 'center', backgroundSize: 'cover' }
-                      : { background: article.thumbBg ?? 'var(--green)', display: 'flex', alignItems: 'center', justifyContent: 'center' }
+                    article.cover_image_url
+                      ? { backgroundImage: `url(${article.cover_image_url})`, backgroundPosition: 'center', backgroundSize: 'cover' }
+                      : { background: 'var(--green)', display: 'flex', alignItems: 'center', justifyContent: 'center' }
                   }
                 >
-                  {!article.thumb && (
+                  {!article.cover_image_url && (
                     <span style={{ fontSize: 28, fontWeight: 900, fontStyle: 'italic', color: '#fff', letterSpacing: -1 }}>
-                      {article.thumbLabel ?? 'TE'}
+                      TE
                     </span>
                   )}
                 </div>
                 <div className="nc-body">
-                  <p className="nc-cat">{article.category}</p>
+                  <p className="nc-cat">{article.tags?.[0] ?? 'News'}</p>
                   <p className="nc-title">{article.title}</p>
-                  <p className="nc-date">{article.date}</p>
+                  <p className="nc-date">{formatDate(article.published_at)}</p>
                 </div>
               </Link>
             ))}
