@@ -135,7 +135,7 @@ export default async function Home() {
               <div className="hero-logo-track">
                 <img src="/brand/clients/car-sos.png" alt="Car SOS" />
                 <img src="/brand/clients/rupes.svg" alt="RUPES" />
-                <img src="/brand/clients/paintgo.png" alt="PaintGo" />
+                <img src="/brand/ms-rt.webp" alt="MS-RT" />
                 <img src="/brand/clients/ks.svg" alt="K&S" />
                 <img src="/brand/clients/gemini.svg" alt="Gemini ARC" />
                 <img src="/brand/clients/emirates.svg" alt="Emirates" />
@@ -144,7 +144,7 @@ export default async function Home() {
                 {/* Duplicates for seamless loop */}
                 <img src="/brand/clients/car-sos.png" alt="Car SOS" />
                 <img src="/brand/clients/rupes.svg" alt="RUPES" />
-                <img src="/brand/clients/paintgo.png" alt="PaintGo" />
+                <img src="/brand/ms-rt.webp" alt="MS-RT" />
                 <img src="/brand/clients/ks.svg" alt="K&S" />
                 <img src="/brand/clients/gemini.svg" alt="Gemini ARC" />
                 <img src="/brand/clients/emirates.svg" alt="Emirates" />
@@ -341,7 +341,7 @@ export default async function Home() {
       <section className="zxr-feature">
         <div className="zxr-inner">
           <div className="zxr-hd">
-            <img src="/brand/paintgo-lockup.png" alt="Todd Engineering x PaintGo" className="zxr-logo" />
+            <img src="/brand/paintgo-uk.png" alt="Todd Engineering x PaintGo" className="zxr-logo" />
             <h2 className="zxr-h2">Spray finishing,<br />without the variables.</h2>
             <p className="zxr-p">Zeus XR brings the booth, robotics and AI into one coordinated system. Every variable controlled. Every finish consistent — the kind of results your best operators deliver on their best days, now the standard for every job.</p>
             <div className="zxr-stats">
@@ -432,7 +432,7 @@ export default async function Home() {
           <div className="logos-track">
             <img src="/brand/clients/car-sos.png" alt="Car SOS" loading="lazy" />
             <img src="/brand/clients/rupes.svg" alt="RUPES" loading="lazy" />
-            <img src="/brand/clients/paintgo.png" alt="PaintGo" loading="lazy" />
+            <img src="/brand/ms-rt.webp" alt="MS-RT" loading="lazy" />
             <img src="/brand/clients/ks.svg" alt="K&S" loading="lazy" />
             <img src="/brand/clients/gemini.svg" alt="Gemini ARC" loading="lazy" />
             <img src="/brand/clients/emirates.svg" alt="Emirates" loading="lazy" />
@@ -443,7 +443,7 @@ export default async function Home() {
             {/* Duplicates for seamless loop */}
             <img src="/brand/clients/car-sos.png" alt="Car SOS" loading="lazy" />
             <img src="/brand/clients/rupes.svg" alt="RUPES" loading="lazy" />
-            <img src="/brand/clients/paintgo.png" alt="PaintGo" loading="lazy" />
+            <img src="/brand/ms-rt.webp" alt="MS-RT" loading="lazy" />
             <img src="/brand/clients/ks.svg" alt="K&S" loading="lazy" />
             <img src="/brand/clients/gemini.svg" alt="Gemini ARC" loading="lazy" />
             <img src="/brand/clients/emirates.svg" alt="Emirates" loading="lazy" />
@@ -590,7 +590,7 @@ export default async function Home() {
           <span className="p-lbl">Partners</span>
           <div className="p-sep"></div>
           <img src="/brand/logo.png" alt="Todd Engineering" className="p-logo" />
-          <img src="/brand/paintgo-lockup.png" alt="PaintGo" className="p-logo" />
+          <img src="/brand/paintgo-uk.png" alt="PaintGo" className="p-logo" />
           <img src="/brand/anest-iwata.png" alt="Anest Iwata" className="p-logo" />
         </div>
       </div>
