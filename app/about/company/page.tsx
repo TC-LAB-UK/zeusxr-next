@@ -10,9 +10,9 @@ const team = [
   { name: 'Lee Todd', role: 'Managing Director', photo: '/media/lee-todd.png', pos: 'center 20%' },
   { name: 'Adam Turner', role: 'Sales Manager', photo: '/media/about/todds-1.png', pos: 'center' },
   { name: 'Jenny Lee', role: 'Sales Coordinator', photo: '/media/jenny-headshot.jpg', pos: 'center top' },
-  { name: 'Dave Ayling', role: 'Purchasing Manager', photo: '/media/about/todds-2.png', pos: 'center' },
-  { name: 'Jason Nicholas', role: 'Factory Manager', photo: '/media/about/todds-3.png', pos: 'center' },
-  { name: 'Sarah Griffin', role: 'Receptionist', photo: '/media/about/todds-4.png', pos: 'center' },
+  { name: 'Sarah Griffin', role: 'Receptionist', photo: '/media/about/todds-2.png', pos: 'center' },
+  { name: 'Dave Ayling', role: 'Purchasing Manager', photo: '/media/about/todds-3.png', pos: 'center' },
+  { name: 'Jason Nicholas', role: 'Factory Manager', photo: '/media/about/todds-4.png', pos: 'center' },
   { name: 'Babatunde Ayoade', role: 'Health & Safety Manager', photo: '/media/tunde-headshot.jpg', pos: 'center top' },
   { name: 'Bonnie & Bell', role: 'Honorary Board Members', photo: '/media/about/todds-5.png', pos: 'center' },
 ]
