@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import EnergyCalculator from '@/components/EnergyCalculator'
 
 const SUPABASE_URL = 'https://gmpqytfjcmgmrhqocdyk.supabase.co/rest/v1/leads'
 const SUPABASE_KEY = 'sb_publishable_p5xmlGJewiHl-jaXU_QNxw_qUZqHijA'
@@ -692,6 +693,9 @@ export default function ZeusXRClient() {
           </div>
         </div>
       </section>
+
+      {/* ENERGY CALCULATOR */}
+      <EnergyCalculator />
 
       {/* CTA */}
       <section className="cta-sec" id="demo" style={{ height: '100svh' }}>
