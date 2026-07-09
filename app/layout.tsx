@@ -19,11 +19,20 @@ export const metadata: Metadata = {
     template: '%s — Todd Engineering',
   },
   description: "Todd Engineering — UK's leading spraybooth manufacturer. AI-assisted robotic finishing, spray booth systems, and bespoke industrial installations since 1993.",
-  metadataBase: new URL('https://zeusxr.co'),
+  metadataBase: new URL('https://toddengineering.co.uk'),
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
   openGraph: {
     siteName: 'Todd Engineering',
     locale: 'en_GB',
     type: 'website',
+    images: [{ url: '/icon-512.png', width: 512, height: 512 }],
   },
 }
 
@@ -33,6 +42,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="clarri:portal" content="1.0" />
         {/* Powered by Clarri CRM — portal.tc-lab.co.uk */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Todd Engineering',
+            url: 'https://toddengineering.co.uk',
+            logo: 'https://toddengineering.co.uk/icon-512.png',
+            image: 'https://toddengineering.co.uk/icon-512.png',
+            description: "UK's leading spraybooth manufacturer. AI-assisted robotic finishing, spray booth systems, and bespoke industrial installations since 1993.",
+            telephone: '+44-845-017-6465',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Gregory Works, Armitage Road',
+              addressLocality: 'Rugeley',
+              postalCode: 'WS15 1PW',
+              addressCountry: 'GB',
+            },
+            sameAs: [
+              'https://www.linkedin.com/company/todd-engineering-ltd',
+            ],
+          })}}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){var t=localStorage.getItem('te-theme')||'light';document.documentElement.setAttribute('data-theme',t);})();`,
