@@ -82,7 +82,7 @@ const staticNewsItems = [
   {
     href: '/news/zeus-xr-msrt-installation',
     thumbBg: undefined as string | undefined,
-    thumbImg: '/media/news/msrt-zeus-xr.jpeg' as string | undefined,
+    thumbImg: '/media/news/thumb-msrt.png' as string | undefined,
     cat: 'Project',
     date: 'June 2026',
     title: 'Zeus XR installation at MSRT',
