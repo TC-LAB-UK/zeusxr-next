@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function Nav() {
+type Solution = { name: string; slug: string }
+
+export default function Nav({ solutions = [] }: { solutions?: Solution[] }) {
   const [theme, setTheme] = useState<'dark' | 'light'>('light')
 
   useEffect(() => {
@@ -58,10 +60,9 @@ export default function Nav() {
     {
       label: 'Solutions',
       links: [
-        { href: '/solutions/installation', label: 'Installation' },
-        { href: '/solutions/design-build', label: 'Design & Build' },
-        { href: '/solutions/project-management', label: 'Project Management' },
-        { href: '/solutions/maintenance', label: 'Maintenance & Servicing' },
+        ...solutions.map(s => ({ href: `/solutions/${s.slug}`, label: s.name })),
+        ...(solutions.length > 0 ? [{ divider: true as const }] : []),
+        { href: '/solutions', label: 'View all solutions →' },
       ],
     },
     {

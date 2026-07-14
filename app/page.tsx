@@ -47,6 +47,7 @@ async function getCaseStudies() {
       .select('id, title, slug, client_name, sector, cover_image_url')
       .eq('org_id', ORG_ID)
       .eq('status', 'published')
+      .order('sort_order', { ascending: true, nullsFirst: false })
       .order('published_at', { ascending: false })
       .limit(3)
     return data || []
@@ -356,7 +357,7 @@ export default async function Home() {
                 <div className="zxr-stat-l">Less rework</div>
               </div>
               <div className="zxr-stat">
-                <div className="zxr-stat-n">35%↓</div>
+                <div className="zxr-stat-n">25%↓</div>
                 <div className="zxr-stat-l">Paint waste reduction</div>
               </div>
             </div>
