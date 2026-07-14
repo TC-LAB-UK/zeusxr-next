@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Nav from '@/components/Nav'
+import NavWrapper from '@/components/NavWrapper'
 import Footer from '@/components/Footer'
 import QuoteModal from '@/components/QuoteModal'
 import CookieConsent from '@/components/CookieConsent'
@@ -72,7 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={inter.className}>
-        <Nav />
+        <NavWrapper />
         {/*
           Sentinel for scroll detection. Position: after the fixed nav (which is 72px tall).
           IntersectionObserver watches this. When it leaves the viewport (user scrolled),

@@ -16,6 +16,7 @@ export async function getProducts() {
       .select('id, name, slug, tagline, cover_image_url, status')
       .eq('org_id', ORG_ID)
       .eq('status', 'published')
+      .order('sort_order', { ascending: true, nullsFirst: false })
       .order('created_at', { ascending: true })
     if (error) throw error
     return data ?? []
@@ -49,7 +50,8 @@ export async function getCaseStudies() {
       .select('id, title, slug, client_name, sector, cover_image_url, status')
       .eq('org_id', ORG_ID)
       .eq('status', 'published')
-      .order('created_at', { ascending: true })
+      .order('sort_order', { ascending: true, nullsFirst: false })
+      .order('created_at', { ascending: false })
     if (error) throw error
     return data ?? []
   } catch {
@@ -94,6 +96,39 @@ export async function getArticle(slug: string) {
   try {
     const { data, error } = await supabase
       .from('articles')
+      .select('*')
+      .eq('org_id', ORG_ID)
+      .eq('slug', slug)
+      .eq('status', 'published')
+      .single()
+    if (error) throw error
+    return data
+  } catch {
+    return null
+  }
+}
+
+// ─── Solutions ────────────────────────────────────────────────────────────────
+
+export async function getSolutions() {
+  try {
+    const { data, error } = await supabase
+      .from('solutions')
+      .select('id, name, slug, tagline, cover_image_url, status')
+      .eq('org_id', ORG_ID)
+      .eq('status', 'published')
+      .order('created_at', { ascending: true })
+    if (error) throw error
+    return data ?? []
+  } catch {
+    return []
+  }
+}
+
+export async function getSolution(slug: string) {
+  try {
+    const { data, error } = await supabase
+      .from('solutions')
       .select('*')
       .eq('org_id', ORG_ID)
       .eq('slug', slug)
