@@ -13,7 +13,7 @@ export async function getProducts() {
   try {
     const { data, error } = await supabase
       .from('products')
-      .select('id, name, slug, tagline, cover_image_url, status')
+      .select('id, name, slug, tagline, cover_image_url, category, subcategory, status')
       .eq('org_id', ORG_ID)
       .eq('status', 'published')
       .order('sort_order', { ascending: true, nullsFirst: false })

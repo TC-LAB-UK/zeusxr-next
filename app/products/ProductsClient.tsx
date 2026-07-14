@@ -10,6 +10,7 @@ type Product = {
   tagline: string | null
   cover_image_url: string | null
   category: string | null
+  subcategory: string | null
 }
 
 function toKey(cat: string | null): string {
@@ -30,7 +31,6 @@ const CATEGORY_ORDER = [
   'Preparation Rooms',
   'Paint Mixing',
   'Smart Repairs',
-  'Commercial Vehicles',
   'Accessories',
   'Robotics',
 ]
@@ -41,7 +41,9 @@ export default function ProductsClient({ products }: { products: Product[] }) {
   useEffect(() => {
     const els = document.querySelectorAll('.rv')
     const obs = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target) } }),
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target) }
+      }),
       { threshold: 0.06 }
     )
     els.forEach(el => obs.observe(el))
@@ -54,12 +56,20 @@ export default function ProductsClient({ products }: { products: Product[] }) {
     ...dbCategories.filter(c => !CATEGORY_ORDER.includes(c)),
   ]
 
-  const visible = active === 'all'
-    ? products
-    : products.filter(p => toKey(p.category) === active)
+  const hasElectric = products.some(p => p.subcategory === 'Electric')
+  const hasGas = products.some(p => p.subcategory === 'Gas')
 
-  function count(cat: string) {
-    return products.filter(p => toKey(p.category) === cat).length
+  const visible =
+    active === 'all' ? products :
+    active === 'electric' ? products.filter(p => p.subcategory === 'Electric') :
+    active === 'gas' ? products.filter(p => p.subcategory === 'Gas') :
+    products.filter(p => toKey(p.category) === active)
+
+  function count(key: string): number {
+    if (key === 'all') return products.length
+    if (key === 'electric') return products.filter(p => p.subcategory === 'Electric').length
+    if (key === 'gas') return products.filter(p => p.subcategory === 'Gas').length
+    return products.filter(p => toKey(p.category) === key).length
   }
 
   function Btn({ filterKey, label, sub }: { filterKey: string; label: string; sub?: boolean }) {
@@ -70,9 +80,7 @@ export default function ProductsClient({ products }: { products: Product[] }) {
         onClick={() => setActive(filterKey)}
       >
         {label}
-        <span className="filter-count">
-          {filterKey === 'all' ? products.length : count(filterKey)}
-        </span>
+        <span className="filter-count">{count(filterKey)}</span>
       </button>
     )
   }
@@ -95,6 +103,8 @@ export default function ProductsClient({ products }: { products: Product[] }) {
         {orderedCategories.map(cat => (
           <MobilePill key={cat} filterKey={toKey(cat)} label={cat} />
         ))}
+        {hasElectric && <MobilePill filterKey="electric" label="Electric" />}
+        {hasGas && <MobilePill filterKey="gas" label="Gas" />}
       </div>
 
       <div className="cat-layout">
@@ -109,7 +119,15 @@ export default function ProductsClient({ products }: { products: Product[] }) {
               <div className="sidebar-section">
                 <div className="sidebar-label">Category</div>
                 {orderedCategories.map(cat => (
-                  <Btn key={cat} filterKey={toKey(cat)} label={cat} />
+                  <div key={cat}>
+                    <Btn filterKey={toKey(cat)} label={cat} />
+                    {cat === 'Spray Booths' && (
+                      <>
+                        {hasElectric && <Btn filterKey="electric" label="Electric" sub={true} />}
+                        {hasGas && <Btn filterKey="gas" label="Gas" sub={true} />}
+                      </>
+                    )}
+                  </div>
                 ))}
               </div>
             </>
@@ -138,7 +156,11 @@ export default function ProductsClient({ products }: { products: Product[] }) {
                 }
               </div>
               <div className="prod-card-body">
-                {p.category && <div className="prod-cat-pill">{p.category}</div>}
+                {p.category && (
+                  <div className="prod-cat-pill">
+                    {p.subcategory ? `${p.category} · ${p.subcategory}` : p.category}
+                  </div>
+                )}
                 <div className="prod-name">{p.name}</div>
                 {p.tagline && <div className="prod-desc">{p.tagline}</div>}
                 <div className="prod-card-footer">
