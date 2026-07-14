@@ -20,7 +20,7 @@ export default function ArticleMSRT() {
       <div className="art-body rv">
         <p className="art-lead">MSRT — one of the UK&apos;s most respected refinishing operations — has become the latest facility to commission a full Zeus XR system. The installation marks a significant step in the adoption of AI-guided robotic spraying within professional bodyshop environments.</p>
         <p className="art-p">The project involved a complete turnkey installation: site preparation, booth integration, robot commissioning and operator training. Our engineering team worked closely with the MSRT team throughout — ensuring the system was calibrated precisely to their workflow before going live.</p>
-        <p className="art-p">The Zeus XR at MSRT operates as a fully integrated finishing system. The PG90-E robot arm executes spray programmes guided by real-time AI vision data, while the electric booth environment maintains optimal temperature and airflow throughout every cycle.</p>
+        <p className="art-p">The Zeus XR at MSRT operates as a fully integrated finishing system. The PG-90E robot arm executes spray programmes guided by real-time AI vision data, while the electric booth environment maintains optimal temperature and airflow throughout every cycle.</p>
         <div className="art-quote rv">
           <p className="art-quote-text">&ldquo;The Zeus XR has fundamentally changed how we operate. The consistency we&apos;re now achieving on every vehicle — that&apos;s not something you can replicate with manual spraying.&rdquo;</p>
           <p className="art-quote-attr">MSRT — Refinishing Operations</p>
@@ -41,7 +41,7 @@ export default function ArticleMSRT() {
           <img src="/media/news/msrt-grid-3.jpeg" alt="PaintGo robot arm at MSRT" />
           <img src="/media/news/msrt-grid-4.jpeg" alt="Zeus XR robot spray system close-up" />
         </div>
-        <p className="art-img-caption">The PaintGo PG90-E robotic system operating inside the Zeus XR at MSRT.</p>
+        <p className="art-img-caption">The PaintGo PG-90E robotic system operating inside the Zeus XR at MSRT.</p>
       </div>
 
       <section className="art-video-sec">
