@@ -101,7 +101,7 @@ const PRODUCT_DATA: Record<string, {
   specRows?: { k: string; v: string }[]
   icons?: { label: string }[]
 }> = {
-  'zeus-8000': {
+  'zeus-8000-series': {
     heroBg: '/media/zeus-8000.png',
     specRows: [
       { k: 'Application', v: 'Automotive spray finishing' },
@@ -125,7 +125,7 @@ const PRODUCT_DATA: Record<string, {
       { label: '+1800 Lux LED' },
     ],
   },
-  'poseidon': {
+  'poseidon-4000-series': {
     heroBg: '/media/poseidon.jpg',
     specRows: [
       { k: 'Application', v: 'Automotive spray finishing' },
@@ -143,7 +143,7 @@ const PRODUCT_DATA: Record<string, {
       { label: 'Made in Britain' },
     ],
   },
-  'olympian-1000': {
+  'olympian-1000-series': {
     heroBg: '/media/olympian-1000.jpg',
     specRows: [
       { k: 'Application', v: 'Automotive spray finishing' },
@@ -161,7 +161,7 @@ const PRODUCT_DATA: Record<string, {
       { label: 'Made in Britain' },
     ],
   },
-  'spartan-2000': {
+  'spartan-2000-series': {
     heroBg: '/media/spartan.png',
     specRows: [
       { k: 'Airflow', v: '20,000m³/hr' },
@@ -177,7 +177,7 @@ const PRODUCT_DATA: Record<string, {
       { label: 'Made in Britain' },
     ],
   },
-  'titan-cv': {
+  'titan-cv-series': {
     heroBg: '/media/titan.jpg',
     specRows: [
       { k: 'Application', v: 'Commercial vehicle & industrial refinishing' },
@@ -433,7 +433,7 @@ function ProductPageClient({ slug }: { slug: string }) {
       )}
 
       {/* ENERGY CALCULATOR — Zeus 8000 only */}
-      {slug === 'zeus-8000' && <EnergyCalculator />}
+      {(slug === 'zeus-8000' || slug === 'zeus-8000-series') && <EnergyCalculator />}
 
       {/* CONTACT FORM */}
       <section className="contact-sec" id="contact">
