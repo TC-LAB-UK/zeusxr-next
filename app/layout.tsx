@@ -5,6 +5,7 @@ import NavWrapper from '@/components/NavWrapper'
 import Footer from '@/components/Footer'
 import QuoteModal from '@/components/QuoteModal'
 import CookieConsent from '@/components/CookieConsent'
+import ScrollReveal from '@/components/ScrollReveal'
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' })
 
@@ -84,6 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <QuoteModal />
         <CookieConsent />
+        <ScrollReveal />
         {/* Native [data-quote] CTA wiring — bypasses React event delegation entirely.
             window.openQuoteModal is exposed by QuoteModal.tsx on mount.
             touchend fires reliably on iOS Safari from any element incl. position:fixed. */}
