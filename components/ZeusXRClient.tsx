@@ -398,7 +398,7 @@ export default function ZeusXRClient() {
         <div className="cin-body">
           <div className="s-lbl">Meet the Robot</div>
           <h2 className="s-h2">The most advanced spray robot in UK bodyshops.</h2>
-          <p className="s-p">PG-90E — created by PaintGo. Installed and distributed exclusively in the United Kingdom by Todd Engineering. A 6-axis robotic arm mounted on an RGV with a guided linear rail, providing a seventh controlled axis and allowing the robot to travel along the full length of the spraybooth.</p>
+          <p className="s-p">PG-90E — created by PaintGo. Installed and distributed in the United Kingdom by Todd Engineering. A 6-axis robotic arm mounted on an RGV with a guided linear rail, providing a seventh controlled axis and allowing the robot to travel along the full length of the spraybooth.</p>
           <div className="pills">
             {['7-axis movement','Linear track','SATA compatible','ANEST IWATA compatible','3M compatible','Waterborne & 2K'].map(p => (
               <span key={p} className="pill">{p}</span>
