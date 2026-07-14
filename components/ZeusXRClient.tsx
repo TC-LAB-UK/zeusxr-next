@@ -26,7 +26,7 @@ const hotspots = [
     id: 3, left: '70%', top: '50%', label: 'Spray System',
     cardImg: '/media/zeus-xr-spray-system.jpg',
     cardTitle: 'Precision Spray System',
-    cardDesc: 'Compatible with SATA, IWATA and 3M guns. Waterborne, solvent and 2K polyurethane. AI-optimised atomisation on every pass.',
+    cardDesc: 'Compatible with SATA, ANEST IWATA and 3M guns. Waterborne, solvent-borne and 2K polyurethane coatings. AI-optimised atomisation on every pass.',
   },
   {
     id: 4, left: '21%', top: '85%', label: 'Linear Track',
@@ -41,7 +41,7 @@ const carouselCards = [
   { bg: '/media/zeus-xr-8.jpg', bgPos: 'center 40%', lbl: 'The Complete System', title: 'Booth. Robot. AI.\nOne Platform.' },
   { bg: '/media/robot-scanner.jpg', bgPos: 'center', lbl: 'AI Vehicle Recognition', title: '4,000+ Models\nPreloaded' },
   { bg: '/media/zeus-xr-28.jpg', bgPos: 'center', lbl: 'Finish Consistency', title: '100% Consistent.\nEvery Vehicle.' },
-  { bg: '/media/edit-robot-bg.jpg', bgPos: 'center 40%', lbl: 'PG90-E', title: '7 Axis\nRobotic Arm' },
+  { bg: '/media/edit-robot-bg.jpg', bgPos: 'center 40%', lbl: 'PG-90E', title: '7-Axis\nRobotic Arm' },
   { bg: '/media/zeus-xr-32.jpg', bgPos: 'center 30%', lbl: 'Heritage', title: 'Designed &\nBuilt in Britain' },
   { bg: '/media/zeus-xr-main.jpg', bgPos: 'center 45%', lbl: 'Finish Quality', title: 'OEM-level results.\nEvery job.' },
   { bg: '/media/zeus-xr-25.jpg', bgPos: 'center 35%', lbl: 'Engineered for Performance', title: 'Consistent Results.\nEvery Surface.' },
@@ -287,15 +287,15 @@ export default function ZeusXRClient() {
           <div className="tesla-specs">
             <div className="ts-spec">
               <div className="ts-val">30% <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 22, height: 22, borderRadius: '50%', background: 'var(--green)', fontSize: 11, color: '#fff', verticalAlign: 'middle' }}>↑</span></div>
-              <div className="ts-lbl">Increased Throughput</div>
+              <div className="ts-lbl">Increase in Throughput</div>
             </div>
             <div className="ts-spec">
               <div className="ts-val">50% <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 22, height: 22, borderRadius: '50%', background: 'var(--green)', fontSize: 11, color: '#fff', verticalAlign: 'middle' }}>↓</span></div>
               <div className="ts-lbl">Less Rework</div>
             </div>
             <div className="ts-spec">
-              <div className="ts-val">35% <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 22, height: 22, borderRadius: '50%', background: 'var(--green)', fontSize: 11, color: '#fff', verticalAlign: 'middle' }}>↓</span></div>
-              <div className="ts-lbl">Paint Usage Reduction</div>
+              <div className="ts-val">25% <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 22, height: 22, borderRadius: '50%', background: 'var(--green)', fontSize: 11, color: '#fff', verticalAlign: 'middle' }}>↓</span></div>
+              <div className="ts-lbl">Paint Consumption Reduction</div>
             </div>
           </div>
           <img src="/brand/paintgo-lockup.png" alt="Todd Engineering | PaintGo" className="paintgo-lockup" style={{ height: 'clamp(48px,6vw,80px)', width: 'auto', objectFit: 'contain' }} />
@@ -338,7 +338,7 @@ export default function ZeusXRClient() {
         <div className="w-1300">
           <div className="tc rv">
             <div className="s-lbl">Why Zeus XR</div>
-            <h2 className="s-h2 mw-560">Six reasons operations choose automation.</h2>
+            <h2 className="s-h2 mw-560">Six reasons bodyshops choose automation.</h2>
           </div>
           <div className="feat-grid">
             {[
@@ -364,7 +364,7 @@ export default function ZeusXRClient() {
         <div className="ba-hd">
           <div className="s-lbl">The Result</div>
           <h2 className="s-h2">Precision. Accuracy. Quality.</h2>
-          <p className="s-p mw-540" style={{ margin: '16px auto 0' }}>Drag to compare the results from a recent accident and repair job — delivered by Zeus XR with zero variation between passes.</p>
+          <p className="s-p mw-540" style={{ margin: '16px auto 0' }}>Drag to compare the results from a recent accident-repair job — delivered by Zeus XR with zero variation between passes.</p>
         </div>
         <div
           className="ba-slider"
@@ -393,14 +393,14 @@ export default function ZeusXRClient() {
       {/* ROBOT CINEMA */}
       <div className="cinema rv">
         <div className="cin-img" style={{ position: 'relative' }}>
-          <img src="/media/robot-image.jpg" alt="PG90-E robotic arm by PaintGo" />
+          <img src="/media/robot-image.jpg" alt="PG-90E robotic arm by PaintGo" />
         </div>
         <div className="cin-body">
           <div className="s-lbl">Meet the Robot</div>
           <h2 className="s-h2">The most advanced spray robot in UK bodyshops.</h2>
-          <p className="s-p">PG90-E — created by PaintGo. Installed and distributed exclusively in the United Kingdom by Todd Engineering. Seven axes of industrial precision, purpose-built for automotive spray finishing.</p>
+          <p className="s-p">PG-90E — created by PaintGo. Installed and distributed exclusively in the United Kingdom by Todd Engineering. A 6-axis robotic arm mounted on an RGV with a guided linear rail, providing a seventh controlled axis and allowing the robot to travel along the full length of the spraybooth.</p>
           <div className="pills">
-            {['7-axis movement','Linear track','SATA compatible','IWATA compatible','3M compatible','Waterborne & 2K'].map(p => (
+            {['7-axis movement','Linear track','SATA compatible','ANEST IWATA compatible','3M compatible','Waterborne & 2K'].map(p => (
               <span key={p} className="pill">{p}</span>
             ))}
           </div>
@@ -412,7 +412,7 @@ export default function ZeusXRClient() {
         <div className="cin-body">
           <div className="s-lbl">Patent-Pending Technology</div>
           <h2 className="s-h2">Advanced heating and airflow system.</h2>
-          <p className="s-p">The Zeus XR booth is built around a proprietary heating and airflow architecture developed exclusively by Todd Engineering. Precision-controlled airflow eliminates dead zones across the entire spray envelope, while the all-electric heating system delivers consistent, stable temperatures that activated paint chemistry demands.</p>
+          <p className="s-p">The Zeus XR booth is built around a proprietary heating and airflow architecture developed exclusively by Todd Engineering. Precision-controlled airflow eliminates dead zones across the entire spray envelope, while the all-electric heating system delivers consistent, stable temperatures required by activated coating systems.</p>
           <p className="s-p" style={{ marginBottom: 0 }}>The result is a controlled environment that doesn&rsquo;t just support the robot — it&rsquo;s optimised for it. Every cubic metre of air, every degree of heat, working in coordination with the spray cycle.</p>
           <div className="pills" style={{ marginTop: 32 }}>
             {['Patent-pending design','All-electric heating','Zero dead zones','Precision airflow control','Optimised for robotics'].map(p => (
@@ -480,7 +480,7 @@ export default function ZeusXRClient() {
               { title: 'Fully Integrated System', desc: 'One seamless operation. Booth, robot and AI control coordinated as a single platform.', svg: <><rect x="4" y="4" width="28" height="28" rx="3"/><line x1="4" y1="14" x2="32" y2="14"/><line x1="14" y1="14" x2="14" y2="32"/></> },
               { title: 'Optimised Track Design', desc: 'More usable space. Improved robot movement range. Easier maintenance access throughout.', svg: <><line x1="6" y1="18" x2="30" y2="18"/><circle cx="12" cy="18" r="3"/><circle cx="24" cy="18" r="3"/><path d="M12 15V9M24 15V9M12 21v6M24 21v6"/></> },
               { title: 'Expanded Booth Design', desc: 'Greater flexibility for vehicles of all sizes. Built for the full range of automotive refinishing.', svg: <><rect x="4" y="8" width="28" height="22" rx="2"/><line x1="4" y1="16" x2="32" y2="16"/></> },
-              { title: 'Electric-Powered Operation', desc: 'Reduced emissions and improved energy efficiency without compromising performance.', svg: <><circle cx="18" cy="18" r="6"/><path d="M18 4v4M18 28v4M4 18h4M28 18h4M8.34 8.34l2.83 2.83M24.83 24.83l2.83 2.83M8.34 27.66l2.83-2.83M24.83 11.17l2.83-2.83"/></> },
+              { title: 'All-Electric Operation', desc: 'Reduced emissions and improved energy efficiency without compromising performance.', svg: <><circle cx="18" cy="18" r="6"/><path d="M18 4v4M18 28v4M4 18h4M28 18h4M8.34 8.34l2.83 2.83M24.83 24.83l2.83 2.83M8.34 27.66l2.83-2.83M24.83 11.17l2.83-2.83"/></> },
             ].map((c, i) => (
               <div key={c.title} className={`quad-card rv${i > 0 ? ` d${i}` : ''}`}>
                 <div className="qc-icon"><svg viewBox="0 0 36 36">{c.svg}</svg></div>
@@ -542,8 +542,8 @@ export default function ZeusXRClient() {
               { n: '01', title: 'Prepare & Load', desc: 'Vehicle is prepped and loaded into the booth — ready for the automated cycle to begin.', svg: <><path d="M3 19c0-3 1.5-5 3.5-6l2-1h11l2 1c2 1 3.5 3 3.5 6"/><rect x="6" y="10" width="16" height="3" rx="1"/><circle cx="8" cy="21" r="2"/><circle cx="20" cy="21" r="2"/></> },
               { n: '02', title: 'Scan & Map', desc: 'Scanner reads vehicle geometry and profiles every panel.', svg: <><rect x="4" y="4" width="20" height="20" rx="3"/><circle cx="14" cy="14" r="5"/><line x1="14" y1="4" x2="14" y2="9"/><line x1="14" y1="19" x2="14" y2="24"/><line x1="4" y1="14" x2="9" y2="14"/><line x1="19" y1="14" x2="24" y2="14"/></> },
               { n: '03', title: 'Select Programme', desc: 'Operator selects via touchscreen. One tap to begin.', svg: <><rect x="4" y="3" width="20" height="22" rx="2"/><line x1="8" y1="9" x2="20" y2="9"/><line x1="8" y1="13" x2="20" y2="13"/><circle cx="19" cy="19" r="4"/><polyline points="17 19 19 21 22 17"/></> },
-              { n: '04', title: 'Robotic Spray', desc: 'The PG90-E robot arm executes the full spray cycle with precision and consistency.', svg: <><circle cx="14" cy="6" r="3"/><path d="M14 9v8M10 13l4 4 4-4"/><path d="M6 20c2-2.5 4.5-3.5 8-3.5s6 1 8 3.5"/><circle cx="6" cy="23" r="2.5"/><circle cx="22" cy="23" r="2.5"/></> },
-              { n: '05', title: 'Dry Activated', desc: 'Integrated booth management controls the drying cycle.', svg: <><path d="M14 3C9 3 5 7 5 12c0 3.5 1.8 6.6 4.5 8.5M14 3c5 0 9 4 9 9 0 3.5-1.8 6.6-4.5 8.5"/><polyline points="10 12 14 16 20 9"/></> },
+              { n: '04', title: 'Robotic Spray', desc: 'The PG-90E robot arm executes the full spray cycle with precision and consistency.', svg: <><circle cx="14" cy="6" r="3"/><path d="M14 9v8M10 13l4 4 4-4"/><path d="M6 20c2-2.5 4.5-3.5 8-3.5s6 1 8 3.5"/><circle cx="6" cy="23" r="2.5"/><circle cx="22" cy="23" r="2.5"/></> },
+              { n: '05', title: 'Activate Drying Cycle', desc: 'Integrated booth management controls the drying cycle.', svg: <><path d="M14 3C9 3 5 7 5 12c0 3.5 1.8 6.6 4.5 8.5M14 3c5 0 9 4 9 9 0 3.5-1.8 6.6-4.5 8.5"/><polyline points="10 12 14 16 20 9"/></> },
               { n: '06', title: 'Unload Vehicle', desc: 'Vehicle exits. Finished. The cycle repeats — perfectly.', svg: <><path d="M3 19c0-3 1.5-5 3.5-6l2-1h11l2 1c2 1 3.5 3 3.5 6"/><rect x="6" y="10" width="16" height="3" rx="1"/><circle cx="8" cy="21" r="2"/><circle cx="20" cy="21" r="2"/><polyline points="11 4 14 7 19 2"/></> },
             ].map((s, i) => (
               <div key={s.n} className={`step-card rv${i > 0 ? ` d${i % 5}` : ''}`}>
@@ -635,11 +635,11 @@ export default function ZeusXRClient() {
               <div className="spec-tbl">
                 {[
                   ['Application', 'Automotive spray finishing'],
-                  ['Booth Size', 'Starting approx. 4m × 7m'],
+                  ['Booth Size', 'Starting approx. 4 m × 7 m'],
                   ['System Type', 'Robotic spray with linear track'],
-                  ['Robot', '7-axis industrial arm — PG90-E by PaintGo'],
-                  ['Spray Systems', 'SATA, IWATA, 3M compatible'],
-                  ['Paint Compatibility', 'Waterborne, solvent, 2K polyurethane'],
+                  ['Robot', '7-axis industrial arm — PG-90E by PaintGo'],
+                  ['Spray Systems', 'SATA, ANEST IWATA, 3M compatible'],
+                  ['Paint Compatibility', 'Waterborne, solvent-borne, 2K polyurethane coatings'],
                   ['Control', 'AI path planning + touchscreen interface'],
                   ['Connectivity', 'Wireless integration'],
                   ['Cycle Time', 'Approx. 2 hours per vehicle'],

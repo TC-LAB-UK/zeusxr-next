@@ -25,7 +25,7 @@ export default function ArticleCarSOS() {
           <p className="art-quote-text">&ldquo;We&apos;ve seen a lot of bodyshops. We&apos;ve never seen anything like this. The quality coming out of that booth — it&apos;s another level.&rdquo;</p>
           <p className="art-quote-attr">Car S.O.S Crew — Channel 4</p>
         </div>
-        <p className="art-p">The visit included time with our engineering team, who walked through the technology behind the PG90-E robot arm, the AI vision system and the all-electric booth platform. The conversation went well beyond what any of us expected.</p>
+        <p className="art-p">The visit included time with our engineering team, who walked through the technology behind the PG-90E robot arm, the AI vision system and the all-electric booth platform. The conversation went well beyond what any of us expected.</p>
         <p className="art-p"><strong>We&apos;re proud to have the Car S.O.S team&apos;s endorsement.</strong> They know what great bodywork looks like — and they recognise what the Zeus XR means for the future of the industry.</p>
       </div>
 
