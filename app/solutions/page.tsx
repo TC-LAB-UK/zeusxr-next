@@ -9,41 +9,8 @@ export const metadata: Metadata = {
   description: 'From installation and design & build to maintenance and project management — Todd Engineering delivers end-to-end solutions for spraybooth facilities.',
 }
 
-// Static solutions that always appear (with rich pages)
-const STATIC_SOLUTIONS = [
-  {
-    slug: 'installation',
-    name: 'Installation',
-    tagline: 'Full project management from site survey through to commissioning.',
-    cover_image_url: '/media/zeus-xr-21.jpg',
-  },
-  {
-    slug: 'design-build',
-    name: 'Design & Build',
-    tagline: 'Bespoke engineering from first brief to finished facility.',
-    cover_image_url: '/media/zeus-xr-8.jpg',
-  },
-  {
-    slug: 'project-management',
-    name: 'Project Management',
-    tagline: 'End-to-end delivery for complex, multi-stage installations.',
-    cover_image_url: '/media/zeus-xr-21.jpg',
-  },
-  {
-    slug: 'maintenance',
-    name: 'Maintenance & Servicing',
-    tagline: 'Keep your booth performing at its best. Planned maintenance and rapid response.',
-    cover_image_url: '/media/zeus-xr-8.jpg',
-  },
-]
-
 export default async function SolutionsPage() {
-  const dbSolutions = await getSolutions()
-
-  // Merge: static pages first, then any additional from DB not already covered
-  const staticSlugs = new Set(STATIC_SOLUTIONS.map(s => s.slug))
-  const extra = dbSolutions.filter(s => !staticSlugs.has(s.slug))
-  const all = [...STATIC_SOLUTIONS, ...extra]
+  const solutions = await getSolutions()
 
   return (
     <>
@@ -61,7 +28,7 @@ export default async function SolutionsPage() {
       <section className="sec">
         <div className="w-1300">
           <div className="prod-grid">
-            {all.map((s, i) => (
+            {solutions.map((s, i) => (
               <Link key={s.slug} href={`/solutions/${s.slug}`} className={`prod-card rv${i > 0 ? ` d${i % 3}` : ''}`}>
                 <div className="prod-img-wrap">
                   {s.cover_image_url
@@ -71,7 +38,7 @@ export default async function SolutionsPage() {
                 </div>
                 <div className="prod-card-body">
                   <div className="prod-name">{s.name}</div>
-                  {'tagline' in s && s.tagline && <div className="prod-desc">{s.tagline}</div>}
+                  {s.tagline && <div className="prod-desc">{s.tagline}</div>}
                   <div className="prod-card-footer">
                     <span className="prod-cta">
                       Learn More
