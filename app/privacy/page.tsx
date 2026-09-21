@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
       <h2>1. Who we are</h2>
       <p>
         Todd Engineering Ltd is the data controller for the personal data collected through this
-        website (zeusxr.co).
+        website (toddengineering.co.uk).
       </p>
       <ul>
         <li><strong>Registered address:</strong> Gregory Works, Armitage Road, Rugeley, Staffordshire, WS15 1PW</li>

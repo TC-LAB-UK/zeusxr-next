@@ -4,7 +4,7 @@ import CookieSettingsLink from '@/components/CookieSettingsLink'
 
 export const metadata: Metadata = {
   title: 'Cookie Policy',
-  description: 'Information about the cookies used on zeusxr.co and how to manage them.',
+  description: 'Information about the cookies used on toddengineering.co.uk and how to manage them.',
 }
 
 export default function CookiePolicy() {
@@ -14,7 +14,7 @@ export default function CookiePolicy() {
       <span className="legal-updated">Last updated: 1 July 2026</span>
 
       <p>
-        This policy explains what cookies are, which cookies we use on zeusxr.co, and how you can
+        This policy explains what cookies are, which cookies we use on toddengineering.co.uk, and how you can
         control them.
       </p>
 

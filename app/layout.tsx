@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: '%s — Todd Engineering',
   },
   description: "Todd Engineering — UK's leading spraybooth manufacturer. AI-assisted robotic finishing, spray booth systems, and bespoke industrial installations since 1993.",
-  metadataBase: new URL('https://toddengineering.co.uk'),
+  metadataBase: new URL('https://www.toddengineering.co.uk'),
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '48x48' },
@@ -30,6 +30,10 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
   },
+  // Self-referencing canonical on every page, resolved against metadataBase.
+  // Without this the same content is reachable on several hosts with nothing
+  // telling Google which one counts.
+  alternates: { canonical: './' },
   verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
     : undefined,
@@ -56,9 +60,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             '@context': 'https://schema.org',
             '@type': 'Organization',
             name: 'Todd Engineering',
-            url: 'https://toddengineering.co.uk',
-            logo: 'https://toddengineering.co.uk/icon-512.png',
-            image: 'https://toddengineering.co.uk/icon-512.png',
+            url: 'https://www.toddengineering.co.uk',
+            logo: 'https://www.toddengineering.co.uk/icon-512.png',
+            image: 'https://www.toddengineering.co.uk/icon-512.png',
             description: "UK's leading spraybooth manufacturer. AI-assisted robotic finishing, spray booth systems, and bespoke industrial installations since 1993.",
             telephone: '+44-845-017-6465',
             address: {

@@ -2,7 +2,9 @@ import { supabase, ORG_ID } from '@/lib/supabase'
 import type { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = 'https://zeusxr.co'
+  // Canonical domain. Every URL we advertise to search engines must use this
+  // host, or we invite Google to index a duplicate of the site elsewhere.
+  const base = 'https://www.toddengineering.co.uk'
 
   // Static pages
   const staticPages = [
