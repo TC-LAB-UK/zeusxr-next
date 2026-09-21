@@ -96,6 +96,42 @@ const nextConfig: NextConfig = {
   // 301 redirects: toddengineering.co.uk URL structure → zeusxr.co structure
   async redirects() {
     return [
+      // ── Canonical host ───────────────────────────────────────────────────
+      // Five hostnames served identical content with no canonical and no
+      // redirects, and the sitemap advertised zeusxr.co — so Google was being
+      // invited to index a duplicate site and pick a winner itself.
+      // Everything now 301s to www.toddengineering.co.uk, which holds all the
+      // existing search equity.
+      //
+      // Listed FIRST so the host is normalised before any path rewriting below.
+      // Rules match a specific host, so the canonical host never matches itself
+      // and cannot loop. Vercel preview hostnames match nothing and are unaffected.
+      ...['toddengineering.co.uk', 'toddengineering.com', 'www.toddengineering.com'].map(
+        (host) => ({
+          source: '/:path*',
+          has: [{ type: 'host' as const, value: host }],
+          destination: 'https://www.toddengineering.co.uk/:path*',
+          permanent: true,
+        })
+      ),
+      // zeusxr.co is the Zeus XR product domain. Its root goes to the product
+      // page rather than the homepage — someone typing the product name should
+      // land on the product. Everything else maps path-for-path.
+      ...['zeusxr.co', 'www.zeusxr.co'].flatMap((host) => [
+        {
+          source: '/',
+          has: [{ type: 'host' as const, value: host }],
+          destination: 'https://www.toddengineering.co.uk/zeus-xr',
+          permanent: true,
+        },
+        {
+          source: '/:path*',
+          has: [{ type: 'host' as const, value: host }],
+          destination: 'https://www.toddengineering.co.uk/:path*',
+          permanent: true,
+        },
+      ]),
+
       // ── Core pages ──────────────────────────────────────────────────────
       { source: '/about-us', destination: '/about/company', permanent: true },
       { source: '/about-us/:path*', destination: '/about/company', permanent: true },

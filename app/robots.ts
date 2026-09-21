@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://zeusxr.co/sitemap.xml',
+    sitemap: 'https://www.toddengineering.co.uk/sitemap.xml',
   }
 }
