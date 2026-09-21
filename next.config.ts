@@ -31,16 +31,51 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      // Next.js requires unsafe-inline for hydration; GA4 loaded via gtag
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      // Next.js requires unsafe-inline for hydration.
+      // GTM also needs it for Custom HTML tags authored in the container.
+      // Tag hosts: GTM + GA4, Google Ads conversions, Meta pixel, LinkedIn insight.
+      [
+        "script-src 'self' 'unsafe-inline'",
+        'https://www.googletagmanager.com',
+        'https://tagmanager.google.com',
+        'https://www.google-analytics.com',
+        'https://ssl.google-analytics.com',
+        'https://www.googleadservices.com',
+        'https://googleads.g.doubleclick.net',
+        'https://connect.facebook.net',
+        'https://snap.licdn.com',
+      ].join(' '),
+      // tagmanager.google.com is needed for GTM Preview mode styling
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://tagmanager.google.com",
       "font-src 'self' https://fonts.gstatic.com",
-      // Allow images from Supabase storage, data URIs, and any https (product/article images)
+      // Allow images from Supabase storage, data URIs, and any https
+      // (product/article images, and tracking pixels served as images)
       "img-src 'self' data: blob: https:",
-      // API calls: Supabase + GA4
-      "connect-src 'self' https://gmpqytfjcmgmrhqocdyk.supabase.co https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com",
-      // YouTube embeds
-      "frame-src https://www.youtube.com https://youtube-nocookie.com",
+      // Outbound XHR/beacon. portal.tc-lab.co.uk is the lead-notification
+      // endpoint called by ContactForm/QuoteModal — it was previously absent,
+      // which silently blocked every notify call.
+      [
+        "connect-src 'self'",
+        'https://gmpqytfjcmgmrhqocdyk.supabase.co',
+        'https://portal.tc-lab.co.uk',
+        'https://www.googletagmanager.com',
+        'https://*.google-analytics.com',
+        'https://*.analytics.google.com',
+        'https://*.g.doubleclick.net',
+        'https://www.google.com',
+        'https://www.google.co.uk',
+        'https://px.ads.linkedin.com',
+        'https://www.facebook.com',
+      ].join(' '),
+      // YouTube embeds, GTM noscript fallback, Ads conversion frames
+      [
+        'frame-src',
+        'https://www.youtube.com',
+        'https://www.youtube-nocookie.com',
+        'https://www.googletagmanager.com',
+        'https://td.doubleclick.net',
+        'https://bid.g.doubleclick.net',
+      ].join(' '),
       // Prevent this site being embedded elsewhere
       "frame-ancestors 'none'",
       "base-uri 'self'",

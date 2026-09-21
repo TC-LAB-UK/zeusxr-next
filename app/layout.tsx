@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import QuoteModal from '@/components/QuoteModal'
 import CookieConsent from '@/components/CookieConsent'
 import ScrollReveal from '@/components/ScrollReveal'
+import GoogleTagManager, { GoogleTagManagerNoScript } from '@/components/GoogleTagManager'
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' })
 
@@ -29,6 +30,9 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
   },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
   openGraph: {
     siteName: 'Todd Engineering',
     locale: 'en_GB',
@@ -41,6 +45,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
+        {/* Must stay first in <head>: sets Consent Mode v2 defaults to denied
+            before the container loads. */}
+        <GoogleTagManager />
         <meta name="clarri:portal" content="1.0" />
         {/* Powered by Clarri CRM — portal.tc-lab.co.uk */}
         <script
@@ -73,6 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={inter.className}>
+        <GoogleTagManagerNoScript />
         <NavWrapper />
         {/*
           Sentinel for scroll detection. Position: after the fixed nav (which is 72px tall).
@@ -92,6 +100,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
             var lt = 0;
+            function push(o) {
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push(o);
+            }
+            /* Phone and email clicks are real commercial intent on a capital
+               purchase, so they get tracked as first-class events. Separate
+               click-only listener: no preventDefault, so the tel:/mailto: link
+               still opens, and no touchend duplicate. */
+            window.addEventListener('click', function(e) {
+              var a = e.target && e.target.closest && e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+              if (!a) return;
+              var href = a.getAttribute('href') || '';
+              push({
+                event: 'contact_click',
+                contact_method: href.indexOf('tel:') === 0 ? 'phone' : 'email',
+                contact_value: href.replace(/^(tel:|mailto:)/, '')
+              });
+            }, false);
             function retry(fn, delay) {
               setTimeout(function() { if (typeof fn === 'function') fn(); }, delay);
             }
@@ -118,6 +144,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 e.preventDefault();
                 var vid = v.getAttribute('data-play-vid');
                 var fn = vid === '1' ? window.playVid1 : window.playVid2;
+                push({ event: 'video_play', video_label: 'zeus-xr-video-' + vid });
                 if (typeof fn === 'function') { fn(); }
                 else { retry(function(){ var f = vid === '1' ? window.playVid1 : window.playVid2; f && f(); }, 400); }
                 return true;
@@ -126,7 +153,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               if (y) {
                 e.preventDefault();
                 var ytId = y.getAttribute('data-yt-vid');
-                y.innerHTML = '<iframe src="https://www.youtube.com/embed/' + ytId + '?autoplay=1&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;" title="Zeus XR"></iframe>';
+                push({ event: 'video_play', video_label: 'youtube:' + ytId });
+                y.innerHTML = '<iframe src="https://www.youtube.com/embed/' + ytId + '?autoplay=1&playsinline=1&enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;" title="Zeus XR"></iframe>';
                 return true;
               }
               return false;
