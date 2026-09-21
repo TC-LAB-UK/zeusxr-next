@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { trackLead, trackQuoteOpen } from '@/lib/analytics'
 
 const SUPABASE_URL = 'https://gmpqytfjcmgmrhqocdyk.supabase.co'
 const SUPABASE_ANON_KEY = 'sb_publishable_p5xmlGJewiHl-jaXU_QNxw_qUZqHijA'
@@ -21,6 +22,7 @@ export default function QuoteModal() {
       setOpen(true)
       setSent(false)
       document.body.style.overflow = 'hidden'
+      trackQuoteOpen(title || 'Get a Quote')
     }
 
     function handleKey(e: KeyboardEvent) {
@@ -82,6 +84,11 @@ export default function QuoteModal() {
         body: JSON.stringify({ record: payload }),
       }).catch(() => {})
 
+      trackLead({
+        form: 'quote_modal',
+        enquiry_type: (d.get('type') as string) || null,
+        cta: title,
+      })
       setSent(true)
     } catch {
       alert('Something went wrong. Please email us at info@toddengineering.co.uk')

@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import { trackLead } from '@/lib/analytics'
 
 const SUPABASE_URL = 'https://gmpqytfjcmgmrhqocdyk.supabase.co'
 const SUPABASE_ANON_KEY = 'sb_publishable_p5xmlGJewiHl-jaXU_QNxw_qUZqHijA'
@@ -50,6 +51,10 @@ export default function ContactForm() {
         body: JSON.stringify({ record: payload }),
       }).catch(() => {})
 
+      trackLead({
+        form: 'contact_page',
+        enquiry_type: (d.get('enquiry_type') as string) || null,
+      })
       setStatus('success')
       form.reset()
     } catch {
