@@ -188,7 +188,7 @@ export default function SolutionPageClient(p: SolutionPageProps) {
               </div>
               <div className="cc-item">
                 <svg viewBox="0 0 20 20" fill="none"><path d="M3 5a1 1 0 0 1 1-1h3l1.5 3.5-2 1.5a11 11 0 0 0 4.5 4.5l1.5-2L16 13v3a1 1 0 0 1-1 1C7.268 17 3 12.732 3 7V5z" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                <a href="tel:08450176465">0845 017 6465</a>
+                <a href="tel:01889503770">01889 503 770</a>
               </div>
             </div>
           </div>
