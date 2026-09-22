@@ -75,7 +75,14 @@ export default function Footer() {
           {' · '}
           <CookieSettingsLink />
         </p>
-        <p className="f-address">Gregory Works, Armitage Road, Staffordshire, WS15 1PW<br />Sales: 0845 017 6465 · Service: 01889 343 115 · sales@toddengineering.co.uk</p>
+        <p className="f-address">
+          Gregory Works, Armitage Road, Staffordshire, WS15 1PW<br />
+          Sales: <a href="tel:08450176465" className="f-contact-link">0845 017 6465</a>
+          {' · '}
+          Service: <a href="tel:01889343115" className="f-contact-link">01889 343 115</a>
+          {' · '}
+          <a href="mailto:sales@toddengineering.co.uk" className="f-contact-link">sales@toddengineering.co.uk</a>
+        </p>
       </div>
     </footer>
   )
