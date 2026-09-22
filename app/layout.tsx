@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             logo: 'https://www.toddengineering.co.uk/icon-512.png',
             image: 'https://www.toddengineering.co.uk/icon-512.png',
             description: "UK's leading spraybooth manufacturer. AI-assisted robotic finishing, spray booth systems, and bespoke industrial installations since 1993.",
-            telephone: '+44-845-017-6465',
+            telephone: '+44-1889-503770',
             address: {
               '@type': 'PostalAddress',
               streetAddress: 'Gregory Works, Armitage Road',

@@ -74,7 +74,7 @@ export default function ContactPage() {
           </div>
           <div className="contact-detail rv d1">
             <p className="contact-detail-lbl">Head Office</p>
-            <p className="contact-detail-val"><a href="tel:08450176465">0845 017 6465</a></p>
+            <p className="contact-detail-val"><a href="tel:01889503770">01889 503 770</a></p>
           </div>
           <div className="contact-detail rv d2">
             <p className="contact-detail-lbl">Service &amp; Maintenance</p>
