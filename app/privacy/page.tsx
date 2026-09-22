@@ -27,7 +27,7 @@ export default function PrivacyPolicy() {
       <ul>
         <li><strong>Registered address:</strong> Gregory Works, Armitage Road, Rugeley, Staffordshire, WS15 1PW</li>
         <li><strong>Contact email:</strong> <a href="mailto:sales@toddengineering.co.uk">sales@toddengineering.co.uk</a></li>
-        <li><strong>Telephone:</strong> 0845 017 6465</li>
+        <li><strong>Telephone:</strong> <a href="tel:08450176465">0845 017 6465</a></li>
       </ul>
 
       <h2>2. What data we collect</h2>

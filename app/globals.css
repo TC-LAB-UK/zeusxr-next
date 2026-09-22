@@ -1626,6 +1626,14 @@ html.rv-ready .rv.in { opacity: 1; transform: translateY(0); }
 .f-legal-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; opacity: .6; transition: opacity .2s; }
 .f-legal-link:hover { opacity: 1; }
 
+/* Footer contact links. The phone numbers and email were plain text, so on a
+   phone they could not be tapped to call or mail. Deliberately lifted above the
+   surrounding .f-address colour (20% white) — a number someone is meant to ring
+   has to be legible, not decorative. */
+.f-contact-link { color: rgba(255,255,255,.55); text-decoration: none; transition: color .2s; }
+.f-contact-link:hover,
+.f-contact-link:focus-visible { color: #fff; text-decoration: underline; text-underline-offset: 2px; }
+
 /* ── Resources page ────────────────────────────────────────── */
 .res-guide-card { display:flex; flex-direction:column; gap:12px; background:var(--s1); border:1px solid var(--bdr); border-radius:16px; padding:28px 28px 24px; text-decoration:none; transition:border-color .3s,transform .3s var(--ease); }
 .res-guide-card:hover { border-color:rgba(80,167,36,.35); transform:translateY(-3px); }
