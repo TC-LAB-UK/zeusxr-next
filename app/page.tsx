@@ -138,6 +138,7 @@ export default async function Home() {
                 <img src="/brand/ms-rt.webp" alt="MS-RT" />
                 <img src="/brand/paintgo-uk.png" alt="PaintGo" />
                 <img src="/brand/clients/jenkins-pain.png" alt="Jenkins &amp; Pain" />
+                <img src="/brand/clients/car-sos.png" alt="Car S.O.S" />
                 <img src="/brand/clients/ks.svg" alt="K&S" />
                 <img src="/brand/clients/gemini.svg" alt="Gemini ARC" />
                 <img src="/brand/clients/emirates.svg" alt="Emirates" />
@@ -148,6 +149,7 @@ export default async function Home() {
                 <img src="/brand/ms-rt.webp" alt="MS-RT" />
                 <img src="/brand/paintgo-uk.png" alt="PaintGo" />
                 <img src="/brand/clients/jenkins-pain.png" alt="Jenkins &amp; Pain" />
+                <img src="/brand/clients/car-sos.png" alt="Car S.O.S" />
                 <img src="/brand/clients/ks.svg" alt="K&S" />
                 <img src="/brand/clients/gemini.svg" alt="Gemini ARC" />
                 <img src="/brand/clients/emirates.svg" alt="Emirates" />
@@ -437,6 +439,7 @@ export default async function Home() {
             <img src="/brand/ms-rt.webp" alt="MS-RT" loading="lazy" />
             <img src="/brand/paintgo-uk.png" alt="PaintGo" loading="lazy" />
             <img src="/brand/clients/jenkins-pain.png" alt="Jenkins &amp; Pain" loading="lazy" />
+            <img src="/brand/clients/car-sos.png" alt="Car S.O.S" loading="lazy" />
             <img src="/brand/clients/ks.svg" alt="K&S" loading="lazy" />
             <img src="/brand/clients/gemini.svg" alt="Gemini ARC" loading="lazy" />
             <img src="/brand/clients/emirates.svg" alt="Emirates" loading="lazy" />
@@ -449,6 +452,7 @@ export default async function Home() {
             <img src="/brand/ms-rt.webp" alt="MS-RT" loading="lazy" />
             <img src="/brand/paintgo-uk.png" alt="PaintGo" loading="lazy" />
             <img src="/brand/clients/jenkins-pain.png" alt="Jenkins &amp; Pain" loading="lazy" />
+            <img src="/brand/clients/car-sos.png" alt="Car S.O.S" loading="lazy" />
             <img src="/brand/clients/ks.svg" alt="K&S" loading="lazy" />
             <img src="/brand/clients/gemini.svg" alt="Gemini ARC" loading="lazy" />
             <img src="/brand/clients/emirates.svg" alt="Emirates" loading="lazy" />
