@@ -137,7 +137,7 @@ export default async function Home() {
                 <img src="/brand/clients/rupes.svg" alt="RUPES" />
                 <img src="/brand/ms-rt.webp" alt="MS-RT" />
                 <img src="/brand/paintgo-uk.png" alt="PaintGo" />
-                <img src="/brand/koenigsegg.png" alt="Koenigsegg" />
+                <img src="/brand/clients/jenkins-pain.jpg" alt="Jenkins &amp; Pain" />
                 <img src="/brand/clients/ks.svg" alt="K&S" />
                 <img src="/brand/clients/gemini.svg" alt="Gemini ARC" />
                 <img src="/brand/clients/emirates.svg" alt="Emirates" />
@@ -147,7 +147,7 @@ export default async function Home() {
                 <img src="/brand/clients/rupes.svg" alt="RUPES" />
                 <img src="/brand/ms-rt.webp" alt="MS-RT" />
                 <img src="/brand/paintgo-uk.png" alt="PaintGo" />
-                <img src="/brand/koenigsegg.png" alt="Koenigsegg" />
+                <img src="/brand/clients/jenkins-pain.jpg" alt="Jenkins &amp; Pain" />
                 <img src="/brand/clients/ks.svg" alt="K&S" />
                 <img src="/brand/clients/gemini.svg" alt="Gemini ARC" />
                 <img src="/brand/clients/emirates.svg" alt="Emirates" />
@@ -264,7 +264,7 @@ export default async function Home() {
             <h2 className="elec-h2">The shift to electric is happening.<br />AI robotic automation is next.</h2>
             <p className="elec-sub">Leading operations across automotive, aerospace and industrial finishing have already made the move. Two ways in. One platform. Choose your entry point.</p>
             <div className="elec-logos-row">
-              <img src="/brand/koenigsegg.png" alt="Koenigsegg" className="elec-logo-slot" style={{ height: 52 }} />
+              <img src="/brand/clients/jenkins-pain.jpg" alt="Jenkins &amp; Pain" className="elec-logo-slot" style={{ height: 52 }} />
               <img src="/brand/ms-rt.webp" alt="MS-RT" className="elec-logo-slot" style={{ height: 48 }} />
             </div>
           </div>
@@ -436,7 +436,7 @@ export default async function Home() {
             <img src="/brand/clients/rupes.svg" alt="RUPES" loading="lazy" />
             <img src="/brand/ms-rt.webp" alt="MS-RT" loading="lazy" />
             <img src="/brand/paintgo-uk.png" alt="PaintGo" loading="lazy" />
-            <img src="/brand/koenigsegg.png" alt="Koenigsegg" loading="lazy" />
+            <img src="/brand/clients/jenkins-pain.jpg" alt="Jenkins &amp; Pain" loading="lazy" />
             <img src="/brand/clients/ks.svg" alt="K&S" loading="lazy" />
             <img src="/brand/clients/gemini.svg" alt="Gemini ARC" loading="lazy" />
             <img src="/brand/clients/emirates.svg" alt="Emirates" loading="lazy" />
@@ -448,7 +448,7 @@ export default async function Home() {
             <img src="/brand/clients/rupes.svg" alt="RUPES" loading="lazy" />
             <img src="/brand/ms-rt.webp" alt="MS-RT" loading="lazy" />
             <img src="/brand/paintgo-uk.png" alt="PaintGo" loading="lazy" />
-            <img src="/brand/koenigsegg.png" alt="Koenigsegg" loading="lazy" />
+            <img src="/brand/clients/jenkins-pain.jpg" alt="Jenkins &amp; Pain" loading="lazy" />
             <img src="/brand/clients/ks.svg" alt="K&S" loading="lazy" />
             <img src="/brand/clients/gemini.svg" alt="Gemini ARC" loading="lazy" />
             <img src="/brand/clients/emirates.svg" alt="Emirates" loading="lazy" />
