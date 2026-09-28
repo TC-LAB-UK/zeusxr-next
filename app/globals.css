@@ -400,6 +400,8 @@ html.rv-ready .rv.in { opacity: 1; transform: translateY(0); }
 .hero-logo-track { display: flex; align-items: center; gap: 36px; width: max-content; animation: logos-scroll 40s linear infinite; }
 .hero-logo-track img { height: 22px; width: auto; max-width: 110px; object-fit: contain; flex-shrink: 0; filter: brightness(0) invert(1); opacity: .42; transition: opacity .3s; -webkit-user-drag: none; pointer-events: none; }
 .hero-logo-track img:hover { opacity: .7; }
+.hero-logo-track img.logo-natural { filter: none; opacity: .55; }
+.hero-logo-track img.logo-natural:hover { opacity: .85; }
 
 /* TRUSTED BY */
 .trusted-sec { padding: 40px 0 44px; border-top: 1px solid var(--bdr); overflow: hidden; }
@@ -411,6 +413,9 @@ html.rv-ready .rv.in { opacity: 1; transform: translateY(0); }
 .logos-track img:hover { opacity: 1; }
 [data-theme="dark"] .logos-track img { mix-blend-mode: screen; filter: invert(1) grayscale(1) brightness(1.8); opacity: .55; }
 [data-theme="dark"] .logos-track img:hover { opacity: .9; }
+.logos-track img.logo-natural { mix-blend-mode: normal; filter: none; opacity: .55; }
+[data-theme="dark"] .logos-track img.logo-natural { mix-blend-mode: normal; filter: none; opacity: .55; }
+.logos-track img.logo-natural:hover, [data-theme="dark"] .logos-track img.logo-natural:hover { opacity: .85; }
 @keyframes logos-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* ELECTRIC PLATFORM */
