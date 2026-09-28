@@ -137,7 +137,7 @@ export default async function Home() {
                 <img src="/brand/clients/rupes.svg" alt="RUPES" />
                 <img src="/brand/ms-rt.webp" alt="MS-RT" />
                 <img src="/brand/paintgo-uk.png" alt="PaintGo" />
-                <img src="/brand/clients/jenkins-pain.png" alt="Jenkins &amp; Pain" />
+                <img src="/brand/clients/jenkins-pain.png" alt="Jenkins &amp; Pain" className="logo-natural" />
                 <img src="/brand/clients/car-sos.png" alt="Car S.O.S" />
                 <img src="/brand/clients/ks.svg" alt="K&S" />
                 <img src="/brand/clients/gemini.svg" alt="Gemini ARC" />
@@ -148,7 +148,7 @@ export default async function Home() {
                 <img src="/brand/clients/rupes.svg" alt="RUPES" />
                 <img src="/brand/ms-rt.webp" alt="MS-RT" />
                 <img src="/brand/paintgo-uk.png" alt="PaintGo" />
-                <img src="/brand/clients/jenkins-pain.png" alt="Jenkins &amp; Pain" />
+                <img src="/brand/clients/jenkins-pain.png" alt="Jenkins &amp; Pain" className="logo-natural" />
                 <img src="/brand/clients/car-sos.png" alt="Car S.O.S" />
                 <img src="/brand/clients/ks.svg" alt="K&S" />
                 <img src="/brand/clients/gemini.svg" alt="Gemini ARC" />
@@ -438,7 +438,7 @@ export default async function Home() {
             <img src="/brand/clients/rupes.svg" alt="RUPES" loading="lazy" />
             <img src="/brand/ms-rt.webp" alt="MS-RT" loading="lazy" />
             <img src="/brand/paintgo-uk.png" alt="PaintGo" loading="lazy" />
-            <img src="/brand/clients/jenkins-pain.png" alt="Jenkins &amp; Pain" loading="lazy" />
+            <img src="/brand/clients/jenkins-pain.png" alt="Jenkins &amp; Pain" className="logo-natural" loading="lazy" />
             <img src="/brand/clients/car-sos.png" alt="Car S.O.S" loading="lazy" />
             <img src="/brand/clients/ks.svg" alt="K&S" loading="lazy" />
             <img src="/brand/clients/gemini.svg" alt="Gemini ARC" loading="lazy" />
@@ -451,7 +451,7 @@ export default async function Home() {
             <img src="/brand/clients/rupes.svg" alt="RUPES" loading="lazy" />
             <img src="/brand/ms-rt.webp" alt="MS-RT" loading="lazy" />
             <img src="/brand/paintgo-uk.png" alt="PaintGo" loading="lazy" />
-            <img src="/brand/clients/jenkins-pain.png" alt="Jenkins &amp; Pain" loading="lazy" />
+            <img src="/brand/clients/jenkins-pain.png" alt="Jenkins &amp; Pain" className="logo-natural" loading="lazy" />
             <img src="/brand/clients/car-sos.png" alt="Car S.O.S" loading="lazy" />
             <img src="/brand/clients/ks.svg" alt="K&S" loading="lazy" />
             <img src="/brand/clients/gemini.svg" alt="Gemini ARC" loading="lazy" />
