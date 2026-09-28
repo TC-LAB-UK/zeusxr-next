@@ -13,6 +13,8 @@ export default function QuoteModal() {
   const [sent, setSent] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
+  // When the modal was opened. Used to reject instant submissions.
+  const openedAtRef = useRef<number>(0)
 
   useEffect(() => {
     // Expose global opener — called by native inline script in layout.tsx
@@ -21,6 +23,7 @@ export default function QuoteModal() {
       setTitle(title || 'Get a Quote')
       setOpen(true)
       setSent(false)
+      openedAtRef.current = Date.now()
       document.body.style.overflow = 'hidden'
       trackQuoteOpen(title || 'Get a Quote')
     }
@@ -44,6 +47,15 @@ export default function QuoteModal() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (!formRef.current?.checkValidity()) { formRef.current?.reportValidity(); return }
+
+    // Spam checks, mirroring app/contact/page.tsx. Both show the success state
+    // rather than an error: a bot that is told it failed simply retries.
+    // Deliberately placed BEFORE trackLead so bot submissions never count as
+    // conversions — otherwise Google Ads would optimise towards them.
+    const probe = new FormData(formRef.current!)
+    if (probe.get('_hp')) { setSent(true); return }                         // honeypot
+    if (Date.now() - openedAtRef.current < 3000) { setSent(true); return }  // too fast to be human
+
     setSubmitting(true)
 
     const d = new FormData(formRef.current!)
@@ -115,6 +127,8 @@ export default function QuoteModal() {
             <h2 className="modal-title">{title}</h2>
             <p className="modal-sub">Tell us about your project — we'll respond within one working day.</p>
             <form ref={formRef} onSubmit={handleSubmit} noValidate>
+              {/* Honeypot — invisible to humans, bots fill it in */}
+              <input type="text" name="_hp" autoComplete="off" tabIndex={-1} aria-hidden="true" style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none', height: 0, width: 0 }} />
               <div className="mf-row mf-row-gap">
                 <div className="mf-group">
                   <label>Full Name <span className="mf-req">*</span></label>

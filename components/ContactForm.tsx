@@ -9,11 +9,20 @@ const ORG_ID = '8129f148-b92e-4fb4-a458-b0c941d6b42f'
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null)
+  // Set on first render. Used to reject instant submissions.
+  const mountedAtRef = useRef<number>(Date.now())
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const form = formRef.current!
+
+    // Spam checks, mirroring app/contact/page.tsx. Success state rather than an
+    // error, and before any tracking, so bots never register as conversions.
+    const probe = new FormData(form)
+    if (probe.get('_hp')) { setStatus('success'); return }
+    if (Date.now() - mountedAtRef.current < 3000) { setStatus('success'); return }
+
     setStatus('sending')
 
     const d = new FormData(form)
@@ -64,6 +73,8 @@ export default function ContactForm() {
 
   return (
     <form ref={formRef} className="cf-form" onSubmit={handleSubmit}>
+      {/* Honeypot — invisible to humans, bots fill it in */}
+      <input type="text" name="_hp" autoComplete="off" tabIndex={-1} aria-hidden="true" style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none', height: 0, width: 0 }} />
       <div className="cf-field-row">
         <div className="cf-field">
           <label htmlFor="first_name">First name</label>
