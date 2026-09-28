@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, useMemo } from 'react'
+import { HoneypotField, useSpamGuard } from '@/components/FormGuard'
 import Link from 'next/link'
 import { supabase, ORG_ID } from '@/lib/supabase'
 import { useParams } from 'next/navigation'
@@ -235,6 +236,7 @@ function ProductPageClient({ slug }: { slug: string }) {
   const [loading, setLoading] = useState(true)
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
+  const isSpam = useSpamGuard()
   const [galIdx, setGalIdx] = useState(0)
   const formRef = useRef<HTMLFormElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
@@ -269,6 +271,9 @@ function ProductPageClient({ slug }: { slug: string }) {
     e.preventDefault()
     if (!formRef.current?.checkValidity()) { formRef.current?.reportValidity(); return }
     const fd = new FormData(formRef.current!)
+    // Automated submissions are accepted silently: the bot sees the usual
+    // confirmation and gets no signal it was caught.
+    if (isSpam(formRef.current)) { setSent(true); return }
     setSending(true)
     try {
       await fetch(SUPABASE_LEADS, {
@@ -470,6 +475,7 @@ function ProductPageClient({ slug }: { slug: string }) {
               </div>
             ) : (
               <form ref={formRef} className="contact-form" onSubmit={handleSubmit} noValidate>
+                <HoneypotField />
                 <div className="cf-row">
                   <div className="cf-group">
                     <label>Full Name <span className="req">*</span></label>

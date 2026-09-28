@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { HoneypotField, useSpamGuard } from '@/components/FormGuard'
 
 const SUPABASE_URL = 'https://gmpqytfjcmgmrhqocdyk.supabase.co/rest/v1/leads'
 const SUPABASE_KEY = 'sb_publishable_p5xmlGJewiHl-jaXU_QNxw_qUZqHijA'
@@ -33,6 +34,7 @@ export default function SolutionPageClient(p: SolutionPageProps) {
   const formRef = useRef<HTMLFormElement>(null)
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
+  const isSpam = useSpamGuard()
 
   useEffect(() => {
     const els = document.querySelectorAll('.rv')
@@ -48,6 +50,9 @@ export default function SolutionPageClient(p: SolutionPageProps) {
     e.preventDefault()
     if (!formRef.current?.checkValidity()) { formRef.current?.reportValidity(); return }
     const fd = new FormData(formRef.current!)
+    // Automated submissions are accepted silently: the bot sees the usual
+    // confirmation and gets no signal it was caught.
+    if (isSpam(formRef.current)) { setSent(true); return }
     setSending(true)
     try {
       await fetch(SUPABASE_URL, {
@@ -204,6 +209,7 @@ export default function SolutionPageClient(p: SolutionPageProps) {
               </div>
             ) : (
               <form ref={formRef} onSubmit={handleSubmit} noValidate>
+                <HoneypotField />
                 <div className="cf-row">
                   <div className="cf-group">
                     <label>Full Name <span className="req">*</span></label>

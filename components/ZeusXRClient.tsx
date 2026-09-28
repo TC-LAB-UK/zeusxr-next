@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { HoneypotField, useSpamGuard } from '@/components/FormGuard'
 import Link from 'next/link'
 import EnergyCalculator from '@/components/EnergyCalculator'
 
@@ -51,12 +52,16 @@ const carouselCards = [
 function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
+  const isSpam = useSpamGuard()
   const formRef = useRef<HTMLFormElement>(null)
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!formRef.current) return
     const fd = new FormData(formRef.current)
+    // Automated submissions are accepted silently: the bot sees the usual
+    // confirmation and gets no signal it was caught.
+    if (isSpam(formRef.current)) { setSent(true); return }
     setSending(true)
     try {
       await fetch(SUPABASE_URL, {
@@ -117,6 +122,7 @@ function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
             <div className="modal-title">Book a Live Demo</div>
             <div className="modal-sub">See Zeus XR in action. One of our team will be in touch to arrange a time that works for you.</div>
             <form ref={formRef} onSubmit={handleSubmit} noValidate>
+                <HoneypotField />
               <div className="mf-row">
                 <div className="mf-group">
                   <label htmlFor="demo-name">Full Name <span className="mf-req">*</span></label>
