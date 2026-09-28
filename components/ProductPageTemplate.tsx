@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, useMemo } from 'react'
+import { HoneypotField, useSpamGuard } from '@/components/FormGuard'
 import Link from 'next/link'
 
 // ── Energy Calculator ─────────────────────────────────────────────────────────
@@ -128,6 +129,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
   const [galIdx, setGalIdx] = useState(0)
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
+  const isSpam = useSpamGuard()
   const formRef = useRef<HTMLFormElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
 
@@ -154,6 +156,9 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
     e.preventDefault()
     if (!formRef.current?.checkValidity()) { formRef.current?.reportValidity(); return }
     const fd = new FormData(formRef.current!)
+    // Automated submissions are accepted silently: the bot sees the usual
+    // confirmation and gets no signal it was caught.
+    if (isSpam(formRef.current)) { setSent(true); return }
     setSending(true)
     try {
       await fetch(SUPABASE_LEADS, {
@@ -313,6 +318,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
               </div>
             ) : (
               <form ref={formRef} className="contact-form" onSubmit={handleSubmit} noValidate>
+                <HoneypotField />
                 <div className="cf-row">
                   <div className="cf-group">
                     <label>Full Name <span style={{ color: 'var(--green)' }}>*</span></label>
