@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useMemo } from 'react'
 import { HoneypotField, useSpamGuard } from '@/components/FormGuard'
 import Link from 'next/link'
+import { trackLead } from '@/lib/analytics'
 
 // ── Energy Calculator ─────────────────────────────────────────────────────────
 const GAS_TRAD  = 89.375
@@ -160,8 +161,24 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
     // confirmation and gets no signal it was caught.
     if (isSpam(formRef.current)) { setSent(true); return }
     setSending(true)
+    const params = new URLSearchParams(window.location.search)
+    const payload = {
+      org_id: ORG_ID,
+      name: fd.get('name'),
+      email: fd.get('email'),
+      company: fd.get('company') || null,
+      phone: fd.get('phone') || null,
+      source: `product_${data.slug}`,
+      message: fd.get('message') || null,
+      status: 'new',
+      page_url: window.location.href,
+      referrer: document.referrer || null,
+      utm_source: params.get('utm_source') || null,
+      utm_medium: params.get('utm_medium') || null,
+      utm_campaign: params.get('utm_campaign') || null,
+    }
     try {
-      await fetch(SUPABASE_LEADS, {
+      const res = await fetch(SUPABASE_LEADS, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -169,18 +186,19 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
           Authorization: `Bearer ${SUPABASE_KEY}`,
           Prefer: 'return=minimal',
         },
-        body: JSON.stringify({
-          org_id: ORG_ID,
-          name: fd.get('name'),
-          email: fd.get('email'),
-          company: fd.get('company') || null,
-          phone: fd.get('phone') || null,
-          source: `product_${data.slug}`,
-          message: fd.get('message') || null,
-          status: 'new',
-          page_url: typeof window !== 'undefined' ? window.location.href : '',
-        }),
+        body: JSON.stringify(payload),
       })
+      if (res.ok) {
+        // Same notification + conversion path as QuoteModal / ContactForm.
+        // Only fires once the lead is actually stored, so failed inserts
+        // never count as Google Ads conversions.
+        await fetch('https://portal.tc-lab.co.uk/api/leads/notify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ record: payload }),
+        }).catch(() => {})
+        trackLead({ form: 'product_page', enquiry_type: data.slug, cta: data.title })
+      }
     } catch (_) {}
     setSending(false)
     setSent(true)
