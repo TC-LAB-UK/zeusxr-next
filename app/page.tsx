@@ -58,9 +58,9 @@ async function getCaseStudies() {
 
 // Local image fallbacks keyed by slug
 const localImages: Record<string, string> = {
-  'zeus-xr': '/media/zeus-xr-card.jpg',
-  'zeus-8000': '/media/zeus-8000.png',
-  'zeus-8000-series': '/media/zeus-8000.png',
+  'zeus-xr': '/media/zeus-xr-card.webp',
+  'zeus-8000': '/media/zeus-8000.webp',
+  'zeus-8000-series': '/media/zeus-8000.webp',
   'olympian-1000': '/media/olympian-1000.jpg',
   'olympian-1000-series': '/media/olympian-1000.jpg',
   'poseidon': '/media/poseidon.jpg',
@@ -186,7 +186,7 @@ export default async function Home() {
             <Link href="/zeus-xr" className="cat-card-link" aria-label="Explore Zeus XR"></Link>
             <div className="cat-render" style={{ padding: 0 }}>
               <span className="cat-render-badge">New — AI Robotic</span>
-              <img src="/media/zeus-xr-card.jpg" alt="Zeus XR" draggable={false} style={{ objectFit: 'cover', mixBlendMode: 'normal' }} />
+              <img src="/media/zeus-xr-card.webp" alt="Zeus XR" draggable={false} style={{ objectFit: 'cover', mixBlendMode: 'normal' }} />
             </div>
             <div className="cat-card-body-wrap">
               <div className="cat-eyebrow">The Future of Spray Finishing</div>
@@ -231,7 +231,7 @@ export default async function Home() {
           {products.filter((p: any) => p.slug !== 'zeus-xr').length === 0 && (
             <>
               {[
-                { slug: 'zeus-8000', img: '/media/zeus-8000.png', eyebrow: "UK's #1 All Electric Spray Booth", title: 'Zeus 8000 Series', desc: 'Far infrared curing, fully electric operation and intelligent control — engineered to revolutionise automotive refinishing.' },
+                { slug: 'zeus-8000', img: '/media/zeus-8000.webp', eyebrow: "UK's #1 All Electric Spray Booth", title: 'Zeus 8000 Series', desc: 'Far infrared curing, fully electric operation and intelligent control — engineered to revolutionise automotive refinishing.' },
                 { slug: 'olympian-1000', img: '/media/olympian-1000.jpg', eyebrow: 'Performance at Every Level', title: 'Olympian 1000 Series', desc: 'Robust construction, advanced LED lighting and efficient airflow. Ideal for start-ups and lower throughput operations.' },
                 { slug: 'poseidon', img: '/media/poseidon.jpg', eyebrow: 'High-Specification Finishing', title: 'Poseidon', desc: 'Intelligent temperature control, Hydra-cure™ water-based curing and energy-saving automated operation.' },
                 { slug: 'spartan-2000', img: '/media/spartan.png', eyebrow: 'Compact. Capable. Built to Last.', title: 'Spartan 2000 Series', desc: 'A robust, no-compromise spraybooth designed for demanding environments. Reliable performance at a competitive price point.' },
@@ -274,7 +274,7 @@ export default async function Home() {
           <div className="elec-cards">
             <div className="elec-card elec-card-xr">
               <div className="elec-card-img-wrap">
-                <img src="/media/zeus-xr-card.jpg" alt="Zeus XR — AI Robotic Spray System" />
+                <img src="/media/zeus-xr-card.webp" alt="Zeus XR — AI Robotic Spray System" />
               </div>
               <div className="elec-card-body">
                 <span className="elec-card-badge">The Booth + Robot + AI</span>
@@ -296,7 +296,7 @@ export default async function Home() {
 
             <div className="elec-card">
               <div className="elec-card-img-wrap">
-                <img src="/media/zeus-8000.png" alt="Zeus 8000 — All Electric Spray Booth" />
+                <img src="/media/zeus-8000.webp" alt="Zeus 8000 — All Electric Spray Booth" />
               </div>
               <div className="elec-card-body">
                 <span className="elec-card-badge elec-card-badge-std">Not ready for the robot?</span>
@@ -369,7 +369,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="zxr-video-wrap" id="zxrVideoWrap" data-yt-vid="MsJcaRP38ks" style={{ marginTop: 56 }}>
-            <img src="/media/robot-image.jpg" alt="Zeus XR robot spraying" className="zxr-thumb" />
+            <img src="/media/robot-image.webp" alt="Zeus XR robot spraying" className="zxr-thumb" />
             <button className="zxr-play" id="zxrPlayBtn" aria-label="Play Zeus XR video">
               <svg viewBox="0 0 80 80" fill="none">
                 <circle cx="40" cy="40" r="39" stroke="rgba(255,255,255,.35)" strokeWidth="1"/>
@@ -393,7 +393,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="about-img">
-              <img src="/media/heritage-todd.jpg" alt="Todd Engineering — heritage" />
+              <img src="/media/heritage-todd.webp" alt="Todd Engineering — heritage" />
             </div>
           </div>
         </div>
@@ -549,7 +549,7 @@ export default async function Home() {
         <div className="w-1300">
           <div className="about-strip rv">
             <div className="about-img">
-              <img src="/media/greener-future.jpg" alt="Greener spraybooth technology" />
+              <img src="/media/greener-future.webp" alt="Greener spraybooth technology" />
             </div>
             <div className="about-body">
               <div className="s-lbl">Sustainability</div>
@@ -587,7 +587,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="about-img">
-              <img src="/media/zeus-xr-32.jpg" alt="Made in Britain — Todd Engineering" style={{ objectPosition: 'center 30%' }} />
+              <img src="/media/zeus-xr-32.webp" alt="Made in Britain — Todd Engineering" style={{ objectPosition: 'center 30%' }} />
             </div>
           </div>
         </div>

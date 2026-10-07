@@ -115,7 +115,7 @@ export default function ArticleRupes() {
               </div>
             </Link>
             <Link href="/news/electric-spraybooth-ai-robotics" className="art-rel-card">
-              <div className="art-rel-thumb" style={{ backgroundImage: "url('/media/isolated-booth.jpg')" }} />
+              <div className="art-rel-thumb" style={{ backgroundImage: "url('/media/isolated-booth.webp')" }} />
               <div className="art-rel-body">
                 <span className="art-rel-cat">Product Launch</span>
                 <span className="art-rel-title">The launch of our electric spraybooth powered by A.I. robotics</span>

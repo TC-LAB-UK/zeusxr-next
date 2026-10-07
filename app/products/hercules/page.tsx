@@ -13,7 +13,7 @@ const data: ProductPageData = {
   eyebrow: 'Todd Engineering — Spraybooth Systems',
   h1: 'Hercules 6000 Series',
   sub: 'High-throughput downdraught finishing. 20,000m³/hr. Built for volume.',
-  heroBg: '/media/hercules-hero.jpg',
+  heroBg: '/media/hercules-hero.webp',
   description: 'The Hercules 6000 Series delivers 20,000m³/hr downdraught airflow with gas-fired heating, EU5 filtration and +1400 lux LED lighting. Built for high-throughput bodyshops that demand reliability and speed.',
   pills: ['Downdraught Airflow', 'Gas-Fired Heating', '+1400 Lux LED', 'PLC Control', 'EEC Extraction', 'EU5 Filtration'],
   specRows: [

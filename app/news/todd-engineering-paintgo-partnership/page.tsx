@@ -31,7 +31,7 @@ export default function ArticlePaintGo() {
       </div>
 
       <div className="art-img-full rv">
-        <img src="/media/isolated-booth.jpg" alt="Zeus XR — integrating PaintGo's AI robotic technology exclusively in the UK" />
+        <img src="/media/isolated-booth.webp" alt="Zeus XR — integrating PaintGo's AI robotic technology exclusively in the UK" />
         <p className="art-img-caption">The Zeus XR spraybooth — the only route to PaintGo&apos;s robotic AI technology in the UK.</p>
       </div>
 
@@ -76,7 +76,7 @@ export default function ArticlePaintGo() {
               </div>
             </Link>
             <Link href="/news/electric-spraybooth-ai-robotics" className="art-rel-card">
-              <div className="art-rel-thumb" style={{ backgroundImage: "url('/media/isolated-booth.jpg')" }} />
+              <div className="art-rel-thumb" style={{ backgroundImage: "url('/media/isolated-booth.webp')" }} />
               <div className="art-rel-body">
                 <span className="art-rel-cat">Product Launch</span>
                 <span className="art-rel-title">The launch of our electric spraybooth powered by A.I. robotics</span>

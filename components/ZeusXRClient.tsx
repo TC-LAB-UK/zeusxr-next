@@ -13,13 +13,13 @@ const ORG_ID = '8129f148-b92e-4fb4-a458-b0c941d6b42f'
 const hotspots = [
   {
     id: 1, left: '30%', top: '64%', label: 'Control Panel',
-    cardImg: '/media/zeus-xr-control-panel.jpg',
+    cardImg: '/media/zeus-xr-control-panel.webp',
     cardTitle: 'Operator Control Panel',
     cardDesc: 'Single-touch interface. Emergency stop, start, and linear track controls — designed for minimal operator input.',
   },
   {
     id: 2, left: '24%', top: '20%', label: 'AI Scanner',
-    cardImg: '/media/robot-scanner.jpg',
+    cardImg: '/media/robot-scanner.webp',
     cardTitle: 'AI Vehicle Scanner',
     cardDesc: 'Maps vehicle geometry in seconds. Cross-references 4,000+ preloaded profiles to generate precise spray paths automatically.',
   },
@@ -40,11 +40,11 @@ const hotspots = [
 /* ── Feature carousel data ── */
 const carouselCards = [
   { bg: '/media/zeus-xr-8.jpg', bgPos: 'center 40%', lbl: 'The Complete System', title: 'Booth. Robot. AI.\nOne Platform.' },
-  { bg: '/media/robot-scanner.jpg', bgPos: 'center', lbl: 'AI Vehicle Recognition', title: '4,000+ Models\nPreloaded' },
+  { bg: '/media/robot-scanner.webp', bgPos: 'center', lbl: 'AI Vehicle Recognition', title: '4,000+ Models\nPreloaded' },
   { bg: '/media/zeus-xr-28.jpg', bgPos: 'center', lbl: 'Finish Consistency', title: '100% Consistent.\nEvery Vehicle.' },
   { bg: '/media/edit-robot-bg.jpg', bgPos: 'center 40%', lbl: 'PG-90E', title: '7-Axis\nRobotic Arm' },
   { bg: '/media/zeus-xr-32.jpg', bgPos: 'center 30%', lbl: 'Heritage', title: 'Designed &\nBuilt in Britain' },
-  { bg: '/media/zeus-xr-main.jpg', bgPos: 'center 45%', lbl: 'Finish Quality', title: 'OEM-level results.\nEvery job.' },
+  { bg: '/media/zeus-xr-main.webp', bgPos: 'center 45%', lbl: 'Finish Quality', title: 'OEM-level results.\nEvery job.' },
   { bg: '/media/zeus-xr-25.jpg', bgPos: 'center 35%', lbl: 'Engineered for Performance', title: 'Consistent Results.\nEvery Surface.' },
 ]
 
@@ -255,7 +255,7 @@ export default function ZeusXRClient() {
       <section className="tesla-sec" id="product">
         <div className="tesla-product">
           <div className="hotspot-explorer">
-            <img src="/media/isolated-booth.jpg" alt="Zeus XR robotic spray booth" className="tesla-img" />
+            <img src="/media/isolated-booth.webp" alt="Zeus XR robotic spray booth" className="tesla-img" />
 
             {hotspots.map(hs => (
               <button
@@ -379,11 +379,11 @@ export default function ZeusXRClient() {
           onTouchStart={e => { baDragging.current = true; baCalc(e.touches[0].clientX) }}
         >
           <div className="ba-before">
-            <img src="/media/undercoat.jpg" alt="Before — accident repair" draggable={false} />
+            <img src="/media/undercoat.webp" alt="Before — accident repair" draggable={false} />
             <span className="ba-label ba-label-before">Before</span>
           </div>
           <div className="ba-after" style={{ clipPath: `inset(0 ${100 - baPos}% 0 0)` }}>
-            <img src="/media/prepped.jpg" alt="After — prepped and finished by Zeus XR" draggable={false} />
+            <img src="/media/prepped.webp" alt="After — prepped and finished by Zeus XR" draggable={false} />
             <span className="ba-label ba-label-after">After</span>
           </div>
           <div className="ba-handle" style={{ left: `${baPos}%` }}>
@@ -509,7 +509,7 @@ export default function ZeusXRClient() {
           {!vid1Playing ? (
             <div
               className="exp-vid-wrap"
-              style={{ backgroundImage: 'url(/media/isolated-booth.jpg)' }}
+              style={{ backgroundImage: 'url(/media/isolated-booth.webp)' }}
               data-play-vid="1"
             >
               <div className="exp-vid-overlay">
@@ -660,7 +660,7 @@ export default function ZeusXRClient() {
               </div>
             </div>
             <div className="specs-new-img">
-              <img src="/media/isolated-booth.jpg" alt="Zeus XR system" />
+              <img src="/media/isolated-booth.webp" alt="Zeus XR system" />
             </div>
           </div>
         </div>

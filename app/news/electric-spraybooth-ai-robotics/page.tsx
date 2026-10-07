@@ -8,7 +8,7 @@ export default function ArticleElectricSpraybooth() {
   return (
     <>
       <section className="art-hero">
-        <div className="art-hero-bg" style={{ backgroundImage: "url('/media/isolated-booth.jpg')" }} />
+        <div className="art-hero-bg" style={{ backgroundImage: "url('/media/isolated-booth.webp')" }} />
         <div className="art-hero-grad" />
         <div className="art-hero-content">
           <div className="art-cat">Product Launch</div>
@@ -44,7 +44,7 @@ export default function ArticleElectricSpraybooth() {
             {playing ? (
               <iframe className="art-video-iframe" src="https://www.youtube.com/embed/da2caTaIaeA?autoplay=1&rel=0&modestbranding=1" allow="autoplay; fullscreen" allowFullScreen />
             ) : (
-              <div className="art-video-overlay" style={{ backgroundImage: "url('/media/isolated-booth.jpg')", backgroundSize: 'cover' }}>
+              <div className="art-video-overlay" style={{ backgroundImage: "url('/media/isolated-booth.webp')", backgroundSize: 'cover' }}>
                 <button className="art-play-btn" aria-label="Play video">
                   <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="29" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5"/><polygon points="24,18 44,30 24,42" fill="white"/></svg>
                 </button>
