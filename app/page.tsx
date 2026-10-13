@@ -122,7 +122,7 @@ export default async function Home() {
       {/* ── HERO ── */}
       <section className="hero">
         <div className="hero-vid">
-          <video autoPlay muted loop playsInline poster="/media/zeus-xr-hero.webp">
+          <video autoPlay muted loop playsInline poster="/media/zeus-xr-8.jpg">
             <source src="/media/hero.mp4" type="video/mp4" />
           </video>
         </div>
@@ -521,7 +521,7 @@ export default async function Home() {
             )}) : (
               <>
                 <Link href="/projects/uk-offshore-wind-farm" className="proj-card rv">
-                  <div className="proj-bg" style={{ backgroundImage: "url('/media/made-in-britain.webp')", backgroundPosition: 'center' }}></div>
+                  <div className="proj-bg" style={{ backgroundImage: "url('/media/windfarm.png')", backgroundPosition: 'center' }}></div>
                   <div className="proj-overlay">
                     <div className="proj-sector">Renewable Energy</div>
                     <div className="proj-title">UK Offshore Wind Farm</div>
@@ -529,7 +529,7 @@ export default async function Home() {
                   </div>
                 </Link>
                 <Link href="/projects/bahrain-aerospace-facility" className="proj-card rv d1">
-                  <div className="proj-bg" style={{ backgroundImage: "url('/media/hercules-hero.webp')", backgroundPosition: 'center' }}></div>
+                  <div className="proj-bg" style={{ backgroundImage: "url('/media/aerospace.png')", backgroundPosition: 'center' }}></div>
                   <div className="proj-overlay">
                     <div className="proj-sector">Aerospace</div>
                     <div className="proj-title">Dubai Aerospace Facility</div>

@@ -13,7 +13,7 @@ const data: ProductPageData = {
   eyebrow: 'Todd Engineering — Energy Management',
   h1: 'GREENTECH E6',
   sub: 'Real-time energy monitoring. Optimise performance. Reduce operating costs.',
-  heroBg: '/media/zeus-xr-main.webp',
+  heroBg: '/media/zeus-xr-25.jpg',
   description: 'GREENTECH E6 is a spray booth energy management and monitoring system. Real-time power consumption, airflow and cycle analytics delivered via local and cloud dashboard — retrofittable to most existing booth systems.',
   pills: ['Energy Monitoring', 'Real-Time Data', 'Airflow Analytics', 'Cycle Optimisation', 'Retrofit Compatible', 'Cloud Dashboard'],
   specRows: [

@@ -30,7 +30,7 @@ export default function ArticleMSRT() {
       </div>
 
       <div className="art-img-full rv">
-        <img src="/media/news/msrt-zeus-xr.jpeg" alt="Zeus XR spraybooth installed at MSRT" />
+        <img src="/media/news/msrt-2.jpg" alt="Zeus XR spraybooth installed at MSRT" />
         <p className="art-img-caption">Zeus XR installed at the MSRT facility, Staffordshire.</p>
       </div>
 
@@ -54,7 +54,7 @@ export default function ArticleMSRT() {
             {playing ? (
               <iframe className="art-video-iframe" src="https://www.youtube.com/embed/da2caTaIaeA?autoplay=1&rel=0&modestbranding=1" allow="autoplay; fullscreen" allowFullScreen />
             ) : (
-              <div className="art-video-overlay" style={{ backgroundImage: "url('/media/zeus-xr-main.webp')", backgroundSize: 'cover' }}>
+              <div className="art-video-overlay" style={{ backgroundImage: "url('/media/zeus-xr-25.jpg')", backgroundSize: 'cover' }}>
                 <button className="art-play-btn" aria-label="Play video">
                   <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="29" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5"/><polygon points="24,18 44,30 24,42" fill="white"/></svg>
                 </button>

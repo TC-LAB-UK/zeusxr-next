@@ -81,7 +81,7 @@ export default function CareersPage() {
               <p className="s-p">Based at Gregory Works in Rugeley, Staffordshire — with nationwide site-based opportunities across the UK. Our facility is home to our design team, fabrication and manufacturing operations, and the testing environment for the Zeus XR.</p>
             </div>
             <div className="about-strip-img rv d1">
-              <img src="/media/made-in-britain.webp" alt="Todd Engineering — Made in Britain" />
+              <img src="/media/made-in-britain.jpg" alt="Todd Engineering — Made in Britain" />
             </div>
           </div>
         </div>
