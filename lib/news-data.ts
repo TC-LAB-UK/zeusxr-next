@@ -199,8 +199,8 @@ export const NEWS_DATA: Record<string, NewsArticle> = {
     title: 'Angus MacKinnon Expands with Carbon-Neutral Bodyshop Featuring Zeus Spray Booths',
     category: 'Installation',
     date: 'October 2024',
-    thumb: '/media/projects/angus-mackinnon/hero.png',
-    hero: '/media/projects/angus-mackinnon/hero.png',
+    thumb: '/media/projects/angus-mackinnon/hero.jpg',
+    hero: '/media/projects/angus-mackinnon/hero.jpg',
     excerpt: 'Angus MacKinnon opens a new purpose-built bodyshop in Uttoxeter featuring two Zeus all-electric spray booths — taking major strides towards sustainable, carbon-neutral operations.',
     body: [
       { type: 'p', text: 'Angus MacKinnon, a trusted name in automotive repair, is marking a significant milestone with the opening of their new purpose-built bodyshop in Uttoxeter, taking strides toward sustainable operations. A long-standing customer of Todd Engineering, Angus MacKinnon previously operated an external Olympian spray booth at their original site. With a desire to enhance efficiency and reduce environmental impact, owner Stuart was inspired to incorporate Todd Engineering\'s innovative Zeus all-electric spray booths after seeing their impressive performance at another facility.' },
@@ -301,8 +301,8 @@ export const NEWS_DATA: Record<string, NewsArticle> = {
     title: 'Todd Engineering Secures Multi-Million Pound Contract with SeAH Wind',
     category: 'News',
     date: 'July 2024',
-    thumb: '/media/windfarm.png',
-    hero: '/media/windfarm.png',
+    thumb: '/media/windfarm.jpg',
+    hero: '/media/windfarm.jpg',
     excerpt: 'Todd Engineering is thrilled to announce a multi-million pound contract to install five custom commercial spray booths for SeAH Wind — supporting the UK\'s largest offshore wind foundation manufacturing facility.',
     body: [
       { type: 'p', text: 'Todd Engineering is thrilled to announce the successful acquisition of a multi-million pound contract to install five custom commercial spray booths for SeAH Wind, enhancing the UK\'s largest offshore wind foundation manufacturing facility. This comprehensive 8-month project includes the installation of three XXXL spray booths and two moveable XXL spray booths, designed for optimal efficiency and superior quality outputs.' },
@@ -350,8 +350,8 @@ export const NEWS_DATA: Record<string, NewsArticle> = {
     title: 'Latest Spraybooths from Todd Engineering Make Global Waves',
     category: 'News',
     date: 'October 2023',
-    thumb: '/media/zeus-8000.png',
-    hero: '/media/zeus-8000.png',
+    thumb: '/media/zeus-8000.jpg',
+    hero: '/media/zeus-8000.jpg',
     excerpt: 'Todd Engineering\'s Zeus spray booth is rapidly gaining traction in European and Middle Eastern markets — with major contracts including four Zeus booths for the Royal Bahrain Military valued at £375,000.',
     body: [
       { type: 'p', text: 'This year, Todd Engineering has made significant strides in the global market with its state-of-the-art spraybooth exports. From aerospace projects in Prague to prestigious assignments for the Royal Military in Bahrain, the company\'s reach and influence have expanded exponentially.' },
@@ -367,8 +367,8 @@ export const NEWS_DATA: Record<string, NewsArticle> = {
     title: '£500k Contract Begins Todd\'s Smart Repair Facilities Rollout',
     category: 'News',
     date: 'May 2023',
-    thumb: '/media/products/nemesis/hero.png',
-    hero: '/media/products/nemesis/hero.png',
+    thumb: '/media/products/nemesis/hero.jpg',
+    hero: '/media/products/nemesis/hero.jpg',
     excerpt: 'Todd Engineering initiates the rollout of Nemesis Smart Repair Facilities with a £500k contract from Snows — developed in collaboration with Toyota GB and now deployed across multiple Snows dealership sites.',
     body: [
       { type: 'p', text: 'Todd Engineering Ltd is driving a revolution in vehicle maintenance and repairs with the commencement of their Nemesis Smart Repair Facilities rollout. The innovative solution, developed in collaboration with Toyota GB, offers high-tech features that promise to significantly enhance the efficiency and effectiveness of automotive smart repair processes.' },

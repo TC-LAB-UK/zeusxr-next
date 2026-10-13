@@ -19,7 +19,7 @@ const industries = [
     desc: 'Aerospace finishing demands a different standard. From wide-body components to precision defence parts, the tolerances are tighter and the stakes are higher. Trusted by Tier 1 suppliers and defence contractors for over 20 years.',
     stats: [{ v: '20+', l: 'Years in Aerospace' }, { v: 'Tier 1', l: 'OEM & Defence Ready' }],
     cta: { href: '/contact', label: 'Talk to Our Team' },
-    img: '/media/aerospace.png',
+    img: '/media/aerospace.jpg',
     imgAlt: 'Aerospace spraybooth — Todd Engineering',
   },
   {
@@ -37,7 +37,7 @@ const industries = [
     desc: 'Wind turbine components, offshore structural parts and renewable energy infrastructure require specialist coating environments. We engineer systems capable of handling the scale, materials and precision the renewables sector demands.',
     stats: [{ v: 'UK', l: '& International' }, { v: 'Full', l: 'Turnkey Delivery' }],
     cta: { href: '/projects', label: 'View Projects' },
-    img: '/media/windfarm.png',
+    img: '/media/windfarm.jpg',
     imgAlt: 'Wind farm spraybooth installation',
   },
   {

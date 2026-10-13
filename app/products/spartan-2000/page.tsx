@@ -13,7 +13,7 @@ const data: ProductPageData = {
   eyebrow: 'Todd Engineering — Spraybooth Systems',
   h1: 'Spartan 2000 Series',
   sub: 'Professional spray finishing. Compact footprint. No compromise.',
-  heroBg: '/media/spartan.png',
+  heroBg: '/media/spartan.jpg',
   description: 'The Spartan 2000 Series brings professional-grade downdraught spray finishing to smaller bodyshops and fast-fit operations. Reliable performance, low running costs and a compact footprint that fits where others cannot.',
   pills: ['Downdraught Airflow', 'Gas-Fired Heating', 'LED Lighting', 'PLC Control', 'EU5 Filtration', 'Compact Footprint'],
   specRows: [

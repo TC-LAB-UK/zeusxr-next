@@ -103,7 +103,7 @@ const PRODUCT_DATA: Record<string, {
   icons?: { label: string }[]
 }> = {
   'zeus-8000-series': {
-    heroBg: '/media/zeus-8000.png',
+    heroBg: '/media/zeus-8000.jpg',
     specRows: [
       { k: 'Application', v: 'Automotive spray finishing' },
       { k: 'Internal Dimensions', v: '6800mm × 3900mm × 2500mm (L×W×H)' },
@@ -163,7 +163,7 @@ const PRODUCT_DATA: Record<string, {
     ],
   },
   'spartan-2000-series': {
-    heroBg: '/media/spartan.png',
+    heroBg: '/media/spartan.jpg',
     specRows: [
       { k: 'Airflow', v: '20,000m³/hr' },
       { k: 'Extraction', v: 'Rear extraction' },

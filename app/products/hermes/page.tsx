@@ -13,7 +13,7 @@ const data: ProductPageData = {
   eyebrow: 'Todd Engineering — Spraybooth Systems',
   h1: 'Hermes 3000',
   sub: 'Fast cycle times. Downdraught precision. Built for the independent bodyshop.',
-  heroBg: '/media/hermes-hero.png',
+  heroBg: '/media/hermes-hero.jpg',
   description: 'The Hermes 3000 combines 22,000m³/hr downdraught airflow with rapid gas-fired heating and +1400 lux LED lighting. Fast cycle times and reliable performance for the busy independent bodyshop.',
   pills: ['Downdraught Airflow', 'Gas-Fired Heating', '+1400 Lux LED', 'PLC Control', 'EU5 Filtration', 'Fast Cycle Times'],
   specRows: [

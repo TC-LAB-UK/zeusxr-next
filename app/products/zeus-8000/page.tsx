@@ -13,7 +13,7 @@ const data: ProductPageData = {
   eyebrow: 'Todd Engineering — Spraybooth Systems',
   h1: 'Zeus 8000 Series',
   sub: "The UK's #1 All Electric Spray Booth. Far infrared curing. Zero fossil fuels.",
-  heroBg: '/media/zeus-8000.png',
+  heroBg: '/media/zeus-8000.jpg',
   description: 'The Zeus 8000 Series is engineered to revolutionise automotive refinishing with far infrared (FIR) curing technology and fully electric operation. Reduce curing times, eliminate fossil fuel dependency and future-proof your bodyshop.',
   pills: ['All Electric', 'FIR Curing', 'Zero Fossil Fuels', '25,000m³/hr', '+1800 Lux LED', 'Inverter VSDs'],
   specRows: [

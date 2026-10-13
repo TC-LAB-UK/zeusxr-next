@@ -42,7 +42,7 @@ export const PROJECTS_DATA: Record<string, ProjectData> = {
     title: 'UK Offshore Wind Farm — Large-Format Industrial Finishing Facility',
     client_name: 'Seah Wind',
     sector: 'Renewable Energy',
-    cover_image_url: '/media/windfarm.png',
+    cover_image_url: '/media/windfarm.jpg',
     outcome_stats: [
       { label: 'Project Duration', value: '18 Months' },
       { label: 'Booth Type', value: 'Bespoke Large-Format' },
@@ -59,7 +59,7 @@ export const PROJECTS_DATA: Record<string, ProjectData> = {
     title: 'Bahrain Aerospace Facility — Precision Finishing Environment',
     client_name: 'Al Haddad Motors',
     sector: 'Aerospace',
-    cover_image_url: '/media/aerospace.png',
+    cover_image_url: '/media/aerospace.jpg',
     outcome_stats: [
       { label: 'Location', value: 'Bahrain' },
       { label: 'Standard', value: 'Aerospace Grade' },
@@ -105,7 +105,7 @@ export const PROJECTS_DATA: Record<string, ProjectData> = {
       '/media/projects/smallest-cog/gallery-1.jpg',
       '/media/projects/smallest-cog/gallery-2.jpg',
       '/media/projects/smallest-cog/gallery-3.png',
-      '/media/projects/smallest-cog/gallery-4.png',
+      '/media/projects/smallest-cog/gallery-4.jpg',
       '/media/projects/smallest-cog/gallery-5.jpg',
     ],
     outcome_stats: [
@@ -247,14 +247,14 @@ export const PROJECTS_DATA: Record<string, ProjectData> = {
     title: 'Angus MacKinnon — Carbon-Neutral Bodyshop',
     client_name: 'Angus MacKinnon',
     sector: 'Automotive',
-    cover_image_url: '/media/projects/angus-mackinnon/hero.png',
+    cover_image_url: '/media/projects/angus-mackinnon/hero.jpg',
     gallery_images: [
-      '/media/projects/angus-mackinnon/hero.png',
-      '/media/projects/angus-mackinnon/gallery-1.png',
-      '/media/projects/angus-mackinnon/gallery-2.png',
-      '/media/projects/angus-mackinnon/gallery-3.png',
-      '/media/projects/angus-mackinnon/gallery-4.png',
-      '/media/projects/angus-mackinnon/gallery-5.png',
+      '/media/projects/angus-mackinnon/hero.jpg',
+      '/media/projects/angus-mackinnon/gallery-1.jpg',
+      '/media/projects/angus-mackinnon/gallery-2.jpg',
+      '/media/projects/angus-mackinnon/gallery-3.jpg',
+      '/media/projects/angus-mackinnon/gallery-4.jpg',
+      '/media/projects/angus-mackinnon/gallery-5.jpg',
     ],
     outcome_stats: [
       { label: 'Sector', value: 'Automotive' },
