@@ -19,7 +19,7 @@ export default function ZeusXRVideo() {
       ) : (
         <>
           <img
-            src="/media/zeus-xr-video-thumb.jpg"
+            src="/media/zeus-xr-spray-system.jpg"
             alt="Zeus XR in action"
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />

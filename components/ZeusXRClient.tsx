@@ -39,13 +39,13 @@ const hotspots = [
 
 /* ── Feature carousel data ── */
 const carouselCards = [
-  { bg: '/media/zeus-xr-8.jpg', bgPos: 'center 40%', lbl: 'The Complete System', title: 'Booth. Robot. AI.\nOne Platform.' },
+  { bg: '/media/zeus-xr-hero.webp', bgPos: 'center 40%', lbl: 'The Complete System', title: 'Booth. Robot. AI.\nOne Platform.' },
   { bg: '/media/robot-scanner.webp', bgPos: 'center', lbl: 'AI Vehicle Recognition', title: '4,000+ Models\nPreloaded' },
   { bg: '/media/zeus-xr-28.jpg', bgPos: 'center', lbl: 'Finish Consistency', title: '100% Consistent.\nEvery Vehicle.' },
   { bg: '/media/edit-robot-bg.jpg', bgPos: 'center 40%', lbl: 'PG-90E', title: '7-Axis\nRobotic Arm' },
-  { bg: '/media/zeus-xr-32.jpg', bgPos: 'center 30%', lbl: 'Heritage', title: 'Designed &\nBuilt in Britain' },
+  { bg: '/media/zeus-xr-32.webp', bgPos: 'center 30%', lbl: 'Heritage', title: 'Designed &\nBuilt in Britain' },
   { bg: '/media/zeus-xr-main.webp', bgPos: 'center 45%', lbl: 'Finish Quality', title: 'OEM-level results.\nEvery job.' },
-  { bg: '/media/zeus-xr-25.jpg', bgPos: 'center 35%', lbl: 'Engineered for Performance', title: 'Consistent Results.\nEvery Surface.' },
+  { bg: '/media/zeus-xr-main.webp', bgPos: 'center 35%', lbl: 'Engineered for Performance', title: 'Consistent Results.\nEvery Surface.' },
 ]
 
 /* ── Demo modal form ── */
@@ -233,7 +233,7 @@ export default function ZeusXRClient() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-vid">
-          <video autoPlay muted loop playsInline poster="/media/zeus-xr-8.jpg">
+          <video autoPlay muted loop playsInline poster="/media/zeus-xr-hero.webp">
             <source src="/media/hero.mp4" type="video/mp4" />
           </video>
         </div>
@@ -458,7 +458,7 @@ export default function ZeusXRClient() {
       {/* VIDEO BREAKOUT */}
       <div className="vb rv">
         <div className="vb-media">
-          <video autoPlay muted loop playsInline poster="/media/zeus-xr-25.jpg">
+          <video autoPlay muted loop playsInline poster="/media/zeus-xr-main.webp">
             <source src="/media/hero.mp4" type="video/mp4" />
           </video>
         </div>
@@ -573,7 +573,7 @@ export default function ZeusXRClient() {
           {!vid2Playing ? (
             <div
               className="exp-vid-wrap"
-              style={{ backgroundImage: 'url(/media/zeus-xr-video-thumb.jpg)' }}
+              style={{ backgroundImage: 'url(/media/zeus-xr-spray-system.jpg)' }}
               data-play-vid="2"
             >
               <div className="exp-vid-overlay">

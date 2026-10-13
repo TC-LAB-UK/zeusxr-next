@@ -122,7 +122,7 @@ export default async function Home() {
       {/* ── HERO ── */}
       <section className="hero">
         <div className="hero-vid">
-          <video autoPlay muted loop playsInline poster="/media/zeus-xr-8.jpg">
+          <video autoPlay muted loop playsInline poster="/media/zeus-xr-hero.webp">
             <source src="/media/hero.mp4" type="video/mp4" />
           </video>
         </div>

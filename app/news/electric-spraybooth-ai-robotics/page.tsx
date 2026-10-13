@@ -30,7 +30,7 @@ export default function ArticleElectricSpraybooth() {
       </div>
 
       <div className="art-img-full rv">
-        <img src="/media/zeus-xr-32.jpg" alt="Zeus XR — Made in Britain" />
+        <img src="/media/zeus-xr-32.webp" alt="Zeus XR — Made in Britain" />
         <p className="art-img-caption">Zeus XR — designed, manufactured and installed in Britain by Todd Engineering.</p>
       </div>
 

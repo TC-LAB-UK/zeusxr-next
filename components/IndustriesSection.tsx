@@ -19,7 +19,7 @@ const industries = [
     desc: 'Aerospace finishing demands a different standard. From wide-body components to precision defence parts, the tolerances are tighter and the stakes are higher. Trusted by Tier 1 suppliers and defence contractors for over 20 years.',
     stats: [{ v: '20+', l: 'Years in Aerospace' }, { v: 'Tier 1', l: 'OEM & Defence Ready' }],
     cta: { href: '/contact', label: 'Talk to Our Team' },
-    img: '/media/aerospace.png',
+    img: '/media/hercules/B45F6560-1213-4693-8FED-2BDC09F1F792.jpg',
     imgAlt: 'Aerospace spraybooth — Todd Engineering',
   },
   {
@@ -28,7 +28,7 @@ const industries = [
     desc: 'Industrial finishing comes in all shapes and scales. We build the environments to match — component coating lines to full-scale structural finishing facilities. Bespoke engineered to your process, footprint and throughput targets.',
     stats: [{ v: '100+', l: 'Bespoke Installs' }, { v: 'UK', l: 'Designed & Built' }],
     cta: { href: '/products', label: 'See Our Products' },
-    img: '/media/greener-future.jpg',
+    img: '/media/greener-future.webp',
     imgAlt: 'Industrial spray finishing',
   },
   {
@@ -37,7 +37,7 @@ const industries = [
     desc: 'Wind turbine components, offshore structural parts and renewable energy infrastructure require specialist coating environments. We engineer systems capable of handling the scale, materials and precision the renewables sector demands.',
     stats: [{ v: 'UK', l: '& International' }, { v: 'Full', l: 'Turnkey Delivery' }],
     cta: { href: '/projects', label: 'View Projects' },
-    img: '/media/windfarm.png',
+    img: '/media/made-in-britain.webp',
     imgAlt: 'Wind farm spraybooth installation',
   },
   {
@@ -46,7 +46,7 @@ const industries = [
     desc: 'Todd Engineering systems operate across the Middle East, Europe and beyond. We manage the full project lifecycle — design, manufacture, international installation and commissioning — ensuring the same standard of finish wherever in the world you need it.',
     stats: [{ v: '25+', l: 'Countries Served' }, { v: 'Global', l: 'Turnkey Projects' }],
     cta: { href: '/projects', label: 'View Projects' },
-    img: '/media/projects/hills-helicopters/hero.jpg',
+    img: '/media/hercules-hero.webp',
     imgAlt: 'British engineered — exported worldwide',
   },
 ]

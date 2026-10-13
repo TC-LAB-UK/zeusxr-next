@@ -28,7 +28,7 @@ const bentoPhotos = [
   '/media/about/heritage-7.jpg',
   '/media/about/heritage-8.jpg',
   '/media/about/heritage-9.jpg',
-  '/media/heritage-todd.jpg',
+  '/media/heritage-todd.webp',
 ]
 
 const timeline = [
@@ -96,7 +96,7 @@ export default function CompanyPage() {
     <>
       {/* HERO */}
       <section className="about-hero">
-        <div className="about-hero-bg" style={{ backgroundImage: 'url(/media/heritage-todd.jpg)' }} />
+        <div className="about-hero-bg" style={{ backgroundImage: 'url(/media/heritage-todd.webp)' }} />
         <div className="about-hero-grad" />
         <div className="about-hero-content">
           <p className="about-hero-eyebrow">Todd Engineering — Est. 1993</p>
@@ -123,7 +123,7 @@ export default function CompanyPage() {
               </div>
             </div>
             <div className="story-img">
-              <img src="/media/zeus-xr-32.jpg" alt="Todd Engineering facility" style={{ objectPosition: 'center 30%' }} />
+              <img src="/media/zeus-xr-32.webp" alt="Todd Engineering facility" style={{ objectPosition: 'center 30%' }} />
             </div>
           </div>
         </div>

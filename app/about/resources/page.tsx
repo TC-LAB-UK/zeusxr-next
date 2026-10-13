@@ -74,7 +74,7 @@ export default function ResourcesPage() {
     <>
       {/* Hero */}
       <section style={{ position: 'relative', padding: '160px 40px 100px', textAlign: 'center', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, background: "url('/media/zeus-xr-8.jpg') center/cover no-repeat", filter: 'brightness(.18)', zIndex: 0 }} />
+        <div style={{ position: 'absolute', inset: 0, background: "url('/media/zeus-xr-hero.webp') center/cover no-repeat", filter: 'brightness(.18)', zIndex: 0 }} />
         <div style={{ position: 'relative', zIndex: 2 }} className="rv">
           <span className="s-lbl" style={{ color: 'rgba(255,255,255,.35)' }}>Todd Engineering</span>
           <h1 style={{ fontSize: 'clamp(36px,5vw,64px)', fontWeight: 800, letterSpacing: '-.04em', color: '#fff', margin: '16px 0 20px', lineHeight: 1.05 }}>

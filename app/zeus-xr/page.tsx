@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Zeus XR — Advanced Spray Finishing Technology',
     description: 'AI-assisted robotic spray booth system by Todd Engineering.',
-    images: [{ url: '/media/zeus-xr-8.jpg', width: 1200, height: 630 }],
+    images: [{ url: '/media/zeus-xr-hero.webp', width: 1200, height: 630 }],
   },
 }
 

@@ -35,7 +35,7 @@ export default function CareersPage() {
     <>
       {/* HERO */}
       <section style={{ position: 'relative', padding: '160px 40px 100px', textAlign: 'center', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, background: "url('/media/zeus-xr-32.jpg') center/cover no-repeat", filter: 'brightness(.2)', zIndex: 0 }} />
+        <div style={{ position: 'absolute', inset: 0, background: "url('/media/zeus-xr-32.webp') center/cover no-repeat", filter: 'brightness(.2)', zIndex: 0 }} />
         <div style={{ position: 'relative', zIndex: 2 }} className="rv">
           <span className="s-lbl" style={{ color: 'rgba(255,255,255,.35)' }}>Todd Engineering</span>
           <h1 className="s-h2" style={{ fontSize: 'clamp(36px,5vw,68px)', color: '#fff', marginBottom: 16 }}>
@@ -81,7 +81,7 @@ export default function CareersPage() {
               <p className="s-p">Based at Gregory Works in Rugeley, Staffordshire — with nationwide site-based opportunities across the UK. Our facility is home to our design team, fabrication and manufacturing operations, and the testing environment for the Zeus XR.</p>
             </div>
             <div className="about-strip-img rv d1">
-              <img src="/media/made-in-britain.jpg" alt="Todd Engineering — Made in Britain" />
+              <img src="/media/made-in-britain.webp" alt="Todd Engineering — Made in Britain" />
             </div>
           </div>
         </div>

@@ -12,10 +12,10 @@ export default function DesignBuildPage() {
       eyebrow="Solutions — Todd Engineering"
       h1="Design and Build"
       tagline="Bespoke engineering from first brief to finished facility. No two projects are the same."
-      heroBg="/media/zeus-xr-8.jpg"
+      heroBg="/media/zeus-xr-hero.webp"
       overviewTitle="Design and Build"
       overviewBody="When off-the-shelf will not do, our Design and Build service delivers a fully bespoke spraybooth facility engineered specifically to your site, your operational requirements and your budget. From complex multi-bay installations to unique industrial finishing environments, we have the engineering capability to design and build it."
-      introImg="/media/zeus-xr-8.jpg"
+      introImg="/media/zeus-xr-hero.webp"
       introImgAlt="Design and Build"
       processSteps={[
         {
