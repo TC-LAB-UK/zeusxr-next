@@ -56,16 +56,23 @@ async function getCaseStudies() {
   }
 }
 
+// Local project image fallbacks keyed by slug (used when Supabase cover_image_url is empty)
+const localProjectImages: Record<string, string> = {
+  'uk-offshore-wind-farm': '/media/made-in-britain.webp',
+  'bahrain-aerospace-facility': '/media/hercules-hero.webp',
+  'k-and-s': '/media/projects/k-and-s/23.jpg',
+}
+
 // Local image fallbacks keyed by slug
 const localImages: Record<string, string> = {
   'zeus-xr': '/media/zeus-xr-card.webp',
   'zeus-8000': '/media/zeus-8000.webp',
   'zeus-8000-series': '/media/zeus-8000.webp',
-  'olympian-1000': '/media/olympian-1000.jpg',
-  'olympian-1000-series': '/media/olympian-1000.jpg',
+  'olympian-1000': '/media/olympian-1000/IMG_2011.jpg',
+  'olympian-1000-series': '/media/olympian-1000/IMG_2011.jpg',
   'poseidon': '/media/poseidon.jpg',
-  'spartan-2000': '/media/spartan.png',
-  'spartan-2000-series': '/media/spartan.png',
+  'spartan-2000': '/media/spartan-2000/97443f4b-eee1-4523-aa88-709c92d579c6.jpg',
+  'spartan-2000-series': '/media/spartan-2000/97443f4b-eee1-4523-aa88-709c92d579c6.jpg',
   'titan-cv': '/media/titan.jpg',
   'titan-cv-series': '/media/titan.jpg',
 }
@@ -232,9 +239,9 @@ export default async function Home() {
             <>
               {[
                 { slug: 'zeus-8000', img: '/media/zeus-8000.webp', eyebrow: "UK's #1 All Electric Spray Booth", title: 'Zeus 8000 Series', desc: 'Far infrared curing, fully electric operation and intelligent control — engineered to revolutionise automotive refinishing.' },
-                { slug: 'olympian-1000', img: '/media/olympian-1000.jpg', eyebrow: 'Performance at Every Level', title: 'Olympian 1000 Series', desc: 'Robust construction, advanced LED lighting and efficient airflow. Ideal for start-ups and lower throughput operations.' },
+                { slug: 'olympian-1000', img: '/media/olympian-1000/IMG_2011.jpg', eyebrow: 'Performance at Every Level', title: 'Olympian 1000 Series', desc: 'Robust construction, advanced LED lighting and efficient airflow. Ideal for start-ups and lower throughput operations.' },
                 { slug: 'poseidon', img: '/media/poseidon.jpg', eyebrow: 'High-Specification Finishing', title: 'Poseidon', desc: 'Intelligent temperature control, Hydra-cure™ water-based curing and energy-saving automated operation.' },
-                { slug: 'spartan-2000', img: '/media/spartan.png', eyebrow: 'Compact. Capable. Built to Last.', title: 'Spartan 2000 Series', desc: 'A robust, no-compromise spraybooth designed for demanding environments. Reliable performance at a competitive price point.' },
+                { slug: 'spartan-2000', img: '/media/spartan-2000/97443f4b-eee1-4523-aa88-709c92d579c6.jpg', eyebrow: 'Compact. Capable. Built to Last.', title: 'Spartan 2000 Series', desc: 'A robust, no-compromise spraybooth designed for demanding environments. Reliable performance at a competitive price point.' },
                 { slug: 'titan-cv', img: '/media/titan.jpg', eyebrow: 'Built for Commercial Vehicles', title: 'Titan CV Series', desc: 'Fully customisable layout and dimensions. Engineered for large commercial vehicles and industrial refinishing processes.' },
               ].map(p => (
                 <div key={p.slug} className="cat-card">
@@ -473,10 +480,10 @@ export default async function Home() {
           </div>
           <div className="sol-grid">
             {[
-              { href: '/solutions/installation', title: 'Installation', desc: 'Full project management from site survey through to commissioning — delivered on time, on budget.', bg: '/media/zeus-xr-21.jpg', pos: 'center 30%' },
-              { href: '/solutions/design-build', title: 'Design & Build', desc: 'Bespoke engineering solutions tailored to your exact operational requirements and site constraints.', bg: '/media/zeus-xr-8.jpg', pos: 'center 40%' },
-              { href: '/solutions/project-management', title: 'Project Management', desc: 'End-to-end delivery for complex, multi-stage industrial projects with dedicated engineering oversight.', bg: '/media/zeus-xr-28.jpg', pos: 'center' },
-              { href: '/solutions/maintenance', title: 'Servicing', desc: 'Nationwide servicing, planned maintenance contracts and rapid response support to keep you operational.', bg: '/media/zeus-xr-26.jpg', pos: 'center' },
+              { href: '/solutions/installation', title: 'Installation', desc: 'Full project management from site survey through to commissioning — delivered on time, on budget.', bg: '/media/isolated-booth.webp', pos: 'center 30%' },
+              { href: '/solutions/design-build', title: 'Design & Build', desc: 'Bespoke engineering solutions tailored to your exact operational requirements and site constraints.', bg: '/media/zeus-xr-main.webp', pos: 'center 40%' },
+              { href: '/solutions/project-management', title: 'Project Management', desc: 'End-to-end delivery for complex, multi-stage industrial projects with dedicated engineering oversight.', bg: '/media/made-in-britain.webp', pos: 'center' },
+              { href: '/solutions/maintenance', title: 'Servicing', desc: 'Nationwide servicing, planned maintenance contracts and rapid response support to keep you operational.', bg: '/media/zeus-xr-control-panel.webp', pos: 'center' },
             ].map((s, i) => (
               <Link key={s.href} href={s.href} className={`sol-card rv d${i}`}>
                 <div className="sol-bg" style={{ backgroundImage: `url(${s.bg})`, backgroundPosition: s.pos }}></div>
@@ -500,19 +507,21 @@ export default async function Home() {
             <h2 className="s-h2 mw-600">Where engineering meets ambition.</h2>
           </div>
           <div className="proj-grid">
-            {caseStudies.length > 0 ? caseStudies.map((cs: any, i: number) => (
+            {caseStudies.length > 0 ? caseStudies.map((cs: any, i: number) => {
+              const projImg = cs.cover_image_url || localProjectImages[cs.slug] || null
+              return (
               <Link key={cs.id} href={`/projects/${cs.slug}`} className={`proj-card rv d${i}`}>
-                <div className="proj-bg" style={cs.cover_image_url ? { backgroundImage: `url(${cs.cover_image_url})` } : { background: 'var(--s2)' }}></div>
+                <div className="proj-bg" style={projImg ? { backgroundImage: `url(${projImg})`, backgroundPosition: 'center' } : { background: 'var(--s2)' }}></div>
                 <div className="proj-overlay">
                   <div className="proj-sector">{cs.sector || 'Case Study'}</div>
                   <div className="proj-title">{cs.title}</div>
                   <div className="proj-sub">{cs.client_name}</div>
                 </div>
               </Link>
-            )) : (
+            )}) : (
               <>
                 <Link href="/projects/uk-offshore-wind-farm" className="proj-card rv">
-                  <div className="proj-bg" style={{ backgroundImage: "url('/media/windfarm.png')", backgroundPosition: 'center' }}></div>
+                  <div className="proj-bg" style={{ backgroundImage: "url('/media/made-in-britain.webp')", backgroundPosition: 'center' }}></div>
                   <div className="proj-overlay">
                     <div className="proj-sector">Renewable Energy</div>
                     <div className="proj-title">UK Offshore Wind Farm</div>
@@ -520,7 +529,7 @@ export default async function Home() {
                   </div>
                 </Link>
                 <Link href="/projects/bahrain-aerospace-facility" className="proj-card rv d1">
-                  <div className="proj-bg" style={{ backgroundImage: "url('/media/aerospace.png')", backgroundPosition: 'center' }}></div>
+                  <div className="proj-bg" style={{ backgroundImage: "url('/media/hercules-hero.webp')", backgroundPosition: 'center' }}></div>
                   <div className="proj-overlay">
                     <div className="proj-sector">Aerospace</div>
                     <div className="proj-title">Dubai Aerospace Facility</div>

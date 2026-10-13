@@ -131,6 +131,10 @@ export default function Nav({ solutions = [] }: { solutions?: Solution[] }) {
         </ul>
 
         <div className="nav-r">
+          <a href="tel:08450176465" className="nav-phone">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.18 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.59a16 16 0 0 0 5.55 5.55l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            0845 017 6465
+          </a>
           <button className="mode-btn" onClick={toggleTheme} aria-label="Toggle theme">
             <svg className="i-sun" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="4"/>
@@ -187,6 +191,10 @@ export default function Nav({ solutions = [] }: { solutions?: Solution[] }) {
           </div>
         </nav>
         <div className="mob-actions">
+          <a href="tel:08450176465" className="mob-phone">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.18 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.59a16 16 0 0 0 5.55 5.55l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            0845 017 6465
+          </a>
           <button className="mob-cta" data-quote="Get a Quote" onClick={closeMenu}>Get a Quote</button>
           <button className="mob-theme" onClick={toggleTheme}>
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
