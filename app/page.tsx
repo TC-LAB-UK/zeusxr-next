@@ -58,9 +58,21 @@ async function getCaseStudies() {
 
 // Local project image fallbacks keyed by slug (used when Supabase cover_image_url is empty)
 const localProjectImages: Record<string, string> = {
-  'uk-offshore-wind-farm': '/media/made-in-britain.webp',
-  'bahrain-aerospace-facility': '/media/hercules-hero.webp',
+  'uk-offshore-wind-farm': '/media/windfarm.jpg',
+  'uk-offshore-wind-farm-seah-wind': '/media/windfarm.jpg',
+  'seah-wind': '/media/windfarm.jpg',
+  'bahrain-aerospace-facility': '/media/aerospace.jpg',
+  'bahrain': '/media/aerospace.jpg',
   'k-and-s': '/media/projects/k-and-s/23.jpg',
+}
+
+// Sector-based fallback — used when slug lookup fails (Supabase slug may differ from local key)
+function sectorFallback(sector: string | null): string {
+  const s = (sector || '').toLowerCase()
+  if (s.includes('renewable') || s.includes('wind') || s.includes('energy')) return '/media/windfarm.jpg'
+  if (s.includes('aerospace') || s.includes('defence') || s.includes('aviation')) return '/media/aerospace.jpg'
+  if (s.includes('automotive') || s.includes('refinish')) return '/media/projects/k-and-s/23.jpg'
+  return '/media/zeus-xr-8.jpg'
 }
 
 // Local image fallbacks keyed by slug
@@ -480,10 +492,10 @@ export default async function Home() {
           </div>
           <div className="sol-grid">
             {[
-              { href: '/solutions/installation', title: 'Installation', desc: 'Full project management from site survey through to commissioning — delivered on time, on budget.', bg: '/media/isolated-booth.webp', pos: 'center 30%' },
-              { href: '/solutions/design-build', title: 'Design & Build', desc: 'Bespoke engineering solutions tailored to your exact operational requirements and site constraints.', bg: '/media/zeus-xr-main.webp', pos: 'center 40%' },
-              { href: '/solutions/project-management', title: 'Project Management', desc: 'End-to-end delivery for complex, multi-stage industrial projects with dedicated engineering oversight.', bg: '/media/made-in-britain.webp', pos: 'center' },
-              { href: '/solutions/maintenance', title: 'Servicing', desc: 'Nationwide servicing, planned maintenance contracts and rapid response support to keep you operational.', bg: '/media/zeus-xr-control-panel.webp', pos: 'center' },
+              { href: '/solutions/installation', title: 'Installation', desc: 'Full project management from site survey through to commissioning — delivered on time, on budget.', bg: '/media/zeus-xr-21.jpg', pos: 'center 30%' },
+              { href: '/solutions/design-build', title: 'Design & Build', desc: 'Bespoke engineering solutions tailored to your exact operational requirements and site constraints.', bg: '/media/zeus-xr-8.jpg', pos: 'center 40%' },
+              { href: '/solutions/project-management', title: 'Project Management', desc: 'End-to-end delivery for complex, multi-stage industrial projects with dedicated engineering oversight.', bg: '/media/zeus-xr-28.jpg', pos: 'center' },
+              { href: '/solutions/maintenance', title: 'Servicing', desc: 'Nationwide servicing, planned maintenance contracts and rapid response support to keep you operational.', bg: '/media/zeus-xr-26.jpg', pos: 'center' },
             ].map((s, i) => (
               <Link key={s.href} href={s.href} className={`sol-card rv d${i}`}>
                 <div className="sol-bg" style={{ backgroundImage: `url(${s.bg})`, backgroundPosition: s.pos }}></div>
@@ -508,7 +520,7 @@ export default async function Home() {
           </div>
           <div className="proj-grid">
             {caseStudies.length > 0 ? caseStudies.map((cs: any, i: number) => {
-              const projImg = cs.cover_image_url || localProjectImages[cs.slug] || null
+              const projImg = cs.cover_image_url || localProjectImages[cs.slug] || sectorFallback(cs.sector)
               return (
               <Link key={cs.id} href={`/projects/${cs.slug}`} className={`proj-card rv d${i}`}>
                 <div className="proj-bg" style={projImg ? { backgroundImage: `url(${projImg})`, backgroundPosition: 'center' } : { background: 'var(--s2)' }}></div>
