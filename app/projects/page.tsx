@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import ScrollReveal from '@/components/ScrollReveal'
 import { getCaseStudies } from '@/lib/supabase'
+import { PROJECTS_DATA } from '@/lib/projects-data'
 
 export const revalidate = 60
 
@@ -26,18 +27,21 @@ export default async function ProjectsPage() {
       <section className="sec">
         <div className="w-1300">
           <div className="proj-grid">
-            {projects.map((p, i) => (
+            {projects.map((p, i) => {
+              const localImg = PROJECTS_DATA[p.slug]?.cover_image_url
+              const img = p.cover_image_url || localImg || '/media/zeus-xr-8.jpg'
+              return (
               <Link key={p.slug} href={`/projects/${p.slug}`} className={`proj-card rv d${i % 3}`}>
                 <div
                   className="proj-bg"
-                  style={{ backgroundImage: p.cover_image_url ? `url(${p.cover_image_url})` : undefined }}
+                  style={{ backgroundImage: `url(${img})` }}
                 />
                 <div className="proj-overlay">
                   <p className="proj-sector">{p.sector ?? p.client_name}</p>
                   <h2 className="proj-title">{p.title}</h2>
                 </div>
               </Link>
-            ))}
+            )})
           </div>
         </div>
       </section>

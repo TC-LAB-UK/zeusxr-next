@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
+import { PROJECTS_DATA } from '@/lib/projects-data'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -53,7 +54,11 @@ export async function getCaseStudies() {
       .order('sort_order', { ascending: true, nullsFirst: false })
       .order('created_at', { ascending: false })
     if (error) throw error
-    return data ?? []
+    // Apply local image fallbacks so cards never show blank
+    return (data ?? []).map((cs: any) => ({
+      ...cs,
+      cover_image_url: cs.cover_image_url || PROJECTS_DATA[cs.slug]?.cover_image_url || null,
+    }))
   } catch {
     return []
   }
