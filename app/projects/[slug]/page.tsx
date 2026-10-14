@@ -4,6 +4,15 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import ScrollReveal from '@/components/ScrollReveal'
 import ContactForm from '@/components/ContactForm'
+import { PROJECTS_DATA } from '@/lib/projects-data'
+
+// Sector → local hero image fallback
+function sectorHero(sector: string | null): string {
+  const s = (sector || '').toLowerCase()
+  if (s.includes('renewable') || s.includes('wind') || s.includes('energy')) return '/media/windfarm.jpg'
+  if (s.includes('aerospace') || s.includes('defence') || s.includes('aviation')) return '/media/aerospace.jpg'
+  return '/media/zeus-xr-8.jpg'
+}
 
 // ─── TipTap JSON → React renderer ────────────────────────────────────────────
 type TNode = { type: string; text?: string; attrs?: Record<string, unknown>; content?: TNode[]; marks?: { type: string }[] }
@@ -116,14 +125,22 @@ export default async function CaseStudyPage({ params }: Props) {
     if (!cs) notFound()
 
   const stats: { label: string; value: string }[] = cs.outcome_stats ?? []
+  const localData = PROJECTS_DATA[slug]
+
+  // Hero image: Supabase → local data → sector fallback
+  const heroImage = cs.cover_image_url || localData?.cover_image_url || sectorHero(cs.sector)
+
+  // Gallery: only keep local paths (starting with /) — external Supabase Storage URLs may be broken
+  // Fall back to local data's gallery_images if Supabase has none or only external URLs
+  const rawGallery: string[] = cs.gallery_images ?? []
+  const localGallery: string[] = rawGallery.filter((u: string) => u.startsWith('/'))
+  const galleryImages: string[] = localGallery.length > 0 ? localGallery : (localData?.gallery_images ?? [])
 
   return (
     <>
       {/* HERO */}
       <section className="cs-hero">
-        {cs.cover_image_url && (
-          <div className="cs-bg" style={{ backgroundImage: `url('${cs.cover_image_url}')` }} />
-        )}
+        <div className="cs-bg" style={{ backgroundImage: `url('${heroImage}')` }} />
         <div className="cs-grad" />
         <div className="cs-content">
           <div className="cs-sector">{cs.sector}</div>
@@ -180,10 +197,10 @@ export default async function CaseStudyPage({ params }: Props) {
       )}
 
       {/* GALLERY */}
-      {cs.gallery_images && cs.gallery_images.length > 0 && (
+      {galleryImages.length > 0 && (
         <section className="cs-gallery-sec">
           <div className="cs-gallery-grid">
-            {(cs.gallery_images as string[]).map((src, i) => (
+            {galleryImages.map((src, i) => (
               <div key={i} className={`cs-gallery-item rv d${i % 3}`}>
                 <img src={src} alt={`${cs.client_name} installation — ${i + 1}`} />
               </div>
