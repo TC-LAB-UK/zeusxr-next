@@ -127,8 +127,11 @@ export default async function CaseStudyPage({ params }: Props) {
   const stats: { label: string; value: string }[] = cs.outcome_stats ?? []
   const localData = PROJECTS_DATA[slug]
 
-  // Hero image: Supabase → local data → sector fallback
-  const heroImage = cs.cover_image_url || localData?.cover_image_url || sectorHero(cs.sector)
+  // Hero image: local Supabase paths only (external URLs may be stale) → local data → sector fallback
+  const heroImage =
+    (cs.cover_image_url?.startsWith('/') ? cs.cover_image_url : null)
+    ?? localData?.cover_image_url
+    ?? sectorHero(cs.sector)
 
   // Gallery: only keep local paths (starting with /) — external Supabase Storage URLs may be broken
   // Fall back to local data's gallery_images if Supabase has none or only external URLs

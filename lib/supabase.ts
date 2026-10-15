@@ -54,10 +54,14 @@ export async function getCaseStudies() {
       .order('sort_order', { ascending: true, nullsFirst: false })
       .order('created_at', { ascending: false })
     if (error) throw error
-    // Apply local image fallbacks so cards never show blank
+    // Only trust local paths (starting with /) — Supabase Storage URLs may be stale/broken
+    // Fall back to local PROJECTS_DATA, then leave null
     return (data ?? []).map((cs: any) => ({
       ...cs,
-      cover_image_url: cs.cover_image_url || PROJECTS_DATA[cs.slug]?.cover_image_url || null,
+      cover_image_url:
+        (cs.cover_image_url?.startsWith('/') ? cs.cover_image_url : null)
+        ?? PROJECTS_DATA[cs.slug]?.cover_image_url
+        ?? null,
     }))
   } catch {
     return []
