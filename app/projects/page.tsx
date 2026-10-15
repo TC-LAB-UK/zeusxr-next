@@ -41,7 +41,7 @@ export default async function ProjectsPage() {
                   <h2 className="proj-title">{p.title}</h2>
                 </div>
               </Link>
-            )})
+            )})}
           </div>
         </div>
       </section>
