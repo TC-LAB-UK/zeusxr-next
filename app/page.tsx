@@ -1,9 +1,16 @@
 import { supabase, ORG_ID } from '@/lib/supabase'
+import { PRODUCTS_DATA } from '@/lib/products-data'
+import { PROJECTS_DATA } from '@/lib/projects-data'
 import Link from 'next/link'
 import ScrollReveal from '@/components/ScrollReveal'
 import Carousel from '@/components/Carousel'
 import IndustriesSection from '@/components/IndustriesSection'
 import ZXRVideoScript from '@/components/ZXRVideoScript'
+
+// Only local paths (starting with /) are trustworthy — Supabase Storage URLs may be stale
+function localOnly(url: string | null | undefined): string | null {
+  return url?.startsWith('/') ? url : null
+}
 
 // Cache page at the CDN edge — revalidate in background every hour.
 // If Supabase is unreachable during revalidation, the last cached version
@@ -19,7 +26,10 @@ async function getProducts() {
       .eq('status', 'published')
       .order('sort_order', { ascending: true })
       .limit(8)
-    return data || []
+    return (data || []).map((p: any) => ({
+      ...p,
+      cover_image_url: localOnly(p.cover_image_url) ?? PRODUCTS_DATA[p.slug]?.cover_image_url ?? null,
+    }))
   } catch {
     return []
   }
@@ -34,7 +44,10 @@ async function getArticles() {
       .eq('status', 'published')
       .order('published_at', { ascending: false })
       .limit(3)
-    return data || []
+    return (data || []).map((a: any) => ({
+      ...a,
+      cover_image_url: localOnly(a.cover_image_url),
+    }))
   } catch {
     return []
   }
@@ -50,7 +63,10 @@ async function getCaseStudies() {
       .order('sort_order', { ascending: true, nullsFirst: false })
       .order('published_at', { ascending: false })
       .limit(3)
-    return data || []
+    return (data || []).map((cs: any) => ({
+      ...cs,
+      cover_image_url: localOnly(cs.cover_image_url) ?? PROJECTS_DATA[cs.slug]?.cover_image_url ?? null,
+    }))
   } catch {
     return []
   }
@@ -520,7 +536,7 @@ export default async function Home() {
           </div>
           <div className="proj-grid">
             {caseStudies.length > 0 ? caseStudies.map((cs: any, i: number) => {
-              const projImg = cs.cover_image_url || localProjectImages[cs.slug] || sectorFallback(cs.sector)
+              const projImg = cs.cover_image_url || localProjectImages[cs.slug] || PROJECTS_DATA[cs.slug]?.cover_image_url || sectorFallback(cs.sector)
               return (
               <Link key={cs.id} href={`/projects/${cs.slug}`} className={`proj-card rv d${i}`}>
                 <div className="proj-bg" style={projImg ? { backgroundImage: `url(${projImg})`, backgroundPosition: 'center' } : { background: 'var(--s2)' }}></div>

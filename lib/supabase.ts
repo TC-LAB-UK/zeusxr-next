@@ -103,7 +103,10 @@ export async function getArticles() {
       .eq('status', 'published')
       .order('published_at', { ascending: false })
     if (error) throw error
-    return data ?? []
+    return (data ?? []).map((a: any) => ({
+      ...a,
+      cover_image_url: a.cover_image_url?.startsWith('/') ? a.cover_image_url : null,
+    }))
   } catch {
     return []
   }
@@ -127,6 +130,14 @@ export async function getArticle(slug: string) {
 
 // ─── Solutions ────────────────────────────────────────────────────────────────
 
+const SOLUTIONS_IMAGES: Record<string, string> = {
+  'installation':        '/media/zeus-xr-21.jpg',
+  'design-build':        '/media/zeus-xr-8.jpg',
+  'project-management':  '/media/zeus-xr-28.jpg',
+  'maintenance':         '/media/zeus-xr-26.jpg',
+  'servicing':           '/media/zeus-xr-26.jpg',
+}
+
 export async function getSolutions() {
   try {
     const { data, error } = await supabase
@@ -136,7 +147,13 @@ export async function getSolutions() {
       .eq('status', 'published')
       .order('created_at', { ascending: true })
     if (error) throw error
-    return data ?? []
+    return (data ?? []).map((s: any) => ({
+      ...s,
+      cover_image_url:
+        (s.cover_image_url?.startsWith('/') ? s.cover_image_url : null)
+        ?? SOLUTIONS_IMAGES[s.slug]
+        ?? null,
+    }))
   } catch {
     return []
   }
