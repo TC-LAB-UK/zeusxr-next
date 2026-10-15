@@ -47,4 +47,6 @@ export const PRODUCTS_DATA: Record<string, { cover_image_url: string }> = {
 
   // Robotics / Greentech
   'greentech':                { cover_image_url: '/media/greener-future.jpg' },
+  'greentech-e6':             { cover_image_url: '/media/greener-future.jpg' },
+  'robot':                    { cover_image_url: '/media/robot-image.jpg' },
 }
