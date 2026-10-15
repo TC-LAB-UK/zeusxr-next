@@ -21,12 +21,13 @@ export async function getProducts() {
       .order('sort_order', { ascending: true, nullsFirst: false })
       .order('created_at', { ascending: true })
     if (error) throw error
-    // Only trust local paths (starting with /) — Supabase Storage URLs may be stale/broken
+    // PRODUCTS_DATA is authoritative — use it first for any known slug.
+    // Only fall back to Supabase value if it's a local path AND we have no local data entry.
     return (data ?? []).map((p: any) => ({
       ...p,
       cover_image_url:
-        (p.cover_image_url?.startsWith('/') ? p.cover_image_url : null)
-        ?? PRODUCTS_DATA[p.slug]?.cover_image_url
+        PRODUCTS_DATA[p.slug]?.cover_image_url
+        ?? (p.cover_image_url?.startsWith('/') ? p.cover_image_url : null)
         ?? null,
     }))
   } catch {
@@ -62,13 +63,13 @@ export async function getCaseStudies() {
       .order('sort_order', { ascending: true, nullsFirst: false })
       .order('created_at', { ascending: false })
     if (error) throw error
-    // Only trust local paths (starting with /) — Supabase Storage URLs may be stale/broken
-    // Fall back to local PROJECTS_DATA, then leave null
+    // PROJECTS_DATA is authoritative — use it first for any known slug.
+    // Only fall back to Supabase value if it's a local path AND we have no local data entry.
     return (data ?? []).map((cs: any) => ({
       ...cs,
       cover_image_url:
-        (cs.cover_image_url?.startsWith('/') ? cs.cover_image_url : null)
-        ?? PROJECTS_DATA[cs.slug]?.cover_image_url
+        PROJECTS_DATA[cs.slug]?.cover_image_url
+        ?? (cs.cover_image_url?.startsWith('/') ? cs.cover_image_url : null)
         ?? null,
     }))
   } catch {

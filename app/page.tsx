@@ -28,7 +28,7 @@ async function getProducts() {
       .limit(8)
     return (data || []).map((p: any) => ({
       ...p,
-      cover_image_url: localOnly(p.cover_image_url) ?? PRODUCTS_DATA[p.slug]?.cover_image_url ?? null,
+      cover_image_url: PRODUCTS_DATA[p.slug]?.cover_image_url ?? localOnly(p.cover_image_url) ?? null,
     }))
   } catch {
     return []
@@ -65,7 +65,7 @@ async function getCaseStudies() {
       .limit(3)
     return (data || []).map((cs: any) => ({
       ...cs,
-      cover_image_url: localOnly(cs.cover_image_url) ?? PROJECTS_DATA[cs.slug]?.cover_image_url ?? null,
+      cover_image_url: PROJECTS_DATA[cs.slug]?.cover_image_url ?? localOnly(cs.cover_image_url) ?? null,
     }))
   } catch {
     return []
