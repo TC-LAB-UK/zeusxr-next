@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import { PROJECTS_DATA } from '@/lib/projects-data'
+import { PRODUCTS_DATA } from '@/lib/products-data'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -20,7 +21,14 @@ export async function getProducts() {
       .order('sort_order', { ascending: true, nullsFirst: false })
       .order('created_at', { ascending: true })
     if (error) throw error
-    return data ?? []
+    // Only trust local paths (starting with /) — Supabase Storage URLs may be stale/broken
+    return (data ?? []).map((p: any) => ({
+      ...p,
+      cover_image_url:
+        (p.cover_image_url?.startsWith('/') ? p.cover_image_url : null)
+        ?? PRODUCTS_DATA[p.slug]?.cover_image_url
+        ?? null,
+    }))
   } catch {
     return []
   }
