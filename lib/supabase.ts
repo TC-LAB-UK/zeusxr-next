@@ -9,6 +9,20 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 export const ORG_ID = process.env.NEXT_PUBLIC_ORG_ID!
 
+// Category-based image fallback — ensures no product card is ever blank
+// even when its Supabase slug doesn't match any key in PRODUCTS_DATA.
+function productCategoryFallback(category: string | null, subcategory: string | null): string {
+  const cat = (category || '').toLowerCase()
+  const sub = (subcategory || '').toLowerCase()
+  if (cat.includes('spray') && sub.includes('electric')) return '/media/zeus-8000.jpg'
+  if (cat.includes('spray') && sub.includes('gas'))      return '/media/poseidon.jpg'
+  if (cat.includes('spray'))                             return '/media/zeus-xr-8.jpg'
+  if (cat.includes('prep'))                              return '/media/hades-prep-bay/card.jpg'
+  if (cat.includes('mix'))                               return '/media/paint-mixing-room/card.jpg'
+  if (cat.includes('smart') || cat.includes('repair'))   return '/media/products/nemesis/hero.jpg'
+  return '/media/zeus-xr-8.jpg'
+}
+
 // ─── Products ────────────────────────────────────────────────────────────────
 
 export async function getProducts() {
@@ -22,13 +36,13 @@ export async function getProducts() {
       .order('created_at', { ascending: true })
     if (error) throw error
     // PRODUCTS_DATA is authoritative — use it first for any known slug.
-    // Only fall back to Supabase value if it's a local path AND we have no local data entry.
+    // Fall back to Supabase local paths, then a category-based image so cards never show blank.
     return (data ?? []).map((p: any) => ({
       ...p,
       cover_image_url:
         PRODUCTS_DATA[p.slug]?.cover_image_url
         ?? (p.cover_image_url?.startsWith('/') ? p.cover_image_url : null)
-        ?? null,
+        ?? productCategoryFallback(p.category, p.subcategory),
     }))
   } catch {
     return []

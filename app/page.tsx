@@ -26,10 +26,22 @@ async function getProducts() {
       .eq('status', 'published')
       .order('sort_order', { ascending: true })
       .limit(8)
-    return (data || []).map((p: any) => ({
-      ...p,
-      cover_image_url: PRODUCTS_DATA[p.slug]?.cover_image_url ?? localOnly(p.cover_image_url) ?? null,
-    }))
+    return (data || []).map((p: any) => {
+      const cat = (p.category || '').toLowerCase()
+      const sub = (p.subcategory || '').toLowerCase()
+      const categoryImg = cat.includes('spray') && sub.includes('electric')
+        ? '/media/zeus-8000.jpg'
+        : cat.includes('spray') && sub.includes('gas')
+          ? '/media/poseidon.jpg'
+          : cat.includes('spray') ? '/media/zeus-xr-8.jpg'
+          : cat.includes('prep') ? '/media/hades-prep-bay/card.jpg'
+          : cat.includes('mix') ? '/media/paint-mixing-room/card.jpg'
+          : '/media/zeus-xr-8.jpg'
+      return {
+        ...p,
+        cover_image_url: PRODUCTS_DATA[p.slug]?.cover_image_url ?? localImages[p.slug] ?? localOnly(p.cover_image_url) ?? categoryImg,
+      }
+    })
   } catch {
     return []
   }
@@ -238,15 +250,12 @@ export default async function Home() {
           {products
             .filter((p: any) => p.slug !== 'zeus-xr')
             .map((p: any) => {
-              const img = p.cover_image_url || localImages[p.slug] || null
+              const img = p.cover_image_url || localImages[p.slug] || '/media/zeus-xr-8.jpg'
               return (
                 <div key={p.id} className="cat-card">
                   <Link href={`/products/${p.slug}`} className="cat-card-link" aria-label={p.name}></Link>
                   <div className="cat-render">
-                    {img
-                      ? <img src={img} alt={p.name} draggable={false} />
-                      : <div style={{ width: '100%', height: '100%', background: 'var(--s2)' }} />
-                    }
+                    <img src={img} alt={p.name} draggable={false} onError={(e) => { (e.target as HTMLImageElement).src = '/media/zeus-xr-8.jpg' }} />
                   </div>
                   <div className="cat-card-body-wrap">
                     <div className="cat-eyebrow">Todd Engineering</div>

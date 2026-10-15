@@ -150,15 +150,12 @@ export default function ProductsClient({ products }: { products: Product[] }) {
           {visible.map((p, i) => (
             <Link key={p.id} href={hrefFor(p.slug)} className={`prod-card rv${i > 0 ? ` d${i % 3}` : ''}`}>
               <div className="prod-img-wrap">
-                {p.cover_image_url
-                  ? <img
-                      src={p.cover_image_url}
-                      alt={p.name}
-                      loading={i < 6 ? 'eager' : 'lazy'}
-                      onError={(e) => { (e.target as HTMLImageElement).src = '/media/zeus-xr-8.jpg' }}
-                    />
-                  : <div style={{ background: '#f0f0f0', width: '100%', height: '100%' }} />
-                }
+                <img
+                  src={p.cover_image_url ?? '/media/zeus-xr-8.jpg'}
+                  alt={p.name}
+                  loading={i < 6 ? 'eager' : 'lazy'}
+                  onError={(e) => { (e.target as HTMLImageElement).src = '/media/zeus-xr-8.jpg' }}
+                />
               </div>
               <div className="prod-card-body">
                 {p.category && (
