@@ -42,6 +42,7 @@ const securityHeaders = [
         'https://ssl.google-analytics.com',
         'https://www.googleadservices.com',
         'https://googleads.g.doubleclick.net',
+        'https://www.google.com',
         'https://connect.facebook.net',
         'https://snap.licdn.com',
       ].join(' '),
@@ -64,6 +65,9 @@ const securityHeaders = [
         'https://*.g.doubleclick.net',
         'https://www.google.com',
         'https://www.google.co.uk',
+        // Google Ads conversion pings (fetch/beacon transport)
+        'https://www.googleadservices.com',
+        'https://pagead2.googlesyndication.com',
         'https://px.ads.linkedin.com',
         'https://www.facebook.com',
       ].join(' '),
