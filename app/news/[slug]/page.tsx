@@ -60,7 +60,18 @@ export default async function ArticlePage({ params }: Props) {
       {/* BODY */}
       <div className="art-body rv">
         {blocks.map((block, i) => {
-          if (block.type === 'p') return <p key={i} className="art-p">{block.text}</p>
+          if (block.type === 'p') {
+            // Auto-link hub navigation lines: "Question text — /news/slug"
+            const linkMatch = block.text?.match(/^(.+?)\s[—–]\s(\/\S+)$/)
+            if (linkMatch) {
+              return (
+                <p key={i} className="art-p">
+                  <a href={linkMatch[2]} className="art-link">{linkMatch[1]}</a>
+                </p>
+              )
+            }
+            return <p key={i} className="art-p">{block.text}</p>
+          }
           if (block.type === 'h2') return <h2 key={i} className="art-h2">{block.text}</h2>
           if (block.type === 'quote') return (
             <div key={i} className="art-quote rv">
