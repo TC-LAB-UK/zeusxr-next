@@ -5,6 +5,8 @@ import { HoneypotField, useSpamGuard } from '@/components/FormGuard'
 import Link from 'next/link'
 import { supabase, ORG_ID } from '@/lib/supabase'
 import { useParams } from 'next/navigation'
+import { trackLead } from '@/lib/analytics'
+import { getLeadAttribution, withSourceNote } from '@/lib/attribution'
 
 // ── Energy Calculator (inlined to avoid import resolution issues) ──────────
 const GAS_TRAD  = 89.375
@@ -275,8 +277,9 @@ function ProductPageClient({ slug }: { slug: string }) {
     // confirmation and gets no signal it was caught.
     if (isSpam(formRef.current)) { setSent(true); return }
     setSending(true)
+    const attribution = getLeadAttribution()
     try {
-      await fetch(SUPABASE_LEADS, {
+      const res = await fetch(SUPABASE_LEADS, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -294,8 +297,15 @@ function ProductPageClient({ slug }: { slug: string }) {
           message: fd.get('message') || null,
           status: 'new',
           page_url: typeof window !== 'undefined' ? window.location.href : '',
+          referrer: attribution.referrer,
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+          notes: withSourceNote(null, attribution),
         }),
       })
+      // Count the conversion only once the lead is actually stored.
+      if (res.ok) trackLead({ form: 'product_page', enquiry_type: slug })
     } catch (_) {}
     setSending(false)
     setSent(true)

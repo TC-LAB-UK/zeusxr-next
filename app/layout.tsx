@@ -7,6 +7,7 @@ import QuoteModal from '@/components/QuoteModal'
 import CookieConsent from '@/components/CookieConsent'
 import ScrollReveal from '@/components/ScrollReveal'
 import GoogleTagManager, { GoogleTagManagerNoScript } from '@/components/GoogleTagManager'
+import { ATTRIBUTION_SCRIPT } from '@/lib/attribution'
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' })
 
@@ -52,6 +53,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Must stay first in <head>: sets Consent Mode v2 defaults to denied
             before the container loads. */}
         <GoogleTagManager />
+        {/* Records where the visitor came from (UTM / ad click / referrer) so
+            lead forms on any page can store it. Plain inline script: runs even
+            if React fails to hydrate. See lib/attribution.ts. */}
+        <script dangerouslySetInnerHTML={{ __html: ATTRIBUTION_SCRIPT }} />
         <meta name="clarri:portal" content="1.0" />
         {/* Powered by Clarri CRM — portal.tc-lab.co.uk */}
         <script

@@ -28,7 +28,13 @@ export function track(event: string, params: Params = {}) {
  */
 export function trackLead(params: {
   /** Which surface the enquiry came from. */
-  form: 'quote_modal' | 'contact_page' | 'product_page'
+  form:
+    | 'quote_modal'
+    | 'contact_page'
+    | 'product_page'
+    | 'solution_page'
+    | 'about_page'
+    | 'zeus_xr_demo'
   /** Enquiry type selected by the user, if any. */
   enquiry_type?: string | null
   /** CTA label the quote modal was opened from, if any. */

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useMemo } from 'react'
 import { HoneypotField, useSpamGuard } from '@/components/FormGuard'
 import Link from 'next/link'
 import { trackLead } from '@/lib/analytics'
+import { getLeadAttribution, withSourceNote } from '@/lib/attribution'
 
 // ── Energy Calculator ─────────────────────────────────────────────────────────
 const GAS_TRAD  = 89.375
@@ -161,7 +162,7 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
     // confirmation and gets no signal it was caught.
     if (isSpam(formRef.current)) { setSent(true); return }
     setSending(true)
-    const params = new URLSearchParams(window.location.search)
+    const attribution = getLeadAttribution()
     const payload = {
       org_id: ORG_ID,
       name: fd.get('name'),
@@ -172,10 +173,11 @@ export default function ProductPageTemplate({ data }: { data: ProductPageData })
       message: fd.get('message') || null,
       status: 'new',
       page_url: window.location.href,
-      referrer: document.referrer || null,
-      utm_source: params.get('utm_source') || null,
-      utm_medium: params.get('utm_medium') || null,
-      utm_campaign: params.get('utm_campaign') || null,
+      referrer: attribution.referrer,
+      utm_source: attribution.utm_source,
+      utm_medium: attribution.utm_medium,
+      utm_campaign: attribution.utm_campaign,
+      notes: withSourceNote(null, attribution),
     }
     try {
       const res = await fetch(SUPABASE_LEADS, {

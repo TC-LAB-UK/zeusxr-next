@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { trackLead, trackQuoteOpen } from '@/lib/analytics'
+import { getLeadAttribution, withSourceNote } from '@/lib/attribution'
 
 const SUPABASE_URL = 'https://gmpqytfjcmgmrhqocdyk.supabase.co'
 const SUPABASE_ANON_KEY = 'sb_publishable_p5xmlGJewiHl-jaXU_QNxw_qUZqHijA'
@@ -59,7 +60,7 @@ export default function QuoteModal() {
     setSubmitting(true)
 
     const d = new FormData(formRef.current!)
-    const params = new URLSearchParams(window.location.search)
+    const attribution = getLeadAttribution()
     const payload = {
       org_id: ORG_ID,
       name: d.get('name') as string,
@@ -68,13 +69,13 @@ export default function QuoteModal() {
       phone: d.get('phone') || null,
       source: 'website_form',
       message: d.get('message') || null,
-      notes: d.get('type') ? 'Enquiry type: ' + d.get('type') : null,
+      notes: withSourceNote(d.get('type') ? 'Enquiry type: ' + d.get('type') : null, attribution),
       status: 'new',
       page_url: window.location.href,
-      referrer: document.referrer || null,
-      utm_source: params.get('utm_source') || null,
-      utm_medium: params.get('utm_medium') || null,
-      utm_campaign: params.get('utm_campaign') || null,
+      referrer: attribution.referrer,
+      utm_source: attribution.utm_source,
+      utm_medium: attribution.utm_medium,
+      utm_campaign: attribution.utm_campaign,
     }
 
     try {

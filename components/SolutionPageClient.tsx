@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { HoneypotField, useSpamGuard } from '@/components/FormGuard'
+import { trackLead } from '@/lib/analytics'
+import { getLeadAttribution, withSourceNote } from '@/lib/attribution'
 
 const SUPABASE_URL = 'https://gmpqytfjcmgmrhqocdyk.supabase.co/rest/v1/leads'
 const SUPABASE_KEY = 'sb_publishable_p5xmlGJewiHl-jaXU_QNxw_qUZqHijA'
@@ -54,8 +56,9 @@ export default function SolutionPageClient(p: SolutionPageProps) {
     // confirmation and gets no signal it was caught.
     if (isSpam(formRef.current)) { setSent(true); return }
     setSending(true)
+    const attribution = getLeadAttribution()
     try {
-      await fetch(SUPABASE_URL, {
+      const res = await fetch(SUPABASE_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,8 +76,15 @@ export default function SolutionPageClient(p: SolutionPageProps) {
           source: p.formSrc,
           status: 'new',
           page_url: typeof window !== 'undefined' ? window.location.href : '',
+          referrer: attribution.referrer,
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+          notes: withSourceNote(null, attribution),
         }),
       })
+      // Count the conversion only once the lead is actually stored.
+      if (res.ok) trackLead({ form: 'solution_page', enquiry_type: p.formSrc })
     } catch (_) {}
     setSending(false)
     setSent(true)

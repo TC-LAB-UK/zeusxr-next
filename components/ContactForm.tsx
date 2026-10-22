@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { trackLead } from '@/lib/analytics'
+import { getLeadAttribution, withSourceNote } from '@/lib/attribution'
 
 const SUPABASE_URL = 'https://gmpqytfjcmgmrhqocdyk.supabase.co'
 const SUPABASE_ANON_KEY = 'sb_publishable_p5xmlGJewiHl-jaXU_QNxw_qUZqHijA'
@@ -26,6 +27,7 @@ export default function ContactForm() {
     setStatus('sending')
 
     const d = new FormData(form)
+    const attribution = getLeadAttribution()
     const payload = {
       org_id: ORG_ID,
       name: `${d.get('first_name')} ${d.get('last_name')}`.trim(),
@@ -33,11 +35,16 @@ export default function ContactForm() {
       company: d.get('company') || null,
       phone: d.get('phone') || null,
       source: 'contact_form',
-      notes: [
+      notes: withSourceNote([
         d.get('enquiry_type') ? 'Enquiry: ' + d.get('enquiry_type') : '',
         d.get('message') || '',
-      ].filter(Boolean).join('\n'),
+      ].filter(Boolean).join('\n'), attribution),
       status: 'new',
+      page_url: window.location.href,
+      referrer: attribution.referrer,
+      utm_source: attribution.utm_source,
+      utm_medium: attribution.utm_medium,
+      utm_campaign: attribution.utm_campaign,
     }
 
     try {

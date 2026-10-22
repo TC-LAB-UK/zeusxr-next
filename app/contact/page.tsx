@@ -1,6 +1,8 @@
 'use client'
 
 import { useRef, useState, useEffect } from 'react'
+import { trackLead } from '@/lib/analytics'
+import { getLeadAttribution, withSourceNote } from '@/lib/attribution'
 
 const SUPABASE_URL = 'https://gmpqytfjcmgmrhqocdyk.supabase.co/rest/v1/leads'
 const SUPABASE_KEY = 'sb_publishable_p5xmlGJewiHl-jaXU_QNxw_qUZqHijA'
@@ -34,8 +36,9 @@ export default function ContactPage() {
     if (Date.now() - loadTimeRef.current < 3000) { setSent(true); return }
 
     setSending(true)
+    const attribution = getLeadAttribution()
     try {
-      await fetch(SUPABASE_URL, {
+      const res = await fetch(SUPABASE_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,8 +55,15 @@ export default function ContactPage() {
           source: 'contact_page',
           status: 'new',
           page_url: typeof window !== 'undefined' ? window.location.href : '',
+          referrer: attribution.referrer,
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+          notes: withSourceNote(null, attribution),
         }),
       })
+      // Count the conversion only once the lead is actually stored.
+      if (res.ok) trackLead({ form: 'contact_page', enquiry_type: (fd.get('interest') as string) || null })
     } catch (_) {}
     setSending(false)
     setSent(true)
