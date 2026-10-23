@@ -658,11 +658,11 @@ export default async function Home() {
             <h2 className="s-h2 mw-600">Knowledge &amp; expertise, freely shared.</h2>
           </div>
           <div className="res-grid">
-            <a href="#" className="res-card rv">
+            <a href="/news/electric-spray-booths-vs-gas" className="res-card rv">
               <div className="res-icon"><svg viewBox="0 0 32 32"><rect x="5" y="3" width="22" height="26" rx="2"/><line x1="10" y1="10" x2="22" y2="10"/><line x1="10" y1="15" x2="22" y2="15"/><line x1="10" y1="20" x2="18" y2="20"/></svg></div>
-              <div className="res-label">Guide</div>
-              <div className="res-title">The Green Bodyshop</div>
-              <p className="res-desc">A practical guide to reducing emissions, energy use and waste in modern automotive refinishing.</p>
+              <div className="res-label">Industry Guide</div>
+              <div className="res-title">The Electric Spray Booth Hub</div>
+              <p className="res-desc">Running costs, FIR heating, gas-to-electric conversion, pricing, and planning — everything a body shop needs to know.</p>
             </a>
             <a href="#" className="res-card rv d1">
               <div className="res-icon"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="13"/><polyline points="16 10 16 16 21 19"/></svg></div>
